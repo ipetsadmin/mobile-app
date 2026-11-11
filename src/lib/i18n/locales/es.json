@@ -1,0 +1,486 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "companions": "Compañeros",
+    "account": "Cuenta"
+  },
+  "splash": {
+    "notOwn": "No se posee",
+    "notManaged": "No se gestiona",
+    "related": "Se vincula"
+  },
+  "common": {
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "next": "Siguiente",
+    "close": "Cerrar",
+    "previous": "Anterior",
+    "finish": "Finalizar",
+    "yes": "Sí",
+    "no": "No",
+    "brandName": "Truffa",
+    "photoErrors": {
+      "cameraPermissionDenied": "Permite el acceso a la cámara en Ajustes para tomar una foto.",
+      "cameraUnavailable": "La cámara no está disponible en este dispositivo.",
+      "libraryUnavailable": "No pudimos abrir tus fotos. Inténtalo de nuevo.",
+      "uploadFailed": "No pudimos subir la foto. Inténtalo de nuevo."
+    },
+    "cancel": "Cancelar",
+    "back": "Atrás",
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar esto. Revisa tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "time": {
+      "label": "Hora",
+      "placeholder": "Selecciona una hora",
+      "sheetTitle": "Hora",
+      "empty": "No hay horas disponibles."
+    }
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "emailInvalid": "Ingresa un correo válido",
+    "selectOption": "Elige una opción para continuar",
+    "weightInvalid": "Ingresa un peso mayor a cero",
+    "microchipInvalid": "Usa solo números",
+    "passwordTooShort": "Usa al menos 8 caracteres",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "codeInvalid": "Ingresa el código de 6 dígitos",
+    "positiveInteger": "Ingresa un número entero mayor a cero",
+    "mustBeFuture": "Elige una fecha y hora futuras.",
+    "notFuture": "La fecha no puede ser futura.",
+    "beforeBirth": "La fecha no puede ser anterior al nacimiento.",
+    "breedMismatch": "Esta raza no corresponde a la especie elegida."
+  },
+  "signIn": {
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Todo lo que necesitas para su cuidado, en un solo lugar.",
+    "email": "Correo",
+    "emailPlaceholder": "tu@correo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "submit": "Iniciar sesión",
+    "or": "o",
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithApple": "Continuar con Apple",
+    "createAccount": "Crear cuenta",
+    "errors": {
+      "invalidCredentials": "Correo o contraseña incorrectos",
+      "emailNotVerified": "Verifica tu correo antes de iniciar sesión",
+      "generic": "Algo salió mal. Inténtalo de nuevo."
+    }
+  },
+  "signUp": {
+    "title": "Crear cuenta",
+    "subtitle": "Unos pocos datos y su historial empieza aquí.",
+    "firstName": "Nombre",
+    "firstNamePlaceholder": "Tu nombre",
+    "lastName": "Apellido",
+    "lastNamePlaceholder": "Tu apellido",
+    "email": "Correo",
+    "emailPlaceholder": "tu@correo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "passwordHint": "Mínimo 8 caracteres.",
+    "submit": "Crear cuenta",
+    "errors": {
+      "emailTaken": "Ya existe una cuenta con este correo",
+      "generic": "Algo salió mal. Inténtalo de nuevo."
+    }
+  },
+  "verifyAccount": {
+    "title": "Revisa tu correo",
+    "subtitle": "Enviamos un código de 6 dígitos a {{email}}. Ingrésalo para activar tu cuenta.",
+    "resend": "¿No llegó el correo?",
+    "resent": "Correo enviado de nuevo.",
+    "error": "No pudimos reenviar el correo. Inténtalo de nuevo.",
+    "code": "Código de verificación",
+    "submit": "Verificar",
+    "errors": {
+      "invalidCode": "El código es incorrecto o venció. Inténtalo de nuevo.",
+      "signIn": "Verificamos tu cuenta, pero no pudimos iniciar sesión. Intenta desde el inicio de sesión."
+    },
+    "goToSignIn": "Ir a iniciar sesión",
+    "resendIn": "Reenviar en {{seconds}}s",
+    "resending": "Enviando…",
+    "verified": "Correo verificado.",
+    "signingIn": "Iniciando sesión…"
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "subtitle": "Ingresa el correo de tu cuenta y te enviaremos un enlace para crear una nueva.",
+    "email": "Correo",
+    "emailPlaceholder": "tu@correo.com",
+    "submit": "Enviar enlace",
+    "error": "No pudimos enviar el enlace. Inténtalo de nuevo.",
+    "sent": "Te enviamos un enlace para restablecer tu contraseña."
+  },
+  "species": {
+    "dog": "Perro",
+    "cat": "Gato"
+  },
+  "gender": {
+    "female": "Hembra",
+    "male": "Macho"
+  },
+  "newCompanion": {
+    "stepOf": "Paso {{current}} de {{total}}",
+    "petType": {
+      "title": "¿A quién vamos a cuidar?",
+      "subtitle": "Empecemos por lo básico."
+    },
+    "name": {
+      "title": "¿Cómo se llama?",
+      "subtitle": "Vamos a conocerle.",
+      "label": "Nombre",
+      "hint": "Puedes cambiarlo después.",
+      "placeholder": "Su nombre"
+    },
+    "breed": {
+      "title": "¿Cuál es su raza?",
+      "subtitle": "Nos ayuda a entender lo que puede necesitar.",
+      "label": "Raza",
+      "placeholder": "Selecciona una raza",
+      "searchPlaceholder": "Buscar raza",
+      "empty": "Ninguna raza coincide con tu búsqueda.",
+      "sheetTitle": "Elige una raza"
+    },
+    "sex": {
+      "title": "¿Hembra o macho?",
+      "subtitle": "Solo para tener bien los detalles."
+    },
+    "birthDate": {
+      "title": "¿Cuándo nació?",
+      "subtitle": "Si conoces su fecha exacta de nacimiento, agrégala aquí. Si no, tu mejor estimación está bien.",
+      "exact": "Fecha exacta",
+      "unsure": "No estoy seguro",
+      "label": "Fecha de nacimiento",
+      "placeholder": "Selecciona una fecha"
+    },
+    "timeTogether": {
+      "title": "¿Cuánto tiempo lleva contigo?",
+      "subtitle": "El tiempo que llevan compartiendo la vida.",
+      "sinceBirth": "Desde que nació",
+      "joinedLater": "Llegó después",
+      "label": "Está contigo desde",
+      "placeholder": "Selecciona una fecha"
+    },
+    "weight": {
+      "title": "¿Cuánto pesa?",
+      "subtitle": "Lo usaremos para seguir su crecimiento.",
+      "label": "Peso",
+      "placeholder": "12.5",
+      "unitLabel": "Unidad de peso",
+      "note": "Seguiremos su crecimiento y te avisaremos de cambios que valga la pena comentar con tu veterinario."
+    },
+    "neutered": {
+      "title": "¿Está esterilizado o castrado?",
+      "subtitle": "Nos ayuda a ajustar los cuidados que sugerimos.",
+      "label": "Esterilizado / castrado",
+      "yes": "Sí",
+      "notYet": "Aún no",
+      "reasonLabel": "Si no, ¿por qué?",
+      "tooYoung": "Muy joven",
+      "breedPlans": "Planes de cría",
+      "healthConcerns": "Motivos de salud",
+      "other": "Otro"
+    },
+    "microchip": {
+      "title": "¿Tiene microchip?",
+      "subtitle": "Opcional: puedes agregarlo después.",
+      "label": "Ingresa el número de microchip",
+      "placeholder": "982 000 123 456 789",
+      "hint": "Opcional. Aparece en su carné de salud y ayuda a identificarlo si se pierde."
+    },
+    "photo": {
+      "title": "Agrega su foto",
+      "subtitle": "Aparecerá en su carné de salud y te ayudará a reconocerlo en Truffa.",
+      "takePhoto": "Tomar una foto",
+      "chooseFromLibrary": "Elegir de la galería",
+      "previewLabel": "Foto de tu compañero"
+    },
+    "createError": "No pudimos guardar a tu compañero. Inténtalo de nuevo."
+  },
+  "weightUnit": {
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "companions": {
+    "title": "A quienes cuidas",
+    "subtitle": "Transforma algo que se siente en algo navegable.",
+    "newCompanion": {
+      "title": "Nuevo compañero",
+      "subtitle": "Siempre hay espacio para uno más."
+    },
+    "empty": {
+      "eyebrow": "Aún sin compañeros",
+      "title": "Toda historia empieza en algún lugar",
+      "body": "Conócelos, lleva el control de su salud y lleva su historia a donde vayas."
+    },
+    "age": {
+      "years_one": "{{count}} año",
+      "years_other": "{{count}} años",
+      "months_one": "{{count}} mes",
+      "months_other": "{{count}} meses"
+    }
+  },
+  "healthCard": {
+    "title": "Carné de salud Truffa",
+    "born": "Nacimiento",
+    "weight": "Peso",
+    "caretaker": "Cuidador",
+    "vet": "Veterinaria",
+    "microchip": "Microchip",
+    "noMicrochip": "Sin registrar",
+    "tagline": "Más allá del cuidado, más cerca de la presencia",
+    "open": "Ver carné",
+    "share": "Compartir carné",
+    "shareHint": "Comparte este carné con un veterinario o un cuidador. Siempre muestra la información más reciente.",
+    "shareMessage": "Carné de salud Truffa de {{name}}",
+    "notFound": "No encontramos a este compañero.",
+    "emptyTab": "Aún no hay nada aquí.",
+    "days_one": "{{count}} día",
+    "days_other": "{{count}} días",
+    "tabs": {
+      "overview": "Resumen",
+      "health": "Salud",
+      "appointments": "Citas"
+    },
+    "stats": {
+      "together": "Su historia juntos",
+      "age": "Edad",
+      "sex": "Sexo",
+      "neutered": "Esterilizado"
+    }
+  },
+  "account": {
+    "title": "Cuenta",
+    "appearance": {
+      "label": "Apariencia",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "exploratory": "Explorar"
+    },
+    "groups": {
+      "account": "Cuenta",
+      "preferences": "Preferencias"
+    },
+    "rows": {
+      "email": "Correo",
+      "password": "Contraseña",
+      "household": "Hogar",
+      "notifications": "Notificaciones",
+      "language": "Idioma"
+    },
+    "people_one": "{{count}} persona",
+    "people_other": "{{count}} personas",
+    "languages": {
+      "en": "English",
+      "es": "Español"
+    },
+    "signOut": "Cerrar sesión",
+    "password": {
+      "placeholder": "••••••••",
+      "current": "Contraseña actual",
+      "new": "Nueva contraseña",
+      "confirm": "Confirma la nueva contraseña",
+      "hint": "Usa al menos 8 caracteres.",
+      "submit": "Actualizar contraseña",
+      "invalidCurrent": "Tu contraseña actual es incorrecta.",
+      "genericError": "No pudimos cambiar tu contraseña. Inténtalo de nuevo."
+    },
+    "profile": {
+      "title": "Editar perfil",
+      "photoOptions": "Cambiar foto",
+      "takePhoto": "Tomar una foto",
+      "chooseFromLibrary": "Elegir de la galería",
+      "submit": "Guardar cambios",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Tu nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Tu apellido",
+      "error": "No pudimos guardar tu perfil. Inténtalo de nuevo."
+    },
+    "signOutError": "No pudimos cerrar sesión. Inténtalo de nuevo.",
+    "notificationPreferences": {
+      "push": "Notificaciones push",
+      "pushHint": "Recordatorios de dosis, citas y cumpleaños en este dispositivo.",
+      "email": "Correo",
+      "emailHint": "Recibe los mismos recordatorios en tu bandeja de entrada.",
+      "on": "Activadas",
+      "off": "Desactivadas",
+      "denied": "Las notificaciones están bloqueadas para Truffa. Permítelas en los ajustes del sistema.",
+      "openSettings": "Abrir ajustes",
+      "channels": "Canales",
+      "error": "No pudimos actualizar tus notificaciones. Inténtalo de nuevo."
+    },
+    "signOutConfirm": {
+      "title": "¿Cerrar sesión?",
+      "message": "Tendrás que iniciar sesión de nuevo para usar Truffa."
+    }
+  },
+  "home": {
+    "notifications": "Notificaciones",
+    "greeting": {
+      "morning": "Buenos días, {{name}}",
+      "afternoon": "Buenas tardes, {{name}}",
+      "evening": "Buenas noches, {{name}}"
+    },
+    "companions_one": "Un compañero. Siempre cerca.",
+    "companions_other": "{{count}} compañeros. Siempre cerca.",
+    "careRecord": {
+      "title": "Empieza el registro de cuidados de {{name}}",
+      "body": "Lleva el control de su salud, desde vacunas hasta visitas al veterinario. Construye su historial hoy.",
+      "action": "Agregar un registro"
+    },
+    "firstCompanion": {
+      "title": "Toda historia empieza en algún lugar",
+      "body": "Agrega a tu primer compañero para empezar a llevar el control de su salud.",
+      "action": "Nuevo compañero"
+    },
+    "week": {
+      "label": "Esta semana",
+      "all": "Todo",
+      "emptyTitle": "Aún no hay nada en el calendario",
+      "more": "{{count}} más"
+    },
+    "noCompanions": "Aún sin compañeros."
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "empty": "Estás al día.",
+    "pushPrompt": {
+      "title": "No te pierdas su cuidado",
+      "message": "Permite las notificaciones y te recordaremos vacunas, citas y cumpleaños.",
+      "later": "Ahora no",
+      "allow": "Permitir",
+      "error": "No pudimos activar las notificaciones. Inténtalo de nuevo desde Cuenta."
+    }
+  },
+  "agenda": {
+    "appointment": "{{pet}} · cita",
+    "dose": "{{medication}} · {{pet}}",
+    "birthday": "{{pet}} cumple {{age}}",
+    "allDay": "Todo el día"
+  },
+  "editCompanion": {
+    "open": "Editar compañero",
+    "submit": "Guardar cambios",
+    "error": "No pudimos guardar los cambios. Inténtalo de nuevo."
+  },
+  "vaccine": {
+    "title": "Agregar vacuna",
+    "add": "Agregar vacuna",
+    "empty": "Aún no hay vacunas registradas.",
+    "name": "Vacuna",
+    "namePlaceholder": "Ej. Rabia",
+    "administeredAt": "Fecha de aplicación",
+    "administeredAtPlaceholder": "Selecciona una fecha",
+    "laboratory": "Laboratorio",
+    "laboratoryPlaceholder": "Nombre del laboratorio",
+    "lotNumber": "Número de lote",
+    "lotNumberPlaceholder": "Número de lote",
+    "notes": "Notas",
+    "notesPlaceholder": "Algo que valga la pena recordar",
+    "optional": "Opcional",
+    "submit": "Guardar vacuna",
+    "error": "No pudimos guardar la vacuna. Inténtalo de nuevo.",
+    "listTitle": "Vacunas"
+  },
+  "appointment": {
+    "title": "Agregar cita",
+    "add": "Agregar cita",
+    "empty": "Aún no hay citas.",
+    "type": "Tipo",
+    "typePlaceholder": "Selecciona un tipo",
+    "typeSheetTitle": "Tipo de cita",
+    "typeEmpty": "No hay tipos disponibles.",
+    "scheduledAt": "Fecha",
+    "scheduledAtPlaceholder": "Selecciona una fecha",
+    "provider": "Veterinario o proveedor",
+    "providerPlaceholder": "Nombre",
+    "location": "Clínica",
+    "locationPlaceholder": "Nombre de la clínica",
+    "address": "Dirección",
+    "addressPlaceholder": "Calle y número",
+    "city": "Ciudad",
+    "cityPlaceholder": "Ciudad",
+    "reason": "Motivo",
+    "reasonPlaceholder": "Revisión, vacuna…",
+    "optional": "Opcional",
+    "submit": "Guardar cita",
+    "error": "No pudimos guardar la cita. Inténtalo de nuevo.",
+    "types": {
+      "veterinary": "Veterinaria",
+      "dental": "Dental",
+      "grooming": "Peluquería",
+      "training": "Entrenamiento",
+      "other": "Otra"
+    },
+    "upcomingTitle": "Próximas",
+    "pastTitle": "Pasadas",
+    "nextTitle": "Próxima cita",
+    "status": {
+      "pending": "Pendiente",
+      "confirmed": "Confirmada",
+      "cancelled": "Cancelada",
+      "completed": "Completada"
+    }
+  },
+  "addMenu": {
+    "open": "Agregar"
+  },
+  "treatment": {
+    "title": "Agregar tratamiento",
+    "add": "Agregar tratamiento",
+    "listTitle": "Tratamientos",
+    "type": "Tipo",
+    "typePlaceholder": "Selecciona un tipo",
+    "typeSheetTitle": "Tipo de tratamiento",
+    "typeEmpty": "No hay tipos disponibles.",
+    "name": "Nombre",
+    "namePlaceholder": "Ej. Amoxicilina",
+    "dosage": "Dosis",
+    "dosagePlaceholder": "Ej. 1 tableta",
+    "startDate": "Fecha de inicio",
+    "startDatePlaceholder": "Selecciona una fecha",
+    "frequencyHours": "Cada cuántas horas",
+    "frequencyHoursPlaceholder": "Ej. 12",
+    "durationDays": "Durante cuántos días",
+    "durationDaysPlaceholder": "Ej. 7",
+    "instructions": "Indicaciones",
+    "instructionsPlaceholder": "Con comida, en ayunas…",
+    "optional": "Opcional",
+    "submit": "Guardar tratamiento",
+    "error": "No pudimos guardar el tratamiento. Inténtalo de nuevo.",
+    "types": {
+      "medication": "Medicación",
+      "desparasitization": "Desparasitación",
+      "surgery": "Cirugía",
+      "diagnosis": "Diagnóstico",
+      "exam": "Examen",
+      "dental": "Dental",
+      "other": "Otro"
+    },
+    "empty": "Aún no hay tratamientos.",
+    "activeTitle": "En curso",
+    "until": "Hasta {{date}}",
+    "status": {
+      "waitingStart": "Por iniciar",
+      "pending": "Pendiente",
+      "inProgress": "En curso",
+      "completed": "Completado",
+      "cancelled": "Cancelado"
+    }
+  },
+  "newPassword": {
+    "title": "Crea una nueva contraseña",
+    "subtitle": "Elige una nueva contraseña para tu cuenta.",
+    "password": "Nueva contraseña",
+    "confirm": "Confirma la nueva contraseña",
+    "submit": "Guardar contraseña",
+    "success": "Contraseña actualizada. Inicia sesión con la nueva.",
+    "error": "Este enlace no es válido o expiró. Solicita uno nuevo."
+  }
+}

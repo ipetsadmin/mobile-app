@@ -1,0 +1,486 @@
+{
+  "navigation": {
+    "home": "Home",
+    "companions": "Companions",
+    "account": "Account"
+  },
+  "splash": {
+    "notOwn": "Not Own",
+    "notManaged": "Not Managed",
+    "related": "Related"
+  },
+  "common": {
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "next": "Next",
+    "close": "Close",
+    "previous": "Previous",
+    "finish": "Finish",
+    "yes": "Yes",
+    "no": "No",
+    "brandName": "Truffa",
+    "photoErrors": {
+      "cameraPermissionDenied": "Allow camera access in Settings to take a photo.",
+      "cameraUnavailable": "The camera is not available on this device.",
+      "libraryUnavailable": "We couldn't open your photos. Try again.",
+      "uploadFailed": "We couldn't upload the photo. Try again."
+    },
+    "cancel": "Cancel",
+    "back": "Back",
+    "loading": "Loading…",
+    "loadError": "We couldn't load this. Check your connection and try again.",
+    "retry": "Try again",
+    "time": {
+      "label": "Time",
+      "placeholder": "Select a time",
+      "sheetTitle": "Time",
+      "empty": "No times available."
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "emailInvalid": "Enter a valid email",
+    "selectOption": "Choose an option to continue",
+    "weightInvalid": "Enter a weight greater than zero",
+    "microchipInvalid": "Use numbers only",
+    "passwordTooShort": "Use at least 8 characters",
+    "passwordMismatch": "Passwords don't match",
+    "codeInvalid": "Enter the 6-digit code",
+    "positiveInteger": "Enter a whole number greater than zero",
+    "mustBeFuture": "Choose a date and time in the future.",
+    "notFuture": "The date can't be in the future.",
+    "beforeBirth": "The date can't be before the birth date.",
+    "breedMismatch": "This breed doesn't match the selected species."
+  },
+  "signIn": {
+    "title": "Welcome back",
+    "subtitle": "Everything you need for their care, in one place.",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Forgot your password?",
+    "submit": "Sign in",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithApple": "Continue with Apple",
+    "createAccount": "Create account",
+    "errors": {
+      "invalidCredentials": "Incorrect email or password",
+      "emailNotVerified": "Verify your email before signing in",
+      "generic": "Something went wrong. Try again."
+    }
+  },
+  "signUp": {
+    "title": "Create account",
+    "subtitle": "A few details and their record starts here.",
+    "firstName": "First name",
+    "firstNamePlaceholder": "Your name",
+    "lastName": "Last name",
+    "lastNamePlaceholder": "Your last name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "passwordHint": "At least 8 characters.",
+    "submit": "Create account",
+    "errors": {
+      "emailTaken": "An account with this email already exists",
+      "generic": "Something went wrong. Try again."
+    }
+  },
+  "verifyAccount": {
+    "title": "Check your email",
+    "subtitle": "We sent a 6-digit code to {{email}}. Enter it to activate your account.",
+    "resend": "Didn't get the email?",
+    "resent": "Email sent again.",
+    "error": "We couldn't resend the email. Try again.",
+    "code": "Verification code",
+    "submit": "Verify",
+    "errors": {
+      "invalidCode": "The code is wrong or expired. Try again.",
+      "signIn": "Your account is verified, but we couldn't sign you in. Try from the sign in screen."
+    },
+    "goToSignIn": "Go to sign in",
+    "resendIn": "Resend in {{seconds}}s",
+    "resending": "Sending…",
+    "verified": "Email verified.",
+    "signingIn": "Signing you in…"
+  },
+  "resetPassword": {
+    "title": "Reset password",
+    "subtitle": "Enter your account email and we'll send you a link to set a new one.",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "submit": "Send link",
+    "error": "We couldn't send the link. Try again.",
+    "sent": "We sent you a link to reset your password."
+  },
+  "species": {
+    "dog": "Dog",
+    "cat": "Cat"
+  },
+  "gender": {
+    "female": "Female",
+    "male": "Male"
+  },
+  "newCompanion": {
+    "stepOf": "Step {{current}} of {{total}}",
+    "petType": {
+      "title": "Who are we caring for?",
+      "subtitle": "Let's start with the basics."
+    },
+    "name": {
+      "title": "What's their name?",
+      "subtitle": "Let's get to know them.",
+      "label": "Name",
+      "hint": "You can change it later.",
+      "placeholder": "Their name"
+    },
+    "breed": {
+      "title": "What's their breed?",
+      "subtitle": "It helps us understand what they may need.",
+      "label": "Breed",
+      "placeholder": "Select a breed",
+      "searchPlaceholder": "Search breed",
+      "empty": "No breeds match your search.",
+      "sheetTitle": "Choose a breed"
+    },
+    "sex": {
+      "title": "Female or Male?",
+      "subtitle": "Just so we get the details right."
+    },
+    "birthDate": {
+      "title": "When were they born?",
+      "subtitle": "If you know their exact date of birth, add it here. If not, your best guess is just fine.",
+      "exact": "Exact date",
+      "unsure": "I'm not sure",
+      "label": "Birth date",
+      "placeholder": "Select a date"
+    },
+    "timeTogether": {
+      "title": "How long have they been with you?",
+      "subtitle": "How long you've been sharing life together.",
+      "sinceBirth": "Since birth",
+      "joinedLater": "Joined us later",
+      "label": "Been with you since",
+      "placeholder": "Select a date"
+    },
+    "weight": {
+      "title": "How much do they weigh?",
+      "subtitle": "We'll use this to track their growth.",
+      "label": "Weight",
+      "placeholder": "12.5",
+      "unitLabel": "Weight unit",
+      "note": "We'll track growth over time and flag changes worth discussing with your vet."
+    },
+    "neutered": {
+      "title": "Have they been neutered or spayed?",
+      "subtitle": "This helps us tailor the care we suggest.",
+      "label": "Neutered / spayed",
+      "yes": "Yes",
+      "notYet": "Not yet",
+      "reasonLabel": "If not, why?",
+      "tooYoung": "Too young",
+      "breedPlans": "Breed plans",
+      "healthConcerns": "Health concerns",
+      "other": "Other"
+    },
+    "microchip": {
+      "title": "Do they have a microchip?",
+      "subtitle": "Optional — you can add it later.",
+      "label": "Enter microchip number",
+      "placeholder": "982 000 123 456 789",
+      "hint": "Optional. It appears on their health card and helps identify them if they get lost."
+    },
+    "photo": {
+      "title": "Add their photo",
+      "subtitle": "It will appear on their health card and help you recognize them across Truffa.",
+      "takePhoto": "Take a photo",
+      "chooseFromLibrary": "Choose from library",
+      "previewLabel": "Companion photo"
+    },
+    "createError": "We couldn't save your companion. Try again."
+  },
+  "weightUnit": {
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "companions": {
+    "title": "Those you care for",
+    "subtitle": "Transform something felt into something navigable.",
+    "newCompanion": {
+      "title": "New Companion",
+      "subtitle": "There's always room for one more."
+    },
+    "empty": {
+      "eyebrow": "No companions yet",
+      "title": "Every story starts somewhere",
+      "body": "Get to know them, keep track of their health, and carry their story wherever you go."
+    },
+    "age": {
+      "years_one": "{{count}} year",
+      "years_other": "{{count}} years",
+      "months_one": "{{count}} month",
+      "months_other": "{{count}} months"
+    }
+  },
+  "healthCard": {
+    "title": "Truffa health card",
+    "born": "Born",
+    "weight": "Weight",
+    "caretaker": "Caretaker",
+    "vet": "Vet",
+    "microchip": "Microchip",
+    "noMicrochip": "Not registered",
+    "tagline": "Beyond care, closer to presence",
+    "open": "View card",
+    "share": "Share card",
+    "shareHint": "Share this card with a vet or a caretaker. It always shows the latest information on record.",
+    "shareMessage": "{{name}}'s Truffa health card",
+    "notFound": "We couldn't find this companion.",
+    "emptyTab": "Nothing here yet.",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "tabs": {
+      "overview": "Overview",
+      "health": "Health",
+      "appointments": "Appointments"
+    },
+    "stats": {
+      "together": "Your story together",
+      "age": "Age",
+      "sex": "Sex",
+      "neutered": "Neutered"
+    }
+  },
+  "account": {
+    "title": "Account",
+    "appearance": {
+      "label": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "exploratory": "Explore"
+    },
+    "groups": {
+      "account": "Account",
+      "preferences": "Preferences"
+    },
+    "rows": {
+      "email": "Email",
+      "password": "Password",
+      "household": "Household",
+      "notifications": "Notifications",
+      "language": "Language"
+    },
+    "people_one": "{{count}} person",
+    "people_other": "{{count}} people",
+    "languages": {
+      "en": "English",
+      "es": "Español"
+    },
+    "signOut": "Sign out",
+    "password": {
+      "placeholder": "••••••••",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "hint": "Use at least 8 characters.",
+      "submit": "Update password",
+      "invalidCurrent": "Your current password is incorrect.",
+      "genericError": "We couldn't change your password. Try again."
+    },
+    "profile": {
+      "title": "Edit profile",
+      "photoOptions": "Change photo",
+      "takePhoto": "Take a photo",
+      "chooseFromLibrary": "Choose from library",
+      "submit": "Save changes",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Your name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Your last name",
+      "error": "We couldn't save your profile. Try again."
+    },
+    "signOutError": "We couldn't sign you out. Try again.",
+    "notificationPreferences": {
+      "push": "Push notifications",
+      "pushHint": "Reminders for doses, appointments and birthdays on this device.",
+      "email": "Email",
+      "emailHint": "Get the same reminders in your inbox.",
+      "on": "On",
+      "off": "Off",
+      "denied": "Notifications are blocked for Truffa. Allow them in your system settings.",
+      "openSettings": "Open settings",
+      "channels": "Channels",
+      "error": "We couldn't update your notifications. Try again."
+    },
+    "signOutConfirm": {
+      "title": "Sign out?",
+      "message": "You will need to sign in again to use Truffa."
+    }
+  },
+  "home": {
+    "notifications": "Notifications",
+    "greeting": {
+      "morning": "Good morning, {{name}}",
+      "afternoon": "Good afternoon, {{name}}",
+      "evening": "Good evening, {{name}}"
+    },
+    "companions_one": "One companion. Always nearby.",
+    "companions_other": "{{count}} companions. Always nearby.",
+    "careRecord": {
+      "title": "Start {{name}}'s care record",
+      "body": "Keep track of their health, from vaccinations to vet visits. Build their care history today.",
+      "action": "Add a New Record"
+    },
+    "firstCompanion": {
+      "title": "Every story starts somewhere",
+      "body": "Add your first companion to start keeping track of their health.",
+      "action": "New Companion"
+    },
+    "week": {
+      "label": "This week",
+      "all": "All",
+      "emptyTitle": "Nothing on the calendar yet",
+      "more": "{{count}} more"
+    },
+    "noCompanions": "No companions yet."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "You're all caught up.",
+    "pushPrompt": {
+      "title": "Stay on top of their care",
+      "message": "Allow notifications and we'll remind you about vaccines, appointments and birthdays.",
+      "later": "Not now",
+      "allow": "Allow",
+      "error": "We couldn't turn on notifications. Try again from Account."
+    }
+  },
+  "agenda": {
+    "appointment": "{{pet}} · appointment",
+    "dose": "{{medication}} · {{pet}}",
+    "birthday": "{{pet}} turns {{age}}",
+    "allDay": "All day"
+  },
+  "editCompanion": {
+    "open": "Edit companion",
+    "submit": "Save changes",
+    "error": "We couldn't save the changes. Try again."
+  },
+  "vaccine": {
+    "title": "Add vaccine",
+    "add": "Add vaccine",
+    "empty": "No vaccines recorded yet.",
+    "name": "Vaccine",
+    "namePlaceholder": "e.g. Rabies",
+    "administeredAt": "Date given",
+    "administeredAtPlaceholder": "Select a date",
+    "laboratory": "Laboratory",
+    "laboratoryPlaceholder": "Laboratory name",
+    "lotNumber": "Lot number",
+    "lotNumberPlaceholder": "Lot number",
+    "notes": "Notes",
+    "notesPlaceholder": "Anything worth remembering",
+    "optional": "Optional",
+    "submit": "Save vaccine",
+    "error": "We couldn't save the vaccine. Try again.",
+    "listTitle": "Vaccines"
+  },
+  "appointment": {
+    "title": "Add appointment",
+    "add": "Add appointment",
+    "empty": "No appointments yet.",
+    "type": "Type",
+    "typePlaceholder": "Select a type",
+    "typeSheetTitle": "Appointment type",
+    "typeEmpty": "No types available.",
+    "scheduledAt": "Date",
+    "scheduledAtPlaceholder": "Select a date",
+    "provider": "Vet or provider",
+    "providerPlaceholder": "Name",
+    "location": "Clinic",
+    "locationPlaceholder": "Clinic name",
+    "address": "Address",
+    "addressPlaceholder": "Street and number",
+    "city": "City",
+    "cityPlaceholder": "City",
+    "reason": "Reason",
+    "reasonPlaceholder": "Checkup, vaccine…",
+    "optional": "Optional",
+    "submit": "Save appointment",
+    "error": "We couldn't save the appointment. Try again.",
+    "types": {
+      "veterinary": "Veterinary",
+      "dental": "Dental",
+      "grooming": "Grooming",
+      "training": "Training",
+      "other": "Other"
+    },
+    "upcomingTitle": "Upcoming",
+    "pastTitle": "Past",
+    "nextTitle": "Next appointment",
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
+    }
+  },
+  "addMenu": {
+    "open": "Add"
+  },
+  "treatment": {
+    "title": "Add treatment",
+    "add": "Add treatment",
+    "listTitle": "Treatments",
+    "type": "Type",
+    "typePlaceholder": "Select a type",
+    "typeSheetTitle": "Treatment type",
+    "typeEmpty": "No types available.",
+    "name": "Name",
+    "namePlaceholder": "E.g. Amoxicillin",
+    "dosage": "Dosage",
+    "dosagePlaceholder": "E.g. 1 tablet",
+    "startDate": "Start date",
+    "startDatePlaceholder": "Select a date",
+    "frequencyHours": "Every how many hours",
+    "frequencyHoursPlaceholder": "E.g. 12",
+    "durationDays": "For how many days",
+    "durationDaysPlaceholder": "E.g. 7",
+    "instructions": "Instructions",
+    "instructionsPlaceholder": "With food, on an empty stomach…",
+    "optional": "Optional",
+    "submit": "Save treatment",
+    "error": "We couldn't save the treatment. Try again.",
+    "types": {
+      "medication": "Medication",
+      "desparasitization": "Deworming",
+      "surgery": "Surgery",
+      "diagnosis": "Diagnosis",
+      "exam": "Exam",
+      "dental": "Dental",
+      "other": "Other"
+    },
+    "empty": "No treatments yet.",
+    "activeTitle": "In progress",
+    "until": "Until {{date}}",
+    "status": {
+      "waitingStart": "Not started",
+      "pending": "Pending",
+      "inProgress": "In progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "newPassword": {
+    "title": "Set a new password",
+    "subtitle": "Choose a new password for your account.",
+    "password": "New password",
+    "confirm": "Confirm new password",
+    "submit": "Save password",
+    "success": "Password updated. Sign in with your new password.",
+    "error": "This link is invalid or has expired. Request a new one."
+  }
+}
