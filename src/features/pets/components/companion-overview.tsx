@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { StyleSheet, View } from "react-native";
 
 import { Spacing } from "@/constants/theme";
-import { NextAppointment } from "@/features/appointments";
 import { ActiveTreatments } from "@/features/health";
 import { getDaysBetween } from "@/utils/calendar";
 import { formatMediumDate } from "@/utils/format-date";
@@ -28,7 +27,6 @@ export function CompanionOverview({
 
   return (
     <View style={styles.container}>
-      <NextAppointment petId={pet.id} />
       <ActiveTreatments petId={pet.id} />
       <View style={styles.grid}>
         <StatTile
