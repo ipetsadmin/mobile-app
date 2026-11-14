@@ -23,7 +23,7 @@ export function useNotifications() {
   const notifications: AppNotification[] = items.map((item) => ({
     id: getAgendaItemKey(item),
     ...describeAgendaItem(item, t, i18n.language),
-    timeLabel: formatRelativeDays(item.occursAt, now, i18n.language),
+    timeLabel: formatRelativeDays(item.occursAt, now, t),
     isUrgent: getSignedDaysBetween(now, item.occursAt) < URGENT_WITHIN_DAYS,
   }));
 

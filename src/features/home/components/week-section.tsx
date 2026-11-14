@@ -53,7 +53,7 @@ export function WeekSection({ items, onOpenAll, onOpenItem }: WeekSectionProps) 
       {groups.map((group) => (
         <View key={group.day.toDateString()}>
           <ThemedText type="label" themeColor="textSecondary" style={styles.day}>
-            {formatDayHeading(group.day, now, i18n.language)}
+            {formatDayHeading(group.day, now, i18n.language, t)}
           </ThemedText>
           {group.items.map((item) => {
             const { title, detail } = describeAgendaItem(item, t, i18n.language, {
