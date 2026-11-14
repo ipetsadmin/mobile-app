@@ -10,6 +10,15 @@
     "related": "Se vincula"
   },
   "common": {
+    "relativeDays": {
+      "today": "Hoy",
+      "tomorrow": "Mañana",
+      "yesterday": "Ayer",
+      "inDays_one": "En {{count}} día",
+      "inDays_other": "En {{count}} días",
+      "daysAgo_one": "Hace {{count}} día",
+      "daysAgo_other": "Hace {{count}} días"
+    },
     "showPassword": "Mostrar contraseña",
     "hidePassword": "Ocultar contraseña",
     "next": "Siguiente",
