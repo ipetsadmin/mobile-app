@@ -22,7 +22,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("expo-notifications", () =>
   jest.requireActual("@/test/mocks/expo-notifications"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 let alert: jest.SpyInstance
 

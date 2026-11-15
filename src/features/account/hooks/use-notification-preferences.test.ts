@@ -23,7 +23,6 @@ jest.mock("@/features/auth", () =>
 jest.mock("expo-notifications", () =>
   jest.requireActual("@/test/mocks/expo-notifications"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const profile = (push: boolean, email: boolean) =>
   ok({

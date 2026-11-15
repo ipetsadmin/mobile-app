@@ -15,7 +15,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("@/features/auth", () =>
   jest.requireActual("@/test/mocks/auth-feature"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const futureDate = new Date("2099-06-20T10:00:00.000Z")
 

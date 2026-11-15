@@ -20,7 +20,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("@/lib/auth-client", () =>
   jest.requireActual("@/test/mocks/auth-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 beforeEach(clearPendingCredentials)
 

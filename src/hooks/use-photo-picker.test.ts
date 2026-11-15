@@ -14,7 +14,6 @@ import { usePhotoPicker } from "./use-photo-picker"
 jest.mock("expo-image-picker", () =>
   jest.requireActual("@/test/mocks/expo-image-picker"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const picked = { canceled: false, assets: [{ uri: "file:///photo.jpg" }] }
 

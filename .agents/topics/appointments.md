@@ -46,4 +46,4 @@ Se llega a la creación desde el menú de agregar del detalle (`/companions/[pet
 
 ## Pruebas
 
-Fases 1 a 4 completas: utils, schema, hooks de `data/` y `useAppointmentForm`. Faltan `AppointmentList` y `AppointmentRow` (fase 5) y `NewAppointmentScreen` (fase 6).
+Fases 1 a 5 completas: utils, schema, hooks de `data/`, `useAppointmentForm`, `AppointmentRow` y `AppointmentList` (cargando, error con reintento, vacío, próximas y pasadas, y una cancelada futura que cuenta como pasada). Falta `NewAppointmentScreen` (fase 6).

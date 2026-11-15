@@ -14,7 +14,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("@/features/auth", () =>
   jest.requireActual("@/test/mocks/auth-feature"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const values = {
   name: "Rabies",

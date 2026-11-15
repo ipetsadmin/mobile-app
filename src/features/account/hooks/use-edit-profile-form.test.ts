@@ -23,7 +23,6 @@ jest.mock("@/lib/upload-file", () => ({
   PHOTO_CONTENT_TYPE: "image/jpeg",
   uploadFile: jest.fn(),
 }))
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const target = { url: "https://upload", fields: {}, objectKey: "avatars/a.jpg" }
 

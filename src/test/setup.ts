@@ -31,3 +31,9 @@ jest.mock("react-native-worklets", () =>
 jest.mock("react-native-reanimated", () =>
   jest.requireActual("react-native-reanimated/mock"),
 )
+
+jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
+
+jest.mock("@/lib/auth-client", () =>
+  jest.requireActual("@/test/mocks/auth-client"),
+)

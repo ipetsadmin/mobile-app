@@ -36,4 +36,4 @@ El layout de `(app)` espera a que la lista de mascotas se resuelva, una sola vez
 
 ## Pruebas
 
-Fase 4 cubierta: `useAppBootstrap` (espera a fuentes y mascotas, tope de cuatro segundos, no vuelve a quedar pendiente) y `useSplash`. Se prueba con `usePets` mockeado en la frontera de la feature. Sin pruebas: `useIntroTimeline` (animación con Reanimated), `SplashOverlay` y el guard de rutas.
+Fase 4 cubierta: `useAppBootstrap` (espera a fuentes y mascotas, tope de cuatro segundos, no vuelve a quedar pendiente) y `useSplash`. Se prueba con `usePets` mockeado en la frontera de la feature. Sin pruebas: `useIntroTimeline` y los componentes de animación del splash (`SplashBlob`, `SplashGrain`, `SplashLogo`, `SplashPhrase`) y el guard de rutas. `SplashOverlay` se comprueba solo como contenedor (marca, tres frases y ausencia fuera del provider).

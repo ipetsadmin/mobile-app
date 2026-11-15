@@ -15,7 +15,6 @@ import { useSignUpForm } from "./use-sign-up-form"
 jest.mock("@/lib/auth-client", () =>
   jest.requireActual("@/test/mocks/auth-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 beforeEach(clearPendingCredentials)
 

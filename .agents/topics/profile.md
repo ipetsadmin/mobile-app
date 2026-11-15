@@ -48,4 +48,4 @@ Muestra y edita los datos de la cuenta: nombre, foto, contraseña, idioma, apari
 
 ## Pruebas
 
-Fases 2 a 4 completas: schemas, `useAccount`, las mutaciones de perfil, `useEditProfileForm` (foto nueva, foto sin cambios y errores), `useChangePasswordForm`, `useLanguageSetting` y `useNotificationPreferences`. Faltan componentes y pantallas (fases 5 y 6).
+Fases 2 a 5 completas: schemas, hooks de datos y de lógica, y los diez componentes de `account` (`AccountAvatar`, `AccountSettings`, `AppearanceSetting` con persistencia del tema, `OptionList`, `ProfileCard`, `ProfileNameFields`, `ProfilePhotoButton`, `SettingsGroup`, `SettingsRow` y `SettingsSwitchRow`). Faltan las pantallas (fase 6).

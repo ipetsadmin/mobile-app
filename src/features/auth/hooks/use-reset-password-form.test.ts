@@ -11,7 +11,6 @@ import { useResetPasswordForm } from "./use-reset-password-form"
 jest.mock("@/lib/auth-client", () =>
   jest.requireActual("@/test/mocks/auth-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 jest.mock("expo-linking", () => ({
   createURL: jest.fn((path: string) => `truffa://${path}`),
 }))

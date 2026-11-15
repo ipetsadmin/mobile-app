@@ -10,7 +10,6 @@ import { useResendCode } from "./use-resend-code"
 jest.mock("@/lib/api-client", () =>
   jest.requireActual("@/test/mocks/api-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 beforeEach(() => {
   jest.useFakeTimers()

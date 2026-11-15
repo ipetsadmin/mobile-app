@@ -11,7 +11,6 @@ import { useNewPasswordForm } from "./use-new-password-form"
 jest.mock("@/lib/auth-client", () =>
   jest.requireActual("@/test/mocks/auth-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 const matching = { newPassword: "12345678", confirmPassword: "12345678" }
 

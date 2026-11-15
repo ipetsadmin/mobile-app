@@ -61,7 +61,10 @@ jest.mock("@/features/auth", () => jest.requireActual("@/test/mocks/auth-feature
 - Los módulos nativos están mockeados en `src/test/setup.ts`: `@expo/ui` (`mocks/expo-ui.tsx`: un `Switch` pulsable y un `BottomSheet` que solo muestra su contenido si `isPresented`, con un botón `dismiss-sheet`), `react-native-reanimated`, `react-native-worklets` y `react-native-keyboard-controller` con los mocks oficiales de cada librería. Un mock de Reanimated hecho a mano rompe: usar siempre el de la librería.
 - Una `FlatList` solo monta las primeras filas en Jest. No se comprueba cuántas hay en total; se busca la fila por su nombre entre las primeras o se prueba la lista de datos en su util.
 - Un componente que solo pinta estilos (por ejemplo `RadioMark`, `FieldControl`, `CornerGlow`, `BrandMark`) no tiene test propio: se cubre a través del componente que lo usa. No se prueban valores de estilo.
-- Los componentes de animación de Reanimated (el splash) no se prueban.
+- Los componentes de animación de Reanimated (el splash) no se prueban, salvo el contenedor `SplashOverlay`, que se comprueba que muestra la marca y las tres frases y que no pinta nada fuera del provider.
+- `sonner-native` y `@/lib/auth-client` están mockeados globalmente en `src/test/setup.ts`: ninguno de los dos puede cargarse en Jest (ESM y módulo nativo) y los `index.ts` de las features los arrastran. No hace falta `jest.mock` para ellos en cada test; los tests de los hooks de auth siguen configurando `authClient` con `@/test/mocks/auth-client`.
+- Un componente que usa un hook de datos se prueba con `@/lib/api-client` mockeado (`jest.mock("@/lib/api-client", ...)`) y sus cuatro estados: cargando, error con reintento que vuelve a pedir los datos, vacío y contenido.
+- Para una fecha fija se usa `jest.useFakeTimers().setSystemTime(...)`; si el componente carga datos con React Query se deja fuera de los timers falsos lo asíncrono (`doNotFake`).
 
 ## Tamaño de un test
 

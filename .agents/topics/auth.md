@@ -51,4 +51,4 @@ No usa caché de React Query para la sesión: `useAuthSession` envuelve `authCli
 
 ## Pruebas
 
-Fases 1 a 4 completas: utils, schemas, los nueve hooks de `data/` y los hooks de lógica (`useSignInForm`, `useSignUpForm`, `useResetPasswordForm`, `useNewPasswordForm`, `useVerifyAccountForm`, `useResendCode` con su cuenta atrás y `useSignOutAction`). Faltan las pantallas y componentes (fases 5 y 6). Detalle observado: el schema no recorta el correo, así que un correo con espacio al final (por ejemplo el que añade el autocompletado) se rechaza como inválido antes de llegar al `trim()` de los hooks de datos.
+Fases 1 a 5 completas para esta feature: utils, schemas, los nueve hooks de `data/`, los hooks de lógica y los componentes `AuthHeader`, `OrDivider` y `SocialSignIn` (en Jest siempre corre el camino de iOS, con el botón de Apple). Faltan las pantallas (fase 6). Detalle observado: el schema no recorta el correo, así que un correo con espacio al final (por ejemplo el que añade el autocompletado) se rechaza como inválido antes de llegar al `trim()` de los hooks de datos.

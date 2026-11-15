@@ -11,7 +11,6 @@ import { useSignOutAction } from "./use-sign-out-action"
 jest.mock("@/lib/auth-client", () =>
   jest.requireActual("@/test/mocks/auth-client"),
 )
-jest.mock("sonner-native", () => jest.requireActual("@/test/mocks/toast"))
 
 async function openConfirmation() {
   const alert = jest.spyOn(Alert, "alert").mockImplementation(() => {})
