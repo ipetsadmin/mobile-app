@@ -51,4 +51,4 @@ El mensaje se valida con commitlint (conventional commits, por ejemplo `fix(pet)
 
 ## Reglas del proyecto
 
-Las reglas de arquitectura, estilo, componentes, estilos, datos, formularios, textos, pruebas y commits viven en [`.agents/rules/`](./.agents/rules/orquestador.md). El punto de entrada es [`orquestador.md`](./.agents/rules/orquestador.md); [`AGENTS.md`](./AGENTS.md) lo referencia para los agentes de código.
+Las reglas de arquitectura, estilo, componentes, estilos, datos, formularios, textos, pruebas y commits viven en [`.agents/rules/`](./.agents/rules/orquestador.md). Cómo funciona cada flujo (auth, perfil, mascotas, salud, citas, agenda, notificaciones) y cada capa (navegación, datos, idioma y tema) está en [`.agents/topics/`](./.agents/topics/index.md). El punto de entrada es [`orquestador.md`](./.agents/rules/orquestador.md); [`AGENTS.md`](./AGENTS.md) lo referencia para los agentes de código.

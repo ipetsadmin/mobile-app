@@ -23,10 +23,23 @@ Cada regla vive en un solo archivo. Si algo cambia, se edita ahí y no se repite
 | Crear un formulario | [`forms.md`](./forms.md) | `react-hook-form`, `zod` |
 | Agregar texto visible al usuario | [`i18n.md`](./i18n.md) | — |
 | Animar algo o agregar gestos | [`styling.md`](./styling.md#animación) | `expo:expo-animation` |
+| Entender cómo funciona un flujo o una capa (auth, mascotas, datos...) | [`../topics/index.md`](../topics/index.md) | — |
 | Escribir o correr pruebas | [`testing.md`](./testing.md) | — |
 | Hacer un commit | [`commits.md`](./commits.md) | — |
 
 Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGENTS.md`: lee la versión de `expo` en `package.json` y consulta la documentación de esa versión.
+
+## Completa lo que te piden
+
+Todo cambio o funcionalidad que el usuario pida se entrega completo, no a medias.
+
+- Cubre cada capa que el cambio toca: datos, validación, componentes, pantalla, ruta, textos en todos los idiomas y la invalidación de caché que corresponda ([receta](#receta-para-una-funcionalidad-nueva)).
+- Si el cambio deja código sin uso (un componente, una clave de i18n, un export), se elimina en el mismo cambio.
+- No dejes `TODO`, pantallas sin conectar ni textos sin traducir para después.
+- Si algo del pedido no se puede resolver o es ambiguo, se pregunta antes de implementar, no se entrega una versión parcial sin avisar.
+- El cambio termina cuando pasan `npm run biome:check`, `npx tsc --noEmit`, `npx expo lint` y `npm test`.
+- Antes de tocar un flujo existente, lee su tópico en [`../topics/`](../topics/index.md) para tener el contexto.
+- Antes de proponer un commit, aplica el paso de [`commits.md`](./commits.md#antes-de-commitear): actualizar los tópicos y sugerir documentación y pruebas.
 
 ## Receta para una funcionalidad nueva
 
@@ -41,6 +54,8 @@ Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGEN
 
 ## Resumen de una línea por regla
 
+- **Flujo**: todo pedido se entrega completo; se lee el tópico del flujo que se toca y, antes de commitear, se actualizan los tópicos y se sugiere actualizar la documentación y las pruebas unitarias.
+- **Tópicos** (`../topics/`): cómo funciona cada flujo y capa de la app; se mantienen al día en cada commit.
 - **`architecture.md`**: un dominio por feature, cada feature se consume por su `index.ts`, `src/app` solo tiene rutas y es el único lugar que navega.
 - **`code-style.md`**: Biome formatea (comillas dobles, sin `;`), cero comentarios, límites de líneas por tipo de archivo, sin `any` ni `enum`, kebab-case, export nombrado salvo en rutas.
 - **`components.md`**: un componente por archivo, `export function`, `src/components` es presentacional, control nativo de `@expo/ui` antes que uno propio.
@@ -49,7 +64,7 @@ Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGEN
 - **`forms.md`**: `react-hook-form` con schema de `zod`, la lógica en un hook de la feature, los mensajes de error son claves de i18n.
 - **`i18n.md`**: ningún texto visible escrito en el código.
 - **`testing.md`**: el test vive junto al archivo, se mockea solo la frontera, y se avanza por fases (infra, utils, schemas, hooks de datos, hooks, componentes, pantallas, rutas).
-- **`commits.md`**: conventional commits validados por commitlint, hooks de husky que bloquean si falla algo, y solo cuando el usuario lo pide.
+- **`commits.md`**: antes de commitear se sugiere documentación y pruebas, conventional commits validados por commitlint, hooks de husky que bloquean si falla algo, y solo cuando el usuario lo pide.
 
 ## Si una regla contradice código existente
 

@@ -2,12 +2,15 @@ This is an Expo/React Native mobile application. Prioritize mobile-first pattern
 
 ## Reglas del repo
 
-Antes de escribir o editar código, lee **[`.agents/rules/orquestador.md`](./.agents/rules/orquestador.md)**. Es el índice de todas las reglas del proyecto (arquitectura, estilo de código, componentes, estilos, datos, formularios, textos, commits y templates) e indica cuál leer y qué skill cargar según lo que vayas a hacer.
+Antes de escribir o editar código, lee **[`.agents/rules/orquestador.md`](./.agents/rules/orquestador.md)**. Es el índice de todas las reglas del proyecto (flujo de trabajo, arquitectura, estilo de código, componentes, estilos, datos, formularios, textos, pruebas, commits y templates) e indica cuál leer y qué skill cargar según lo que vayas a hacer.
 
-Dos reglas aplican siempre:
+Cinco reglas aplican siempre:
 
 - No dejes comentarios en el código: ni para explicar qué hace, ni para narrar qué cambiaste.
 - Respeta el tamaño máximo de cada tipo de archivo definido en [`.agents/rules/code-style.md`](./.agents/rules/code-style.md).
+- Completa todo cambio o funcionalidad que te pidan, en todas sus capas, sin dejarlo a medias ([`orquestador.md`](./.agents/rules/orquestador.md#completa-lo-que-te-piden)).
+- Antes de tocar un flujo o una capa, lee su tópico en [`.agents/topics/`](./.agents/topics/index.md): explica cómo funciona hoy.
+- Antes de commitear, actualiza los tópicos que el cambio afecte y sugiere actualizar la documentación y las pruebas unitarias; espera la respuesta del usuario sobre estas dos ([`commits.md`](./.agents/rules/commits.md#antes-de-commitear)).
 
 ## Expo has changed — do not trust your training data
 
