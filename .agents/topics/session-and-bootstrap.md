@@ -36,4 +36,4 @@ El layout de `(app)` espera a que la lista de mascotas se resuelva, una sola vez
 
 ## Pruebas
 
-Sin pruebas todavía. `useAppBootstrap` es candidato de fase 4 (hooks de lógica).
+Sin pruebas propias todavía. `useAppBootstrap` es candidato de fase 4 (hooks de lógica). Las preferencias guardadas que lee el arranque ya están cubiertas (ver [`i18n-and-theme.md`](./i18n-and-theme.md)).

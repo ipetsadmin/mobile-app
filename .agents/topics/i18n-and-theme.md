@@ -35,4 +35,4 @@ La app habla español o inglés y tiene tres temas visuales. Ambas elecciones se
 
 ## Pruebas
 
-El idioma de las pruebas se fija en español en `src/test/render-with-providers.tsx`. Sin pruebas propias todavía; candidatos de fase 1: `language-storage` y `theme-storage` con el mock de `AsyncStorage`.
+Fase 1 completa: `language-storage` y `theme-storage` con el mock de `AsyncStorage`. El idioma de las pruebas se fija en español en `src/test/render-with-providers.tsx`, y `src/test/translation-keys.ts` comprueba que una clave exista en `en` y `es`. Falta `useStoredPreferences` y `AppThemeProvider` (fase 4).

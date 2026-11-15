@@ -46,4 +46,4 @@ Se llega a la creación desde el menú de agregar del detalle (`/companions/[pet
 
 ## Pruebas
 
-Cubierto: `split-appointments` (`split-appointments.test.ts`). Faltan: `appointment.schema` (fase 2), `to-create-appointment-body` (fase 1) y `useCreateAppointment` (fase 3, comprobar las invalidaciones).
+Fase 1 completa: `split-appointments`, `appointment-type-keys`, `appointment-status-keys` (cubren todos los valores del enum y sus traducciones) y `to-create-appointment-body`. Faltan `appointment.schema` (fase 2), `useCreateAppointment` y `usePetAppointments` (fase 3, comprobar las invalidaciones) y `useAppointmentForm` (fase 4).

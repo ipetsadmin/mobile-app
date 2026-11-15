@@ -14,6 +14,7 @@ Pruebas unitarias con `jest-expo` y `@testing-library/react-native`. Se corren c
 - `describe` por unidad, `it` por comportamiento, con el nombre en inglés describiendo el resultado: `it('puts closed appointments in past')`.
 - Se prueba comportamiento observable, no implementación. En componentes se consulta por texto o rol, no por estructura interna.
 - Los datos de prueba salen de factories en `src/test/factories/`, tipadas con `@ipetsadmin/contracts`. No se copian objetos grandes en cada test.
+- `src/test/translation-keys.ts` (`hasTranslationKey`) comprueba que una clave de i18n exista en todos los idiomas; los mapas de enum a clave se prueban con él.
 - La fecha actual se inyecta o se fija; un test nunca depende de la hora real.
 - Solo se mockea la frontera: `apiClient`, `expo-secure-store`, `expo-router`, `AsyncStorage`. La lógica propia no se mockea.
 - Un test que falla no se borra ni se salta (`it.skip`) para poder commitear.
