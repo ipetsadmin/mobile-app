@@ -11,10 +11,6 @@ import { translate } from "@/test/translate"
 
 import { usePhotoPicker } from "./use-photo-picker"
 
-jest.mock("expo-image-picker", () =>
-  jest.requireActual("@/test/mocks/expo-image-picker"),
-)
-
 const picked = { canceled: false, assets: [{ uri: "file:///photo.jpg" }] }
 
 async function setup() {

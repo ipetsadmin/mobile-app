@@ -16,9 +16,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("@/features/auth", () =>
   jest.requireActual("@/test/mocks/auth-feature"),
 )
-jest.mock("expo-image-picker", () =>
-  jest.requireActual("@/test/mocks/expo-image-picker"),
-)
 jest.mock("@/lib/upload-file", () => ({
   PHOTO_CONTENT_TYPE: "image/jpeg",
   uploadFile: jest.fn(),

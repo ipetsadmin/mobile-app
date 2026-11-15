@@ -41,4 +41,4 @@ En ambos casos se cierra la pantalla solo si la mutación termina bien; si falla
 
 ## Pruebas
 
-Fases 1 a 5 completas: conversores, mapas, schemas, hooks de `data/`, los formularios y los componentes `TreatmentRow`, `TreatmentList` (sin vacunas y con las terminadas al final), `ActiveTreatments` y `VaccineList` (cargando, error con reintento, vacío y orden por fecha). Faltan las pantallas (fase 6).
+Fases 1 a 6 completas: conversores, mapas, schemas, hooks, componentes y las pantallas `NewVaccineScreen` (laboratorio y lote juntos) y `NewTreatmentScreen` (no ofrece vacunación y exige enteros positivos).

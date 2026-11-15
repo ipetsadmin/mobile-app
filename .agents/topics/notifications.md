@@ -40,4 +40,4 @@ Gestiona el permiso de notificaciones del sistema y las preferencias de push y c
 
 ## Pruebas
 
-Fases 1, 3, 4 y 5 completas (incluido `NotificationRow`): `push-prompt-storage`, `useUpdateNotificationPreferences`, `useNotifications`, `useNotificationPermission`, `usePushPrompt` y `useNotificationPreferences`. Limitación: la creación del canal en Android no se prueba, porque `process.env.EXPO_OS` lo reemplaza Babel por un literal al compilar y en Jest siempre vale `ios`. El caso del aviso con permiso ya concedido está marcado como `it.failing` (ver Problema conocido).
+Fases 1, 3, 4, 5 y 6 completas (incluidos `NotificationRow` y `NotificationsScreen`): `push-prompt-storage`, `useUpdateNotificationPreferences`, `useNotifications`, `useNotificationPermission`, `usePushPrompt` y `useNotificationPreferences`. Limitación: la creación del canal en Android no se prueba, porque `process.env.EXPO_OS` lo reemplaza Babel por un literal al compilar y en Jest siempre vale `ios`. El caso del aviso con permiso ya concedido está marcado como `it.failing` (ver Problema conocido).

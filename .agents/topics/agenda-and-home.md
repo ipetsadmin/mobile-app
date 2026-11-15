@@ -44,4 +44,4 @@ El inicio abre notificaciones desde el icono de campana y desde "ver todo" o "m�
 
 ## Pruebas
 
-Fases 1, 3, 4 y 5 completas: utils de agenda, `useAgenda`, `useNotifications`, `usePullRefresh` y los componentes de `home` (`AgendaRow`, `CareRecordCard`, `Greeting` con los tres momentos del día, `HomeHeader` y `WeekSection` con el tope de cinco ítems y el enlace con el resto). `NotificationRow` también está cubierto. Faltan las pantallas `HomeScreen` y `NotificationsScreen` (fase 6).
+Fases 1 a 6 completas: utils de agenda, `useAgenda`, `useNotifications`, `usePullRefresh`, los componentes de `home` y las pantallas `HomeScreen` (saludo, ficha de la primera mascota o invitación a crearla, error con reintento y la semana) y `NotificationsScreen` (cargando, error con reintento, vacío y lista de 30 días).

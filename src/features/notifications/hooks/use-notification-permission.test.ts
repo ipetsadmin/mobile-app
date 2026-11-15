@@ -13,10 +13,6 @@ import { renderHookWithProviders } from "@/test/render-with-providers"
 
 import { useNotificationPermission } from "./use-notification-permission"
 
-jest.mock("expo-notifications", () =>
-  jest.requireActual("@/test/mocks/expo-notifications"),
-)
-
 describe("useNotificationPermission", () => {
   it("starts undetermined", async () => {
     const { result } = await renderHookWithProviders(() =>

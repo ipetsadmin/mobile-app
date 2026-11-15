@@ -46,4 +46,4 @@ Se llega a la creación desde el menú de agregar del detalle (`/companions/[pet
 
 ## Pruebas
 
-Fases 1 a 5 completas: utils, schema, hooks de `data/`, `useAppointmentForm`, `AppointmentRow` y `AppointmentList` (cargando, error con reintento, vacío, próximas y pasadas, y una cancelada futura que cuenta como pasada). Falta `NewAppointmentScreen` (fase 6).
+Fases 1 a 6 completas: utils, schema, hooks, componentes y `NewAppointmentScreen` (elegir el tipo en la hoja, llenar proveedor y lugar, y comprobar que crea una cita pendiente con el propietario de la sesión).

@@ -66,6 +66,16 @@ jest.mock("@/features/auth", () => jest.requireActual("@/test/mocks/auth-feature
 - Un componente que usa un hook de datos se prueba con `@/lib/api-client` mockeado (`jest.mock("@/lib/api-client", ...)`) y sus cuatro estados: cargando, error con reintento que vuelve a pedir los datos, vacío y contenido.
 - Para una fecha fija se usa `jest.useFakeTimers().setSystemTime(...)`; si el componente carga datos con React Query se deja fuera de los timers falsos lo asíncrono (`doNotFake`).
 
+## Pantallas
+
+- Una pantalla se prueba como un usuario: se escribe en los campos por su etiqueta (`fireEvent.changeText(screen.getByLabelText(...), valor)`), se pulsa el botón por su nombre y se comprueba el efecto en la frontera: la llamada a `apiClient` o `authClient`, el callback de la ruta y el mensaje que ve el usuario. La navegación se comprueba con los callbacks que recibe la pantalla, nunca con `expo-router`.
+- Por cada pantalla de formulario se prueba: que muestra sus campos, que un formulario inválido no llama a la API y muestra el error traducido, el camino feliz (llamada con lo escrito y callback de éxito) y el fallo (mensaje de error y el flujo no se cierra).
+- Por cada pantalla que carga datos se prueban sus cuatro estados: cargando, error con un reintento que vuelve a pedir los datos, vacío y contenido.
+- Los pasos del asistente de mascotas se montan con `renderInCompanionForm(<Paso onNext={...} />, pet?)` de `src/test/render-in-companion-form.tsx`. Con una mascota el formulario empieza con sus valores. Ojo: el `refine` de objeto de `companion.schema` solo se evalúa si el resto de campos es válido, así que un paso que depende de esas reglas (por ejemplo, el motivo de no castración) se prueba con una mascota completa y no con el formulario vacío.
+- Las alertas nativas (`Alert.alert`) se espían con `jest.spyOn(Alert, "alert")` y se pulsa el botón elegido con `await act(async () => { await boton.onPress?.() })`.
+- Cuando un nombre accesible aparece en dos botones (por ejemplo "Siguiente" en la flecha del calendario y en el botón del paso) se busca con `getAllByRole(...)`.
+- `expo-notifications` y `expo-image-picker` están mockeados globalmente en `src/test/setup.ts`, y el mock de Reanimated añade `useReducedMotion` (el mock oficial no lo trae).
+
 ## Tamaño de un test
 
 Un archivo de test no supera las 200 líneas ([`code-style.md`](./code-style.md)). Si un schema o un hook tiene tantas reglas que no cabe, se divide por grupo de reglas con el mismo prefijo: `companion.schema.test.ts` y `companion.schema.rules.test.ts`.

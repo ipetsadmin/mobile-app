@@ -50,4 +50,4 @@ Los campos de `components/form/` se conectan a `react-hook-form` con `useControl
 
 ## Pruebas
 
-Fase 5 (tramo de `src/components/`) completa: botones, estados, selección, `FieldValue`, `SearchInput`, todos los campos de `form/`, `SelectSheet`, el calendario completo y el menú flotante. Sin prueba propia a propósito: `RadioMark`, `FieldControl`, `CornerGlow`, `BrandMark`, `ThemedView`, `AppToaster` y `ThemedSwitch` (este último se cubre a través de `SwitchField`).
+Fases 5 y 6 completas para esta capa (las pantallas que los usan, como los formularios, los ejercitan de punta a punta): botones, estados, selección, `FieldValue`, `SearchInput`, todos los campos de `form/`, `SelectSheet`, el calendario completo y el menú flotante. Sin prueba propia a propósito: `RadioMark`, `FieldControl`, `CornerGlow`, `BrandMark`, `ThemedView`, `AppToaster` y `ThemedSwitch` (este último se cubre a través de `SwitchField`).

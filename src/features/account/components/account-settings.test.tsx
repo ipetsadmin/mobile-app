@@ -12,9 +12,6 @@ jest.mock("@/lib/api-client", () =>
 jest.mock("@/features/auth", () =>
   jest.requireActual("@/test/mocks/auth-feature"),
 )
-jest.mock("expo-notifications", () =>
-  jest.requireActual("@/test/mocks/expo-notifications"),
-)
 
 const profile = (push: boolean, email: boolean) =>
   ok({

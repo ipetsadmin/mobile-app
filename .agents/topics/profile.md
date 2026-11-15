@@ -48,4 +48,4 @@ Muestra y edita los datos de la cuenta: nombre, foto, contraseña, idioma, apari
 
 ## Pruebas
 
-Fases 2 a 5 completas: schemas, hooks de datos y de lógica, y los diez componentes de `account` (`AccountAvatar`, `AccountSettings`, `AppearanceSetting` con persistencia del tema, `OptionList`, `ProfileCard`, `ProfileNameFields`, `ProfilePhotoButton`, `SettingsGroup`, `SettingsRow` y `SettingsSwitchRow`). Faltan las pantallas (fase 6).
+Fases 2 a 6 completas: schemas, hooks, componentes y las cinco pantallas (`AccountScreen`, `EditProfileScreen`, `ChangePasswordScreen`, `LanguageScreen` y `NotificationPreferencesScreen`). `/profile/household` es una pantalla de relleno y no tiene prueba propia (el componente `PlaceholderScreen` sí está cubierto).

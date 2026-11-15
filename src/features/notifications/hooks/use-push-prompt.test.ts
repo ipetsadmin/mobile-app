@@ -19,9 +19,6 @@ import { usePushPrompt } from "./use-push-prompt"
 jest.mock("@/lib/api-client", () =>
   jest.requireActual("@/test/mocks/api-client"),
 )
-jest.mock("expo-notifications", () =>
-  jest.requireActual("@/test/mocks/expo-notifications"),
-)
 
 let alert: jest.SpyInstance
 
