@@ -51,4 +51,4 @@ No usa caché de React Query para la sesión: `useAuthSession` envuelve `authCli
 
 ## Pruebas
 
-Fase 1 completa: `get-sign-in-error-key`, `get-sign-up-error-key` (incluye que las claves existan en los dos idiomas) y `pending-credentials`. Faltan los schemas de `schema/` (fase 2), los hooks de `data/` (fase 3) y los formularios y `useResendCode` (fase 4).
+Fases 1 y 2 completas: `get-sign-in-error-key`, `get-sign-up-error-key`, `pending-credentials` y los cinco schemas (`sign-in`, `sign-up`, `verify-account`, `reset-password`, `new-password`), incluidos los mensajes traducidos. Faltan los hooks de `data/` (fase 3) y los formularios y `useResendCode` (fase 4).

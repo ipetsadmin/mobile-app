@@ -58,4 +58,4 @@ Se invalida la agenda porque los cumpleaños salen de la fecha de nacimiento de 
 
 ## Pruebas
 
-Fase 1 completa: `parse-pet`, `companion-tab`, `not-neutered-reasons`, `to-companion-values`, `to-pet-details-body` y `to-create-pet-body`. Faltan `companion.schema` (fase 2), los hooks de `data/` (fase 3) y `useSaveCompanion` y `useCompanionStep` (fase 4).
+Fases 1 y 2 completas: `parse-pet`, `companion-tab`, `not-neutered-reasons`, los tres conversores de body y `companion.schema` (raza según especie, peso, fechas, motivo de no castración y microchip). Faltan los hooks de `data/` (fase 3) y `useSaveCompanion` y `useCompanionStep` (fase 4).

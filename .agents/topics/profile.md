@@ -48,4 +48,4 @@ Muestra y edita los datos de la cuenta: nombre, foto, contraseña, idioma, apari
 
 ## Pruebas
 
-Sin pruebas propias todavía. Candidatas: schemas `edit-profile` y `change-password` (fase 2) y la conversión de `useAccount` a `account` (fase 3).
+Fase 2 completa: schemas `edit-profile` y `change-password`. Faltan la conversión de `useAccount` a `account` y los hooks de `data/` (fase 3), y los formularios y preferencias (fase 4).

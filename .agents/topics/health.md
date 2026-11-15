@@ -41,4 +41,4 @@ En ambos casos se cierra la pantalla solo si la mutación termina bien; si falla
 
 ## Pruebas
 
-Fase 1 completa: `to-create-vaccine-body`, `to-create-treatment-body`, `treatment-status-keys` (con `isFinishedTreatment`) y `treatment-type-keys` (con `selectableTreatmentTypes`). Faltan `vaccine.schema` (en especial la regla de laboratorio y lote) y `treatment.schema` (fase 2), los hooks de `data/` (fase 3) y los formularios (fase 4).
+Fases 1 y 2 completas: los conversores de body, los mapas de estado y tipo, y los schemas `vaccine` (fecha no futura y la regla de laboratorio y lote juntos) y `treatment` (enteros positivos). Faltan los hooks de `data/` (fase 3) y los formularios (fase 4).
