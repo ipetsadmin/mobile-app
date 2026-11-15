@@ -52,4 +52,4 @@ La sesión no vive en React Query: la entrega `authClient.useSession()` (ver [`s
 
 ## Pruebas
 
-Fase 1 completa: `ApiError` y la política de reintentos de `query-client` (no reintenta 401, máximo dos reintentos, mutaciones sin reintento). Falta la fase 3: los hooks de `data/` de cada feature mockeando `apiClient`, y `api-client.ts` (tiempo máximo, 401 y cierre de sesión).
+Fases 1 y 3 completas para esta capa: `ApiError`, la política de reintentos de `query-client` y `api-client.ts` (cookie y cabeceras, errores con estado y mensaje, cierre de sesión ante 401 solo si la petición llevaba cookie, y tiempo máximo de 20 segundos). Los hooks de `data/` de todas las features están cubiertos, mockeando `apiClient` y comprobando cada invalidación de la tabla de arriba.

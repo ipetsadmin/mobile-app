@@ -1,3 +1,11 @@
+import { notifyManager } from "@tanstack/react-query"
+
+import { resetSession } from "@/test/mocks/session"
+
+notifyManager.setScheduler((callback) => callback())
+
+afterEach(resetSession)
+
 jest.mock("expo-secure-store", () => ({
   getItemAsync: jest.fn(async () => null),
   setItemAsync: jest.fn(async () => undefined),

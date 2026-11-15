@@ -36,4 +36,4 @@ Gestiona el permiso de notificaciones del sistema y las preferencias de push y c
 
 ## Pruebas
 
-Cubierto: `push-prompt-storage` (fase 1). Falta la lógica de `useNotificationPreferences` y `usePushPrompt` (fase 4, mockeando `expo-notifications`).
+Cubierto: `push-prompt-storage` (fase 1) y `useUpdateNotificationPreferences` (fase 3). Falta la lógica de `useNotificationPreferences` y `usePushPrompt` (fase 4, mockeando `expo-notifications`).

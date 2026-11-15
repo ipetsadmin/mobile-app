@@ -96,7 +96,8 @@
       "!src/constants/**",
       "!src/test/**",
       "!src/**/*.test.{ts,tsx}"
-    ]
+    ],
+    "clearMocks": true
   },
   "lint-staged": {
     "*.{ts,tsx,js}": "biome check --write --no-errors-on-unmatched"

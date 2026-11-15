@@ -22,6 +22,28 @@ Pruebas unitarias con `jest-expo` y `@testing-library/react-native`. Se corren c
 - Los tests siguen el formato de Biome como cualquier otro archivo.
 - El huso horario de las pruebas es UTC (`src/test/global-setup.js`); un test de fechas no depende de la máquina.
 
+## Hooks de datos
+
+Los hooks de `data/` se prueban con `renderHookWithProviders` y los mocks de `src/test/mocks/`:
+
+```ts
+jest.mock("@/lib/api-client", () => jest.requireActual("@/test/mocks/api-client"))
+jest.mock("@/features/auth", () => jest.requireActual("@/test/mocks/auth-feature"))
+```
+
+- `mocks/api-client.ts` expone `apiClient` con un `jest.fn` por endpoint, `getSessionCookie` (devuelve `session-cookie`) y `ok(data)` para armar una respuesta. Se resetea solo antes de cada test; cada test configura lo que necesita.
+- `mocks/auth-client.ts` sustituye `@/lib/auth-client` para los hooks que llaman a `better-auth`.
+- `mocks/auth-feature.ts` sustituye `@/features/auth` (solo `useAuthSession`) para no cargar las pantallas de auth. La sesión se controla con `sessionState.current` (`null` simula sin sesión) y se restaura sola después de cada test.
+- Una consulta se prueba con `waitFor` sobre `result.current`; una mutación con `await act(async () => { await result.current.mutateAsync(valores) })`.
+- Las invalidaciones se comprueban con `spyOnInvalidations(queryClient)` de `src/test/query-helpers.ts`, que devuelve las claves invalidadas en orden.
+- Por cada mutación se prueba: el body que se envía, las claves que invalida, que no invalida si falla y, si usa la sesión, que falla sin ella sin llamar a la API.
+- `src/test/setup.ts` hace que React Query notifique de forma síncrona (`notifyManager.setScheduler`); sin eso aparecen avisos de `act`.
+- Un test no puede dejar `console.error` en la salida: se arregla la causa, no se silencia.
+
+## Tamaño de un test
+
+Un archivo de test no supera las 200 líneas ([`code-style.md`](./code-style.md)). Si un schema o un hook tiene tantas reglas que no cabe, se divide por grupo de reglas con el mismo prefijo: `companion.schema.test.ts` y `companion.schema.rules.test.ts`.
+
 ## Fases
 
 Se avanza en orden. Cada fase termina con `npm test`, `npx tsc --noEmit` y `npx expo lint` en verde, y se commitea por separado.

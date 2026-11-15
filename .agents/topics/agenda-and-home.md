@@ -44,4 +44,4 @@ El inicio abre notificaciones desde el icono de campana y desde "ver todo" o "m�
 
 ## Pruebas
 
-Fase 1 completa para agenda: `group-agenda-by-day`, `sort-agenda-items` (con `getAgendaItemKey`), `describe-agenda-item` y `agenda-item-symbol`. También `format-date` y `calendar` de `src/utils`, que usa el inicio. Faltan `useAgenda` y `useNotifications` (fases 3 y 4) y las pantallas `HomeScreen` y `NotificationsScreen` (fase 6).
+Fases 1 y 3 completas: los utils de agenda, `useAgenda` (orden, fechas, clave por días y sin sesión) y `useNotifications` (urgencia a menos de 3 días y etiqueta relativa). Faltan las pantallas `HomeScreen` y `NotificationsScreen` (fase 6).

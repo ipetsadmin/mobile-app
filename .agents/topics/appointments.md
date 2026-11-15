@@ -46,4 +46,4 @@ Se llega a la creación desde el menú de agregar del detalle (`/companions/[pet
 
 ## Pruebas
 
-Fases 1 y 2 completas: `split-appointments`, los mapas de tipo y estado, `to-create-appointment-body` y `appointment.schema` (fecha futura, textos obligatorios y mensajes traducidos). Faltan `useCreateAppointment` y `usePetAppointments` (fase 3, comprobar las invalidaciones) y `useAppointmentForm` (fase 4).
+Fases 1 a 3 completas: utils, `appointment.schema`, `usePetAppointments` y `useCreateAppointment`, que comprueba que se invalidan `appointments.all` y `agenda.all`. Falta `useAppointmentForm` (fase 4) y las pantallas y la lista (fases 5 y 6).
