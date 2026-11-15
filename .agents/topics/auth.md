@@ -51,4 +51,4 @@ No usa caché de React Query para la sesión: `useAuthSession` envuelve `authCli
 
 ## Pruebas
 
-Fases 1 a 3 completas: los utils, los cinco schemas y los nueve hooks de `data/` (`useSignIn` incluye el caso de correo sin verificar, `useSignOut` que limpia credenciales y caché, y el resto con éxito y error). Faltan los formularios y `useResendCode` (fase 4) y las pantallas (fase 6).
+Fases 1 a 4 completas: utils, schemas, los nueve hooks de `data/` y los hooks de lógica (`useSignInForm`, `useSignUpForm`, `useResetPasswordForm`, `useNewPasswordForm`, `useVerifyAccountForm`, `useResendCode` con su cuenta atrás y `useSignOutAction`). Faltan las pantallas y componentes (fases 5 y 6). Detalle observado: el schema no recorta el correo, así que un correo con espacio al final (por ejemplo el que añade el autocompletado) se rechaza como inválido antes de llegar al `trim()` de los hooks de datos.

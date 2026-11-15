@@ -53,4 +53,4 @@ Los parámetros se leen con `useLocalSearchParams` en la ruta y se pasan como pr
 
 ## Pruebas
 
-Sin pruebas. Las rutas son la fase 7 y están bloqueadas por la versión de `@testing-library/react-native` (ver [`testing.md`](../rules/testing.md)).
+Cubiertos `useCloseFlow` y `useHeaderOptions`. Las rutas siguen sin pruebas: son la fase 7 y están bloqueadas por la versión de `@testing-library/react-native` (ver [`testing.md`](../rules/testing.md)).

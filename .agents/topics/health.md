@@ -41,4 +41,4 @@ En ambos casos se cierra la pantalla solo si la mutación termina bien; si falla
 
 ## Pruebas
 
-Fases 1 a 3 completas: conversores, mapas, schemas `vaccine` y `treatment`, `usePetTreatments`, `useCreateVaccine` y `useCreateTreatment` (invalidan `treatments.all`, `pets.detail(petId)` y `agenda.all`). Faltan los formularios (fase 4) y los componentes y pantallas (fases 5 y 6).
+Fases 1 a 4 completas: conversores, mapas, schemas, hooks de `data/` y los formularios `useVaccineForm` y `useTreatmentForm`. Faltan los componentes y pantallas (fases 5 y 6).

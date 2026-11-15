@@ -44,4 +44,4 @@ El inicio abre notificaciones desde el icono de campana y desde "ver todo" o "m�
 
 ## Pruebas
 
-Fases 1 y 3 completas: los utils de agenda, `useAgenda` (orden, fechas, clave por días y sin sesión) y `useNotifications` (urgencia a menos de 3 días y etiqueta relativa). Faltan las pantallas `HomeScreen` y `NotificationsScreen` (fase 6).
+Fases 1 y 3 completas: los utils de agenda, `useAgenda` (orden, fechas, clave por días y sin sesión) y `useNotifications` (urgencia a menos de 3 días y etiqueta relativa). `usePullRefresh` también está cubierto (invalida cada clave y deja de refrescar aunque falle). Faltan las pantallas `HomeScreen` y `NotificationsScreen` (fase 6).

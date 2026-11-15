@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { render, renderHook } from "@testing-library/react-native"
-import type { ReactElement, ReactNode } from "react"
+import type { ComponentType, ReactElement, ReactNode } from "react"
 import { I18nextProvider } from "react-i18next"
 
 import { i18n } from "@/lib/i18n"
@@ -27,11 +27,16 @@ function TestProviders({ queryClient, children }: TestProvidersProps) {
   )
 }
 
-function createWrapper(queryClient: QueryClient) {
+type InnerWrapper = ComponentType<{ children: ReactNode }>
+
+function createWrapper(queryClient: QueryClient, Inner?: InnerWrapper) {
   i18n.changeLanguage("es")
 
   return ({ children }: { children: ReactNode }) =>
-    TestProviders({ queryClient, children })
+    TestProviders({
+      queryClient,
+      children: Inner ? <Inner>{children}</Inner> : children,
+    })
 }
 
 export async function renderWithProviders(
@@ -46,9 +51,10 @@ export async function renderWithProviders(
 export async function renderHookWithProviders<Result>(
   callback: () => Result,
   queryClient = createTestQueryClient(),
+  Inner?: InnerWrapper,
 ) {
   const result = await renderHook(callback, {
-    wrapper: createWrapper(queryClient),
+    wrapper: createWrapper(queryClient, Inner),
   })
 
   return { ...result, queryClient }

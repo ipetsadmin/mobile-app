@@ -36,4 +36,4 @@ El layout de `(app)` espera a que la lista de mascotas se resuelva, una sola vez
 
 ## Pruebas
 
-Sin pruebas propias todavía. `useAppBootstrap` es candidato de fase 4 (hooks de lógica). Las preferencias guardadas que lee el arranque ya están cubiertas (ver [`i18n-and-theme.md`](./i18n-and-theme.md)).
+Fase 4 cubierta: `useAppBootstrap` (espera a fuentes y mascotas, tope de cuatro segundos, no vuelve a quedar pendiente) y `useSplash`. Se prueba con `usePets` mockeado en la frontera de la feature. Sin pruebas: `useIntroTimeline` (animación con Reanimated), `SplashOverlay` y el guard de rutas.

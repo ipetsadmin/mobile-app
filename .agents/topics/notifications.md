@@ -30,10 +30,14 @@ Gestiona el permiso de notificaciones del sistema y las preferencias de push y c
 - `push` activo en el servidor no implica permiso del sistema; la pantalla muestra push como activo solo si ambos lo están.
 - Esta feature exporta hooks y tipos; la lista de avisos usa `useNotifications`, que vive en la misma feature pero consume la agenda.
 
+## Problema conocido
+
+`usePushPrompt` decide con el permiso que tenía el hook al montarse: `useNotificationPermission` empieza en `undetermined` hasta leer el estado real del sistema. Si el usuario ya concedió el permiso pero nunca respondió el aviso (por ejemplo, lo activó antes desde los ajustes de la cuenta), el aviso aparece igual. Está documentado como `it.failing` en `use-push-prompt.test.ts`; cuando se corrija, ese test pasará y Jest avisará para quitarle el `.failing`.
+
 ## Archivos clave
 
 `features/notifications/`, `features/account/hooks/use-notification-preferences.ts`, `lib/push-prompt-storage.ts`.
 
 ## Pruebas
 
-Cubierto: `push-prompt-storage` (fase 1) y `useUpdateNotificationPreferences` (fase 3). Falta la lógica de `useNotificationPreferences` y `usePushPrompt` (fase 4, mockeando `expo-notifications`).
+Fases 1, 3 y 4 completas: `push-prompt-storage`, `useUpdateNotificationPreferences`, `useNotifications`, `useNotificationPermission`, `usePushPrompt` y `useNotificationPreferences`. Limitación: la creación del canal en Android no se prueba, porque `process.env.EXPO_OS` lo reemplaza Babel por un literal al compilar y en Jest siempre vale `ios`. El caso del aviso con permiso ya concedido está marcado como `it.failing` (ver Problema conocido).

@@ -46,4 +46,4 @@ Se llega a la creación desde el menú de agregar del detalle (`/companions/[pet
 
 ## Pruebas
 
-Fases 1 a 3 completas: utils, `appointment.schema`, `usePetAppointments` y `useCreateAppointment`, que comprueba que se invalidan `appointments.all` y `agenda.all`. Falta `useAppointmentForm` (fase 4) y las pantallas y la lista (fases 5 y 6).
+Fases 1 a 4 completas: utils, schema, hooks de `data/` y `useAppointmentForm`. Faltan `AppointmentList` y `AppointmentRow` (fase 5) y `NewAppointmentScreen` (fase 6).

@@ -40,6 +40,19 @@ jest.mock("@/features/auth", () => jest.requireActual("@/test/mocks/auth-feature
 - `src/test/setup.ts` hace que React Query notifique de forma síncrona (`notifyManager.setScheduler`); sin eso aparecen avisos de `act`.
 - Un test no puede dejar `console.error` en la salida: se arregla la causa, no se silencia.
 
+## Hooks de lógica y formularios
+
+- Un formulario se prueba llenando campos con `fillForm(result.current.control, valores)` de `src/test/fill-form.ts` y llamando a `await result.current.submit()`, todo dentro de `act`. No se leen ni se escriben campos por detalles internos del hook.
+- Por cada formulario se prueba: que no llama a la API si es inválido, el llamado con los valores escritos, el callback de éxito, el mensaje de error y que no cierra el flujo si falla.
+- `src/test/mocks/toast.ts` sustituye `sonner-native`; el mensaje esperado se obtiene con `translate(clave)` de `src/test/translate.ts`, no escrito a mano.
+- Los hooks de un flujo de mascotas que usan `useFormContext` se montan con `createCompanionFormWrapper()` de `src/test/companion-form-wrapper.tsx`, pasado como tercer argumento de `renderHookWithProviders`.
+- `src/test/mocks/expo-notifications.ts` y `src/test/mocks/expo-image-picker.ts` sustituyen esos módulos nativos y se resetean solos.
+- Un hook que importa otra feature por su `index.ts` carga sus pantallas y con ellas módulos nativos que no existen en Jest. En ese caso se mockea la frontera de la feature (`jest.mock("@/features/pets", () => ({ usePets: jest.fn() }))`) en lugar de arrastrar la capa nativa.
+- El estado que vive en memoria de módulo (por ejemplo `pending-credentials`) se limpia en un `beforeEach` del archivo que lo usa.
+- Una cuenta atrás con `setTimeout` encadenado se avanza un segundo por vez con `await act(async () => { await jest.advanceTimersByTimeAsync(1000) })`.
+- `process.env.EXPO_OS` lo reemplaza Babel por un literal al compilar: en Jest vale siempre `ios`, así que un camino exclusivo de Android no se puede probar así.
+- Un comportamiento que se sabe incorrecto se deja como `it.failing("lo que debería hacer", ...)` y se anota en el tópico del flujo. No se borra ni se cambia la aserción para que pase.
+
 ## Tamaño de un test
 
 Un archivo de test no supera las 200 líneas ([`code-style.md`](./code-style.md)). Si un schema o un hook tiene tantas reglas que no cabe, se divide por grupo de reglas con el mismo prefijo: `companion.schema.test.ts` y `companion.schema.rules.test.ts`.

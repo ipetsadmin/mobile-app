@@ -58,4 +58,4 @@ Se invalida la agenda porque los cumpleaños salen de la fecha de nacimiento de 
 
 ## Pruebas
 
-Fases 1 a 3 completas: utils, conversores, `companion.schema` (en dos archivos por tamaño), `usePets`, `usePet`, `useCreatePet`, `useUpdatePet` y `useUploadPetPhoto`. Faltan `useSaveCompanion` y `useCompanionStep` (fase 4) y los componentes y pantallas (fases 5 y 6).
+Fases 1 a 4 completas: utils, conversores, schema, hooks de `data/` y los hooks del formulario (`useCompanionForm`, `useCompanionStep`, `useBirthDateStep`, `useTimeTogetherStep`, `useBreedOptions`, `useSaveCompanion` con el reintento que no crea una segunda mascota, `useHasPets` y `useShareHealthCard`). Faltan los componentes y pantallas (fases 5 y 6).
