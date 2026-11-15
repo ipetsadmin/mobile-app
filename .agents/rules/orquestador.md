@@ -23,6 +23,7 @@ Cada regla vive en un solo archivo. Si algo cambia, se edita ahí y no se repite
 | Crear un formulario | [`forms.md`](./forms.md) | `react-hook-form`, `zod` |
 | Agregar texto visible al usuario | [`i18n.md`](./i18n.md) | — |
 | Animar algo o agregar gestos | [`styling.md`](./styling.md#animación) | `expo:expo-animation` |
+| Escribir o correr pruebas | [`testing.md`](./testing.md) | — |
 | Hacer un commit | [`commits.md`](./commits.md) | — |
 
 Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGENTS.md`: lee la versión de `expo` en `package.json` y consulta la documentación de esa versión.
@@ -36,7 +37,7 @@ Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGEN
 5. **Pantalla.** Crea `screens/{nombre}-screen.tsx` y expórtala en el `index.ts` de la feature ([`templates/screen.md`](./templates/screen.md)).
 6. **Ruta.** Crea el archivo en `src/app/` que renderiza la pantalla y decide la navegación.
 7. **Textos.** Agrega las claves a todos los idiomas ([`i18n.md`](./i18n.md)).
-8. **Verificación.** Corre `npx tsc --noEmit` y `npx expo lint`, y revisa que ningún archivo supere su tamaño máximo.
+8. **Verificación.** Corre `npx tsc --noEmit`, `npx expo lint` y `npm test`, y revisa que ningún archivo supere su tamaño máximo.
 
 ## Resumen de una línea por regla
 
@@ -47,6 +48,7 @@ Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGEN
 - **`data.md`**: `apiClient` es el único acceso a la API, un hook por integración en `data/`, tipos siempre de `@ipetsadmin/contracts`.
 - **`forms.md`**: `react-hook-form` con schema de `zod`, la lógica en un hook de la feature, los mensajes de error son claves de i18n.
 - **`i18n.md`**: ningún texto visible escrito en el código.
+- **`testing.md`**: el test vive junto al archivo, se mockea solo la frontera, y se avanza por fases (infra, utils, schemas, hooks de datos, hooks, componentes, pantallas, rutas).
 - **`commits.md`**: conventional commits, y solo cuando el usuario lo pide.
 
 ## Si una regla contradice código existente

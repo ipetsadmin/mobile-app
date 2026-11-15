@@ -77,9 +77,20 @@
   "private": true,
   "jest": {
     "preset": "jest-expo",
+    "globalSetup": "<rootDir>/src/test/global-setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/test/setup.ts"
+    ],
     "moduleNameMapper": {
       "^@/assets/(.*)$": "<rootDir>/assets/$1",
       "^@/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/app/**",
+      "!src/constants/**",
+      "!src/test/**",
+      "!src/**/*.test.{ts,tsx}"
+    ]
   }
 }
