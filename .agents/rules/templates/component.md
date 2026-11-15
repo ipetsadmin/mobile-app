@@ -13,42 +13,45 @@ import {
   StyleSheet,
   type StyleProp,
   type ViewStyle,
-} from 'react-native';
+} from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, type ThemeColor } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing, type ThemeColor } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-type ButtonVariant = 'primary' | 'secondary';
-type ButtonSize = 'md' | 'lg';
+type ButtonVariant = "primary" | "secondary"
+type ButtonSize = "md" | "lg"
 
 type ButtonProps = {
-  title: string;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  loading?: boolean;
-  disabled?: boolean;
-  style?: StyleProp<ViewStyle>;
-  onPress: () => void;
-};
+  title: string
+  variant?: ButtonVariant
+  size?: ButtonSize
+  loading?: boolean
+  disabled?: boolean
+  style?: StyleProp<ViewStyle>
+  onPress: () => void
+}
 
 const variantColors = {
-  primary: { background: 'primary', content: 'onPrimary' },
-  secondary: { background: 'secondary', content: 'onSecondary' },
-} as const satisfies Record<ButtonVariant, { background: ThemeColor; content: ThemeColor }>;
+  primary: { background: "primary", content: "onPrimary" },
+  secondary: { background: "secondary", content: "onSecondary" },
+} as const satisfies Record<
+  ButtonVariant,
+  { background: ThemeColor; content: ThemeColor }
+>
 
 export function Button({
   title,
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   loading = false,
   disabled = false,
   style,
   onPress,
 }: ButtonProps) {
-  const theme = useTheme();
-  const colors = variantColors[variant];
-  const isInactive = disabled || loading;
+  const theme = useTheme()
+  const colors = variantColors[variant]
+  const isInactive = disabled || loading
 
   return (
     <Pressable
@@ -64,7 +67,8 @@ export function Button({
         pressed && styles.pressed,
         disabled && styles.disabled,
         style,
-      ]}>
+      ]}
+    >
       {loading ? (
         <ActivityIndicator color={theme[colors.content]} />
       ) : (
@@ -73,15 +77,15 @@ export function Button({
         </ThemedText>
       )}
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   base: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: Radius.control,
-    borderCurve: 'continuous',
+    borderCurve: "continuous",
   },
   pressed: {
     opacity: 0.7,
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.4,
   },
-});
+})
 
 const sizes = StyleSheet.create({
   md: {
@@ -100,7 +104,7 @@ const sizes = StyleSheet.create({
     minHeight: 56,
     paddingHorizontal: Spacing.lg,
   },
-});
+})
 ```
 
 Qué muestra este ejemplo:
@@ -115,19 +119,27 @@ Qué muestra este ejemplo:
 Campo genérico sobre el formulario. Recibe `control` y `name`, y traduce la clave del error.
 
 ```tsx
-import { useController, type Control, type FieldValues, type Path } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
+import {
+  useController,
+  type Control,
+  type FieldValues,
+  type Path,
+} from "react-hook-form"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, TextInput, View, type TextInputProps } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, Typography } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing, Typography } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-type TextFieldProps<T extends FieldValues> = Omit<TextInputProps, 'value' | 'onChangeText'> & {
-  control: Control<T>;
-  name: Path<T>;
-  label: string;
-};
+type TextFieldProps<T extends FieldValues> = Omit<
+  TextInputProps,
+  "value" | "onChangeText"
+> & {
+  control: Control<T>
+  name: Path<T>
+  label: string
+}
 
 export function TextField<T extends FieldValues>({
   control,
@@ -136,9 +148,9 @@ export function TextField<T extends FieldValues>({
   style,
   ...inputProps
 }: TextFieldProps<T>) {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const { field, fieldState } = useController({ control, name });
+  const { t } = useTranslation()
+  const theme = useTheme()
+  const { field, fieldState } = useController({ control, name })
 
   return (
     <View style={styles.container}>
@@ -165,7 +177,7 @@ export function TextField<T extends FieldValues>({
         </ThemedText>
       )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -177,9 +189,9 @@ const styles = StyleSheet.create({
     minHeight: 48,
     paddingHorizontal: Spacing.md,
     borderRadius: Radius.control,
-    borderCurve: 'continuous',
+    borderCurve: "continuous",
   },
-});
+})
 ```
 
 Este es el único lugar donde `Typography` se aplica sin pasar por `ThemedText`, porque un `TextInput` no puede envolverse en él.

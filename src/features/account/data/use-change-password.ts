@@ -1,8 +1,8 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query"
 
-import { authClient } from '@/lib/auth-client';
+import { authClient } from "@/lib/auth-client"
 
-import type { ChangePasswordValues } from '../schema/change-password.schema';
+import type { ChangePasswordValues } from "../schema/change-password.schema"
 
 export function useChangePassword() {
   return useMutation({
@@ -11,9 +11,9 @@ export function useChangePassword() {
         currentPassword: values.currentPassword,
         newPassword: values.newPassword,
         revokeOtherSessions: true,
-      });
+      })
 
-      if (error) throw error;
+      if (error) throw error
     },
-  });
+  })
 }

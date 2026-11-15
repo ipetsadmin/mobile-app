@@ -1,18 +1,18 @@
-import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
+import { Image } from "expo-image"
+import { StyleSheet, View } from "react-native"
 
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme } from "@/hooks/use-theme"
 
-const MARK_SIZE = 200;
-const ICON_CENTER = 48;
+const MARK_SIZE = 200
+const ICON_CENTER = 48
 
 export function NewCompanionBackdrop() {
-  const theme = useTheme();
-  const clear = `${theme.primary}00`;
+  const theme = useTheme()
+  const clear = `${theme.primary}00`
   const glows = [
     `radial-gradient(circle at 10% 125%, ${theme.primary} 0%, ${clear} 45%)`,
     `radial-gradient(circle at 78% 140%, ${theme.primary} 0%, ${clear} 42%)`,
-  ];
+  ]
 
   return (
     <View
@@ -34,7 +34,7 @@ export function NewCompanionBackdrop() {
         style={styles.mark}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
     marginTop: -MARK_SIZE / 2,
     opacity: 0.85,
   },
-});
+})

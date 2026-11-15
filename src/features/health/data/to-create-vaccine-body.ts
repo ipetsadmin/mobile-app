@@ -1,15 +1,18 @@
-import type { PostPetTreatmentRequestBody } from '@ipetsadmin/api-client';
-import { TreatmentStatus, TreatmentType } from '@ipetsadmin/contracts';
+import type { PostPetTreatmentRequestBody } from "@ipetsadmin/api-client"
+import { TreatmentStatus, TreatmentType } from "@ipetsadmin/contracts"
 
-import type { VaccineValues } from '../schema/vaccine.schema';
+import type { VaccineValues } from "../schema/vaccine.schema"
 
-export function toCreateVaccineBody(ownerId: string, values: VaccineValues): PostPetTreatmentRequestBody {
-  const hasDetails = Boolean(values.laboratory && values.lotNumber);
+export function toCreateVaccineBody(
+  ownerId: string,
+  values: VaccineValues,
+): PostPetTreatmentRequestBody {
+  const hasDetails = Boolean(values.laboratory && values.lotNumber)
 
   return {
     ownerId,
     medicationName: values.name.trim(),
-    dosage: '1',
+    dosage: "1",
     frequencyHours: 0,
     durationDays: 1,
     totalDoses: 1,
@@ -24,5 +27,5 @@ export function toCreateVaccineBody(ownerId: string, values: VaccineValues): Pos
           administeredAt: values.administeredAt,
         }
       : undefined,
-  };
+  }
 }

@@ -1,13 +1,21 @@
-import { useController, type Control, type FieldValues, type Path } from 'react-hook-form';
+import {
+  type Control,
+  type FieldValues,
+  type Path,
+  useController,
+} from "react-hook-form"
 
-import { SegmentedControl, type SegmentOption } from '@/components/segmented-control';
+import {
+  SegmentedControl,
+  type SegmentOption,
+} from "@/components/segmented-control"
 
 type SegmentedFieldProps<T extends FieldValues> = {
-  control: Control<T>;
-  name: Path<T>;
-  label: string;
-  options: SegmentOption[];
-};
+  control: Control<T>
+  name: Path<T>
+  label: string
+  options: SegmentOption[]
+}
 
 export function SegmentedField<T extends FieldValues>({
   control,
@@ -15,7 +23,7 @@ export function SegmentedField<T extends FieldValues>({
   label,
   options,
 }: SegmentedFieldProps<T>) {
-  const { field } = useController({ control, name });
+  const { field } = useController({ control, name })
 
   return (
     <SegmentedControl
@@ -24,5 +32,5 @@ export function SegmentedField<T extends FieldValues>({
       value={field.value}
       onChange={field.onChange}
     />
-  );
+  )
 }

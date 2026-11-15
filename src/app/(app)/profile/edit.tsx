@@ -1,7 +1,7 @@
-import { router } from 'expo-router';
+import { router } from "expo-router"
 
-import { EditProfileScreen } from '@/features/account';
+import { EditProfileScreen } from "@/features/account"
 
 export default function EditProfileRoute() {
-  return <EditProfileScreen onProfileSaved={() => router.back()} />;
+  return <EditProfileScreen onProfileSaved={() => router.back()} />
 }

@@ -1,32 +1,32 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { toast } from 'sonner-native';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
+import { toast } from "sonner-native"
 
-import { useResendVerification } from '../data/use-resend-verification';
-import { useSignIn } from '../data/use-sign-in';
-import { useSocialSignIn } from '../data/use-social-sign-in';
-import { signInSchema, type SignInValues } from '../schema/sign-in.schema';
-import { getSignInErrorKey } from '../utils/get-sign-in-error-key';
-import { setPendingCredentials } from '../utils/pending-credentials';
+import { useResendVerification } from "../data/use-resend-verification"
+import { useSignIn } from "../data/use-sign-in"
+import { useSocialSignIn } from "../data/use-social-sign-in"
+import { type SignInValues, signInSchema } from "../schema/sign-in.schema"
+import { getSignInErrorKey } from "../utils/get-sign-in-error-key"
+import { setPendingCredentials } from "../utils/pending-credentials"
 
-const EMAIL_NOT_VERIFIED_STATUS = 403;
+const EMAIL_NOT_VERIFIED_STATUS = 403
 
 type UseSignInFormArgs = {
-  onEmailNotVerified: (email: string) => void;
-};
+  onEmailNotVerified: (email: string) => void
+}
 
 export function useSignInForm({ onEmailNotVerified }: UseSignInFormArgs) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const { control, handleSubmit, setFocus } = useForm<SignInValues>({
     resolver: zodResolver(signInSchema),
-    defaultValues: { email: '', password: '' },
-  });
-  const { mutate, isPending } = useSignIn();
-  const { mutate: sendCode } = useResendVerification();
-  const social = useSocialSignIn();
+    defaultValues: { email: "", password: "" },
+  })
+  const { mutate, isPending } = useSignIn()
+  const { mutate: sendCode } = useResendVerification()
+  const social = useSocialSignIn()
 
-  const showError = (error: unknown) => toast.error(t(getSignInErrorKey(error)));
+  const showError = (error: unknown) => toast.error(t(getSignInErrorKey(error)))
 
   return {
     control,
@@ -36,18 +36,20 @@ export function useSignInForm({ onEmailNotVerified }: UseSignInFormArgs) {
     submit: handleSubmit((values) =>
       mutate(values, {
         onError: (error) => {
-          if ((error as { status?: number }).status !== EMAIL_NOT_VERIFIED_STATUS) {
-            showError(error);
-            return;
+          if (
+            (error as { status?: number }).status !== EMAIL_NOT_VERIFIED_STATUS
+          ) {
+            showError(error)
+            return
           }
 
-          const email = values.email.trim();
-          setPendingCredentials(email, values.password);
-          sendCode(email);
-          onEmailNotVerified(email);
+          const email = values.email.trim()
+          setPendingCredentials(email, values.password)
+          sendCode(email)
+          onEmailNotVerified(email)
         },
       }),
     ),
-    focusPassword: () => setFocus('password'),
-  };
+    focusPassword: () => setFocus("password"),
+  }
 }

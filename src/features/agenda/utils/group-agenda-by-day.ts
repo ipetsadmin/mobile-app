@@ -1,21 +1,24 @@
-import type { UserAgendaItem } from '@ipetsadmin/contracts';
+import type { UserAgendaItem } from "@ipetsadmin/contracts"
 
-import { isSameDay } from '@/utils/calendar';
+import { isSameDay } from "@/utils/calendar"
 
 export type AgendaDayGroup = {
-  day: Date;
-  items: UserAgendaItem[];
-};
+  day: Date
+  items: UserAgendaItem[]
+}
 
 export function groupAgendaByDay(items: UserAgendaItem[]): AgendaDayGroup[] {
-  return items.reduce<AgendaDayGroup[]>((groups, item) => {
-    const lastGroup = groups.at(-1);
+  const groups: AgendaDayGroup[] = []
+
+  for (const item of items) {
+    const lastGroup = groups.at(-1)
 
     if (lastGroup && isSameDay(lastGroup.day, item.occursAt)) {
-      lastGroup.items.push(item);
-      return groups;
+      lastGroup.items.push(item)
+    } else {
+      groups.push({ day: item.occursAt, items: [item] })
     }
+  }
 
-    return [...groups, { day: item.occursAt, items: [item] }];
-  }, []);
+  return groups
 }

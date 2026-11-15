@@ -1,8 +1,8 @@
-import type { PostUserPetRequestBody } from "@ipetsadmin/api-client";
-import { PetStatus } from "@ipetsadmin/contracts";
+import type { PostUserPetRequestBody } from "@ipetsadmin/api-client"
+import { PetStatus } from "@ipetsadmin/contracts"
 
-import type { CompanionValues } from "../schema/companion.schema";
-import { toPetDetailsBody } from "./to-pet-details-body";
+import type { CompanionValues } from "../schema/companion.schema"
+import { toPetDetailsBody } from "./to-pet-details-body"
 
 export function toCreatePetBody(
   values: CompanionValues,
@@ -13,5 +13,5 @@ export function toCreatePetBody(
     allergies: [],
     description: "",
     status: PetStatus.ACTIVE,
-  };
+  }
 }

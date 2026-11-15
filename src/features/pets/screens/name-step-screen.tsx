@@ -1,17 +1,17 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-import { TextField } from "@/components/form/text-field";
+import { TextField } from "@/components/form/text-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
 
 type NameStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function NameStepScreen({ onNext }: NameStepScreenProps) {
-  const { t } = useTranslation();
-  const { control, goNext } = useCompanionStep({ fields: ["name"], onNext });
+  const { t } = useTranslation()
+  const { control, goNext } = useCompanionStep({ fields: ["name"], onNext })
 
   return (
     <StepScaffold
@@ -34,5 +34,5 @@ export function NameStepScreen({ onNext }: NameStepScreenProps) {
         onSubmitEditing={goNext}
       />
     </StepScaffold>
-  );
+  )
 }

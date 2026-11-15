@@ -1,9 +1,9 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native"
 
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from "@/hooks/use-theme"
 
 export function CornerGlow() {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View
@@ -14,16 +14,16 @@ export function CornerGlow() {
         },
       ]}
     />
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   glow: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     right: 0,
     width: 360,
     height: 360,
-    pointerEvents: 'none',
+    pointerEvents: "none",
   },
-});
+})

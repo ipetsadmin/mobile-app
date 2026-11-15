@@ -1,1 +1,40 @@
-npm run typecheck && npx expo lint && npx jest --ci
+LOG_FILE=$(mktemp)
+trap 'rm -f "$LOG_FILE"' EXIT
+
+run_step() {
+  title="$1"
+  hint="$2"
+  shift 2
+
+  printf "\n⏳ %s...\n" "$title"
+
+  if "$@" >"$LOG_FILE" 2>&1; then
+    printf "✅ %s: todo bien\n" "$title"
+    return 0
+  fi
+
+  cat "$LOG_FILE"
+  printf "\n❌ %s: falló. El commit se canceló.\n" "$title"
+  printf "👉 %s\n\n" "$hint"
+  exit 1
+}
+
+printf "🚀 Iniciando validaciones antes del commit\n"
+
+run_step "Formato y lint de Biome (archivos del commit)" \
+  "Biome corrigió lo que pudo. Revisa los errores de arriba, arréglalos, haz 'git add' y vuelve a commitear." \
+  npx lint-staged
+
+run_step "Revisión de tipos (TypeScript)" \
+  "Corrige los errores de tipos de arriba. Puedes reproducirlo con: npm run typecheck" \
+  npm run typecheck
+
+run_step "Lint de Expo (ESLint)" \
+  "Corrige los errores de arriba. Puedes reproducirlo con: npx expo lint" \
+  npx expo lint
+
+run_step "Pruebas unitarias (Jest)" \
+  "Hay pruebas que fallan. Puedes reproducirlas con: npm test" \
+  npx jest --ci
+
+printf "\n🎉 Todas las validaciones pasaron. Creando el commit...\n\n"

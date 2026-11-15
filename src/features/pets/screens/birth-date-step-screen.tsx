@@ -1,20 +1,20 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-import { DateField } from "@/components/form/date-field";
-import { OptionGroupField } from "@/components/form/option-group-field";
+import { DateField } from "@/components/form/date-field"
+import { OptionGroupField } from "@/components/form/option-group-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useBirthDateStep } from "../hooks/use-birth-date-step";
-import { BirthDateMode } from "../schema/companion.schema";
+import { StepScaffold } from "../components/step-scaffold"
+import { useBirthDateStep } from "../hooks/use-birth-date-step"
+import { BirthDateMode } from "../schema/companion.schema"
 
 type BirthDateStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function BirthDateStepScreen({ onNext }: BirthDateStepScreenProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const { control, goNext, earliestBirthDate, latestBirthDate } =
-    useBirthDateStep({ onNext });
+    useBirthDateStep({ onNext })
 
   return (
     <StepScaffold
@@ -48,5 +48,5 @@ export function BirthDateStepScreen({ onNext }: BirthDateStepScreenProps) {
         maximumDate={latestBirthDate}
       />
     </StepScaffold>
-  );
+  )
 }

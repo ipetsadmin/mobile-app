@@ -1,8 +1,8 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query"
 
-import { authClient } from '@/lib/auth-client';
+import { authClient } from "@/lib/auth-client"
 
-import type { SignUpValues } from '../schema/sign-up.schema';
+import type { SignUpValues } from "../schema/sign-up.schema"
 
 export function useSignUp() {
   return useMutation({
@@ -11,12 +11,12 @@ export function useSignUp() {
         email: values.email.trim(),
         password: values.password,
         name: `${values.firstName.trim()} ${values.lastName.trim()}`,
-        callbackURL: '/',
-      });
+        callbackURL: "/",
+      })
 
-      if (error) throw error;
+      if (error) throw error
 
-      return data;
+      return data
     },
-  });
+  })
 }

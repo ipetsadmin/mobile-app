@@ -1,27 +1,27 @@
-import type { PropsWithChildren } from "react";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
-import { KeyboardStickyView } from "react-native-keyboard-controller";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import type { PropsWithChildren } from "react"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
+import { KeyboardStickyView } from "react-native-keyboard-controller"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { Button } from "@/components/button";
-import { FormScrollView } from "@/components/form/form-scroll-view";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { Spacing } from "@/constants/theme";
+import { Button } from "@/components/button"
+import { FormScrollView } from "@/components/form/form-scroll-view"
+import { ThemedText } from "@/components/themed-text"
+import { ThemedView } from "@/components/themed-view"
+import { Spacing } from "@/constants/theme"
 
-import { StepProgress } from "./step-progress";
+import { StepProgress } from "./step-progress"
 
-const TOTAL_STEPS = 9;
+const TOTAL_STEPS = 9
 
 type StepScaffoldProps = PropsWithChildren<{
-  step: number;
-  title: string;
-  subtitle: string;
-  actionLabel?: string;
-  isLoading?: boolean;
-  onNext: () => void;
-}>;
+  step: number
+  title: string
+  subtitle: string
+  actionLabel?: string
+  isLoading?: boolean
+  onNext: () => void
+}>
 
 export function StepScaffold({
   step,
@@ -32,8 +32,8 @@ export function StepScaffold({
   onNext,
   children,
 }: StepScaffoldProps) {
-  const { t } = useTranslation();
-  const insets = useSafeAreaInsets();
+  const { t } = useTranslation()
+  const insets = useSafeAreaInsets()
 
   return (
     <ThemedView style={styles.screen}>
@@ -67,7 +67,7 @@ export function StepScaffold({
         </View>
       </KeyboardStickyView>
     </ThemedView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -88,4 +88,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg,
     paddingTop: Spacing.md,
   },
-});
+})

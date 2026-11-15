@@ -1,19 +1,19 @@
-import { FlatList, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FlatList, StyleSheet } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 
-import { ScrollContextReset } from './scroll-context-reset';
-import type { SelectOption } from './select-option';
-import { SelectOptionRow } from './select-option-row';
+import { ScrollContextReset } from "./scroll-context-reset"
+import type { SelectOption } from "./select-option"
+import { SelectOptionRow } from "./select-option-row"
 
 type SelectOptionListProps = {
-  options: SelectOption[];
-  selectedValue?: string;
-  emptyText: string;
-  onSelect: (value: string) => void;
-};
+  options: SelectOption[]
+  selectedValue?: string
+  emptyText: string
+  onSelect: (value: string) => void
+}
 
 export function SelectOptionList({
   options,
@@ -21,7 +21,7 @@ export function SelectOptionList({
   emptyText,
   onSelect,
 }: SelectOptionListProps) {
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets()
 
   return (
     <ScrollContextReset>
@@ -40,13 +40,17 @@ export function SelectOptionList({
           />
         )}
         ListEmptyComponent={
-          <ThemedText type="body" themeColor="textSecondary" style={styles.empty}>
+          <ThemedText
+            type="body"
+            themeColor="textSecondary"
+            style={styles.empty}
+          >
             {emptyText}
           </ThemedText>
         }
       />
     </ScrollContextReset>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -55,6 +59,6 @@ const styles = StyleSheet.create({
   },
   empty: {
     paddingVertical: Spacing.lg,
-    textAlign: 'center',
+    textAlign: "center",
   },
-});
+})

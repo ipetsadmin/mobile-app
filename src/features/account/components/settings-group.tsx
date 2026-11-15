@@ -1,16 +1,16 @@
-import type { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import type { PropsWithChildren } from "react"
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type SettingsGroupProps = PropsWithChildren<{
-  label: string;
-}>;
+  label: string
+}>
 
 export function SettingsGroup({ label, children }: SettingsGroupProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View style={styles.group}>
@@ -18,12 +18,16 @@ export function SettingsGroup({ label, children }: SettingsGroupProps) {
       <View
         style={[
           styles.rows,
-          { backgroundColor: theme.backgroundSelected, borderColor: theme.border },
-        ]}>
+          {
+            backgroundColor: theme.backgroundSelected,
+            borderColor: theme.border,
+          },
+        ]}
+      >
         {children}
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
   rows: {
     borderWidth: 1,
     borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
+    borderCurve: "continuous",
+    overflow: "hidden",
   },
-});
+})

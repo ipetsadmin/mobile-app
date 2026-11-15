@@ -1,29 +1,29 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import type { PetResponse } from "@ipetsadmin/contracts"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { Spacing } from "@/constants/theme";
-import { ActiveTreatments } from "@/features/health";
-import { getDaysBetween } from "@/utils/calendar";
-import { formatMediumDate } from "@/utils/format-date";
-import { getAge } from "@/utils/get-age";
+import { Spacing } from "@/constants/theme"
+import { ActiveTreatments } from "@/features/health"
+import { getDaysBetween } from "@/utils/calendar"
+import { formatMediumDate } from "@/utils/format-date"
+import { getAge } from "@/utils/get-age"
 
-import { ageKeys, weightUnitKeys } from "./pet-labels";
-import { StatTile } from "./stat-tile";
+import { ageKeys, weightUnitKeys } from "./pet-labels"
+import { StatTile } from "./stat-tile"
 
 type CompanionOverviewProps = {
-  pet: PetResponse;
-  caretakerName: string;
-};
+  pet: PetResponse
+  caretakerName: string
+}
 
 export function CompanionOverview({
   pet,
   caretakerName,
 }: CompanionOverviewProps) {
-  const { t, i18n } = useTranslation();
-  const today = new Date();
-  const age = getAge(pet.birthDate.date, today);
-  const daysTogether = getDaysBetween(pet.beenWithUsSince.date, today);
+  const { t, i18n } = useTranslation()
+  const today = new Date()
+  const age = getAge(pet.birthDate.date, today)
+  const daysTogether = getDaysBetween(pet.beenWithUsSince.date, today)
 
   return (
     <View style={styles.container}>
@@ -56,7 +56,7 @@ export function CompanionOverview({
         <StatTile label={t("healthCard.caretaker")} value={caretakerName} />
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: Spacing.sm,
   },
-});
+})

@@ -25,7 +25,7 @@ Todo valor visual sale de `@/constants/theme`:
 Los colores dependen del tema activo y solo se obtienen con `useTheme()` dentro de un componente:
 
 ```tsx
-const theme = useTheme();
+const theme = useTheme()
 
 <View style={[styles.card, { backgroundColor: theme.backgroundElement }]} />
 ```

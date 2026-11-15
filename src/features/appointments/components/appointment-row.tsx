@@ -1,19 +1,19 @@
-import type { AppointmentResponse } from '@ipetsadmin/contracts';
-import { useTranslation } from 'react-i18next';
+import type { AppointmentResponse } from "@ipetsadmin/contracts"
+import { useTranslation } from "react-i18next"
 
-import { RecordRow } from '@/components/record-row';
-import { formatDateTime } from '@/utils/format-date';
+import { RecordRow } from "@/components/record-row"
+import { formatDateTime } from "@/utils/format-date"
 
-import { appointmentStatusKeys } from '../utils/appointment-status-keys';
-import { appointmentTypeKeys } from '../utils/appointment-type-keys';
+import { appointmentStatusKeys } from "../utils/appointment-status-keys"
+import { appointmentTypeKeys } from "../utils/appointment-type-keys"
 
 type AppointmentRowProps = {
-  appointment: AppointmentResponse;
-  isMuted?: boolean;
-};
+  appointment: AppointmentResponse
+  isMuted?: boolean
+}
 
 export function AppointmentRow({ appointment, isMuted }: AppointmentRowProps) {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation()
 
   return (
     <RecordRow
@@ -22,5 +22,5 @@ export function AppointmentRow({ appointment, isMuted }: AppointmentRowProps) {
       caption={t(appointmentStatusKeys[appointment.status])}
       isMuted={isMuted}
     />
-  );
+  )
 }

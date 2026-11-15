@@ -1,23 +1,23 @@
-import { WeightUnit } from "@ipetsadmin/contracts";
-import { useTranslation } from "react-i18next";
+import { WeightUnit } from "@ipetsadmin/contracts"
+import { useTranslation } from "react-i18next"
 
-import { SegmentedField } from "@/components/form/segmented-field";
-import { TextField } from "@/components/form/text-field";
+import { SegmentedField } from "@/components/form/segmented-field"
+import { TextField } from "@/components/form/text-field"
 
-import { Note } from "../components/note";
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
+import { Note } from "../components/note"
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
 
 type WeightStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function WeightStepScreen({ onNext }: WeightStepScreenProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const { control, goNext } = useCompanionStep({
     fields: ["weight", "weightUnit"],
     onNext,
-  });
+  })
 
   return (
     <StepScaffold
@@ -47,5 +47,5 @@ export function WeightStepScreen({ onNext }: WeightStepScreenProps) {
       />
       <Note text={t("newCompanion.weight.note")} />
     </StepScaffold>
-  );
+  )
 }

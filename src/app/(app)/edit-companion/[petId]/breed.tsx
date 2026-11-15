@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { BreedStepScreen } from "@/features/pets";
+import { BreedStepScreen } from "@/features/pets"
 
 export default function EditCompanionBreedRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <BreedStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionBreedRoute() {
         })
       }
     />
-  );
+  )
 }

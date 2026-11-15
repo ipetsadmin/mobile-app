@@ -1,7 +1,7 @@
-import type { PostPetAppointmentRequestBody } from '@ipetsadmin/api-client';
-import { AppointmentStatus } from '@ipetsadmin/contracts';
+import type { PostPetAppointmentRequestBody } from "@ipetsadmin/api-client"
+import { AppointmentStatus } from "@ipetsadmin/contracts"
 
-import type { AppointmentValues } from '../schema/appointment.schema';
+import type { AppointmentValues } from "../schema/appointment.schema"
 
 export function toCreateAppointmentBody(
   ownerId: string,
@@ -19,5 +19,5 @@ export function toCreateAppointmentBody(
       city: values.city.trim(),
     },
     reason: values.reason || undefined,
-  };
+  }
 }

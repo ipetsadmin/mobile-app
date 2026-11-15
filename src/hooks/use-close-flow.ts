@@ -1,7 +1,7 @@
-import { useNavigation } from 'expo-router';
+import { useNavigation } from "expo-router"
 
 export function useCloseFlow() {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
-  return () => (navigation.getParent() ?? navigation).goBack();
+  return () => (navigation.getParent() ?? navigation).goBack()
 }

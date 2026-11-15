@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { useState } from "react"
+import { Pressable, StyleSheet, View } from "react-native"
 import Animated, {
-  useAnimatedStyle,
   type SharedValue,
-} from "react-native-reanimated";
+  useAnimatedStyle,
+} from "react-native-reanimated"
 
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type DetailTab<T extends string> = {
-  value: T;
-  label: string;
-};
+  value: T
+  label: string
+}
 
 type DetailTabsProps<T extends string> = {
-  tabs: DetailTab<T>[];
-  value: T;
-  progress: SharedValue<number>;
-  onChange: (value: T) => void;
-};
+  tabs: DetailTab<T>[]
+  value: T
+  progress: SharedValue<number>
+  onChange: (value: T) => void
+}
 
 export function DetailTabs<T extends string>({
   tabs,
@@ -27,12 +27,12 @@ export function DetailTabs<T extends string>({
   progress,
   onChange,
 }: DetailTabsProps<T>) {
-  const theme = useTheme();
-  const [width, setWidth] = useState(0);
-  const tabWidth = width / tabs.length;
+  const theme = useTheme()
+  const [width, setWidth] = useState(0)
+  const tabWidth = width / tabs.length
   const indicatorStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: progress.value * tabWidth }],
-  }));
+  }))
 
   return (
     <View
@@ -41,7 +41,7 @@ export function DetailTabs<T extends string>({
       style={[styles.list, { borderBottomColor: theme.border }]}
     >
       {tabs.map((tab) => {
-        const selected = tab.value === value;
+        const selected = tab.value === value
 
         return (
           <Pressable
@@ -56,7 +56,7 @@ export function DetailTabs<T extends string>({
               {tab.label}
             </ThemedText>
           </Pressable>
-        );
+        )
       })}
       <Animated.View
         style={[
@@ -66,7 +66,7 @@ export function DetailTabs<T extends string>({
         ]}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.6,
   },
-});
+})

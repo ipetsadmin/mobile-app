@@ -1,23 +1,23 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
-import { SymbolView } from "expo-symbols";
-import { useTranslation } from "react-i18next";
-import { Pressable, StyleSheet, View } from "react-native";
+import type { PetResponse } from "@ipetsadmin/contracts"
+import { SymbolView } from "expo-symbols"
+import { useTranslation } from "react-i18next"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { PetAvatar } from "./pet-avatar";
-import { genderKeys } from "./pet-labels";
+import { PetAvatar } from "./pet-avatar"
+import { genderKeys } from "./pet-labels"
 
 type HealthCardHeaderProps = {
-  pet: PetResponse;
-  onShare: () => void;
-};
+  pet: PetResponse
+  onShare: () => void
+}
 
 export function HealthCardHeader({ pet, onShare }: HealthCardHeaderProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <View style={styles.header}>
@@ -43,7 +43,7 @@ export function HealthCardHeader({ pet, onShare }: HealthCardHeaderProps) {
         />
       </Pressable>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.6,
   },
-});
+})

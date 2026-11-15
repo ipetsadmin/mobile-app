@@ -1,33 +1,38 @@
-import { useState, type ReactNode } from 'react';
-import { useController, type Control, type FieldValues, type Path } from 'react-hook-form';
+import { type ReactNode, useState } from "react"
 import {
+  type Control,
+  type FieldValues,
+  type Path,
+  useController,
+} from "react-hook-form"
+import {
+  type StyleProp,
   StyleSheet,
   TextInput,
-  View,
-  type StyleProp,
   type TextInputProps,
+  View,
   type ViewStyle,
-} from 'react-native';
+} from "react-native"
 
-import { FieldControl } from '@/components/field-control';
-import { Spacing, Typography } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { FieldControl } from "@/components/field-control"
+import { Spacing, Typography } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { FieldShell } from './field-shell';
+import { FieldShell } from "./field-shell"
 
 export type TextFieldProps<T extends FieldValues> = Omit<
   TextInputProps,
-  'value' | 'onChangeText' | 'style'
+  "value" | "onChangeText" | "style"
 > & {
-  control: Control<T>;
-  name: Path<T>;
-  label: string;
-  labelHint?: string;
-  hint?: string;
-  trailing?: ReactNode;
-  accessory?: ReactNode;
-  style?: StyleProp<ViewStyle>;
-};
+  control: Control<T>
+  name: Path<T>
+  label: string
+  labelHint?: string
+  hint?: string
+  trailing?: ReactNode
+  accessory?: ReactNode
+  style?: StyleProp<ViewStyle>
+}
 
 export function TextField<T extends FieldValues>({
   control,
@@ -42,28 +47,38 @@ export function TextField<T extends FieldValues>({
   onBlur,
   ...inputProps
 }: TextFieldProps<T>) {
-  const theme = useTheme();
-  const { field, fieldState } = useController({ control, name });
-  const { ref, value, onChange, onBlur: onFieldBlur } = field;
-  const [isFocused, setIsFocused] = useState(false);
-  const errorKey = fieldState.error?.message;
+  const theme = useTheme()
+  const { field, fieldState } = useController({ control, name })
+  const { ref, value, onChange, onBlur: onFieldBlur } = field
+  const [isFocused, setIsFocused] = useState(false)
+  const errorKey = fieldState.error?.message
 
   return (
-    <FieldShell label={label} labelHint={labelHint} hint={hint} errorKey={errorKey} style={style}>
+    <FieldShell
+      label={label}
+      labelHint={labelHint}
+      hint={hint}
+      errorKey={errorKey}
+      style={style}
+    >
       <View style={styles.controlRow}>
-        <FieldControl isFocused={isFocused} hasError={!!errorKey} style={styles.control}>
+        <FieldControl
+          isFocused={isFocused}
+          hasError={!!errorKey}
+          style={styles.control}
+        >
           <TextInput
             ref={ref}
             value={value}
             onChangeText={onChange}
             onFocus={(event) => {
-              setIsFocused(true);
-              onFocus?.(event);
+              setIsFocused(true)
+              onFocus?.(event)
             }}
             onBlur={(event) => {
-              setIsFocused(false);
-              onFieldBlur();
-              onBlur?.(event);
+              setIsFocused(false)
+              onFieldBlur()
+              onBlur?.(event)
             }}
             accessibilityLabel={label}
             placeholderTextColor={theme.textSecondary}
@@ -75,13 +90,13 @@ export function TextField<T extends FieldValues>({
         {accessory}
       </View>
     </FieldShell>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   controlRow: {
-    flexDirection: 'row',
-    alignItems: 'stretch',
+    flexDirection: "row",
+    alignItems: "stretch",
     gap: Spacing.sm,
   },
   control: {
@@ -92,4 +107,4 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: Spacing.sm,
   },
-});
+})

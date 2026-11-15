@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { BirthDateStepScreen } from "@/features/pets";
+import { BirthDateStepScreen } from "@/features/pets"
 
 export default function EditCompanionBirthDateRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <BirthDateStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionBirthDateRoute() {
         })
       }
     />
-  );
+  )
 }

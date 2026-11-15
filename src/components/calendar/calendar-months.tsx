@@ -1,17 +1,17 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native"
 
-import { Spacing } from '@/constants/theme';
-import { getMonthLabels, isMonthWithinRange } from '@/utils/calendar';
+import { Spacing } from "@/constants/theme"
+import { getMonthLabels, isMonthWithinRange } from "@/utils/calendar"
 
-import { CalendarOption } from './calendar-option';
+import { CalendarOption } from "./calendar-option"
 
 type CalendarMonthsProps = {
-  month: Date;
-  locale: string;
-  minimumDate?: Date;
-  maximumDate?: Date;
-  onSelect: (month: Date) => void;
-};
+  month: Date
+  locale: string
+  minimumDate?: Date
+  maximumDate?: Date
+  onSelect: (month: Date) => void
+}
 
 export function CalendarMonths({
   month,
@@ -23,7 +23,7 @@ export function CalendarMonths({
   return (
     <View style={styles.grid}>
       {getMonthLabels(locale).map((label, index) => {
-        const option = new Date(month.getFullYear(), index, 1);
+        const option = new Date(month.getFullYear(), index, 1)
 
         return (
           <CalendarOption
@@ -33,17 +33,17 @@ export function CalendarMonths({
             disabled={!isMonthWithinRange(option, minimumDate, maximumDate)}
             onPress={() => onSelect(option)}
           />
-        );
+        )
       })}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: Spacing.xs,
     paddingVertical: Spacing.xs,
   },
-});
+})

@@ -1,1 +1,16 @@
-npx --no -- commitlint --edit "$1"
+printf "\n⏳ Validando el mensaje del commit...\n"
+
+if npx --no -- commitlint --edit "$1"; then
+  printf "✅ Mensaje del commit: todo bien\n\n"
+  exit 0
+fi
+
+printf "\n❌ Mensaje del commit inválido. El commit se canceló.\n"
+printf "\n   Formato esperado: <type>(<scope opcional>): <descripción>\n"
+printf "   Tipos permitidos: feat, fix, chore, docs, refactor, test, perf, build, ci, revert\n"
+printf "\n   Ejemplos válidos:\n"
+printf "     feat(sign-in): add email and password form\n"
+printf "     fix(pet): invalidate pet list after create\n"
+printf "     chore: add custom fonts\n"
+printf "\n   Reglas: descripción en minúscula, sin punto final, encabezado de hasta 72 caracteres.\n\n"
+exit 1

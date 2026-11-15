@@ -1,14 +1,14 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native"
 
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme } from "@/hooks/use-theme"
 
 type StepProgressProps = {
-  current: number;
-  total: number;
-};
+  current: number
+  total: number
+}
 
 export function StepProgress({ current, total }: StepProgressProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View
@@ -17,8 +17,8 @@ export function StepProgress({ current, total }: StepProgressProps) {
       style={styles.container}
     >
       {Array.from({ length: total }, (_, index) => {
-        const isReached = index < current;
-        const isLast = index === total - 1;
+        const isReached = index < current
+        const isLast = index === total - 1
 
         return (
           <View
@@ -43,10 +43,10 @@ export function StepProgress({ current, total }: StepProgressProps) {
               />
             )}
           </View>
-        );
+        )
       })}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 1,
   },
-});
+})

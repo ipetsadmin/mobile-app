@@ -1,18 +1,18 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query"
 
-import { authClient } from '@/lib/auth-client';
+import { authClient } from "@/lib/auth-client"
 
 type SetNewPasswordArgs = {
-  token: string;
-  newPassword: string;
-};
+  token: string
+  newPassword: string
+}
 
 export function useSetNewPassword() {
   return useMutation({
     mutationFn: async ({ token, newPassword }: SetNewPasswordArgs) => {
-      const { error } = await authClient.resetPassword({ token, newPassword });
+      const { error } = await authClient.resetPassword({ token, newPassword })
 
-      if (error) throw error;
+      if (error) throw error
     },
-  });
+  })
 }

@@ -1,7 +1,7 @@
-import { authClient } from '@/lib/auth-client';
+import { authClient } from "@/lib/auth-client"
 
 export function useAuthSession() {
-  const { data, isPending } = authClient.useSession();
+  const { data, isPending } = authClient.useSession()
 
-  return { session: data, isPending };
+  return { session: data, isPending }
 }

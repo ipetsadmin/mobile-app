@@ -1,26 +1,26 @@
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
-import { formatDayLabel } from '@/utils/format-date';
-import { getDayPeriod } from '@/utils/get-day-period';
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { formatDayLabel } from "@/utils/format-date"
+import { getDayPeriod } from "@/utils/get-day-period"
 
 const greetingKeys = {
-  morning: 'home.greeting.morning',
-  afternoon: 'home.greeting.afternoon',
-  evening: 'home.greeting.evening',
-} as const;
+  morning: "home.greeting.morning",
+  afternoon: "home.greeting.afternoon",
+  evening: "home.greeting.evening",
+} as const
 
 type GreetingProps = {
-  name: string;
-  companionCount: number;
-};
+  name: string
+  companionCount: number
+}
 
 export function Greeting({ name, companionCount }: GreetingProps) {
-  const { t, i18n } = useTranslation();
-  const now = new Date();
-  const firstName = name.trim().split(' ')[0];
+  const { t, i18n } = useTranslation()
+  const now = new Date()
+  const firstName = name.trim().split(" ")[0]
 
   return (
     <View style={styles.greeting}>
@@ -30,15 +30,15 @@ export function Greeting({ name, companionCount }: GreetingProps) {
       </ThemedText>
       <ThemedText type="body">
         {companionCount > 0
-          ? t('home.companions', { count: companionCount })
-          : t('home.noCompanions')}
+          ? t("home.companions", { count: companionCount })
+          : t("home.noCompanions")}
       </ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   greeting: {
     gap: Spacing.xs,
   },
-});
+})

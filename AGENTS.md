@@ -24,13 +24,15 @@ Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
 ```bash
 npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
 npx expo start              # start the dev server
-npx expo lint               # lint
+npx expo lint               # lint (ESLint)
+npm run biome:check         # formato, lint e imports (Biome, con --write)
 npx tsc --noEmit            # typecheck
+npm test                    # pruebas unitarias (Jest)
 npx expo-doctor             # diagnose dependency and config issues
 npx expo install --fix      # fix incompatible package versions
 ```
 
-Run lint and typecheck before declaring any task done.
+Run Biome, lint, typecheck and tests before declaring any task done. The pre-commit hook runs the same checks and blocks the commit if any fails; never bypass it with `--no-verify`.
 
 ## Navigation & Routing
 

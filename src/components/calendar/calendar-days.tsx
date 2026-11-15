@@ -1,26 +1,26 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 import {
   getFirstWeekday,
   getMonthCells,
   getWeekdayLabels,
   isDayWithinRange,
   isSameDay,
-} from '@/utils/calendar';
-import { formatLongDate } from '@/utils/format-date';
+} from "@/utils/calendar"
+import { formatLongDate } from "@/utils/format-date"
 
-import { CalendarDay } from './calendar-day';
+import { CalendarDay } from "./calendar-day"
 
 type CalendarDaysProps = {
-  month: Date;
-  value?: Date;
-  locale: string;
-  minimumDate?: Date;
-  maximumDate?: Date;
-  onSelect: (day: Date) => void;
-};
+  month: Date
+  value?: Date
+  locale: string
+  minimumDate?: Date
+  maximumDate?: Date
+  onSelect: (day: Date) => void
+}
 
 export function CalendarDays({
   month,
@@ -30,12 +30,17 @@ export function CalendarDays({
   maximumDate,
   onSelect,
 }: CalendarDaysProps) {
-  const firstWeekday = getFirstWeekday(locale);
+  const firstWeekday = getFirstWeekday(locale)
 
   return (
     <View style={styles.grid}>
       {getWeekdayLabels(locale, firstWeekday).map((weekday) => (
-        <ThemedText key={weekday} type="label" themeColor="textSecondary" style={styles.weekday}>
+        <ThemedText
+          key={weekday}
+          type="label"
+          themeColor="textSecondary"
+          style={styles.weekday}
+        >
           {weekday}
         </ThemedText>
       ))}
@@ -54,20 +59,20 @@ export function CalendarDays({
         ),
       )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   weekday: {
     width: `${100 / 7}%`,
     paddingVertical: Spacing.xs,
-    textAlign: 'center',
+    textAlign: "center",
   },
   blank: {
     width: `${100 / 7}%`,
   },
-});
+})

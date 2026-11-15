@@ -1,51 +1,55 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react"
 import {
   ActivityIndicator,
   Pressable,
-  StyleSheet,
   type StyleProp,
+  StyleSheet,
   type ViewStyle,
-} from 'react-native';
+} from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, type ThemeColor } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing, type ThemeColor } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline';
-type ButtonSize = 'md' | 'lg';
+export type ButtonVariant = "primary" | "secondary" | "outline"
+type ButtonSize = "md" | "lg"
 
 type ButtonProps = {
-  title: string;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  icon?: ReactNode;
-  loading?: boolean;
-  disabled?: boolean;
-  style?: StyleProp<ViewStyle>;
-  onPress: () => void;
-};
+  title: string
+  variant?: ButtonVariant
+  size?: ButtonSize
+  icon?: ReactNode
+  loading?: boolean
+  disabled?: boolean
+  style?: StyleProp<ViewStyle>
+  onPress: () => void
+}
 
-type VariantColors = { background?: ThemeColor; border?: ThemeColor; content: ThemeColor };
+type VariantColors = {
+  background?: ThemeColor
+  border?: ThemeColor
+  content: ThemeColor
+}
 
 const variantColors: Record<ButtonVariant, VariantColors> = {
-  primary: { background: 'primary', content: 'onPrimary' },
-  secondary: { background: 'backgroundElement', content: 'text' },
-  outline: { border: 'border', content: 'text' },
-};
+  primary: { background: "primary", content: "onPrimary" },
+  secondary: { background: "backgroundElement", content: "text" },
+  outline: { border: "border", content: "text" },
+}
 
 export function Button({
   title,
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   icon,
   loading = false,
   disabled = false,
   style,
   onPress,
 }: ButtonProps) {
-  const theme = useTheme();
-  const colors = variantColors[variant];
-  const isInactive = disabled || loading;
+  const theme = useTheme()
+  const colors = variantColors[variant]
+  const isInactive = disabled || loading
 
   return (
     <Pressable
@@ -62,7 +66,8 @@ export function Button({
         pressed && styles.pressed,
         disabled && styles.disabled,
         style,
-      ]}>
+      ]}
+    >
       {loading ? <ActivityIndicator color={theme[colors.content]} /> : icon}
       {!loading && (
         <ThemedText type="button" themeColor={colors.content}>
@@ -70,17 +75,17 @@ export function Button({
         </ThemedText>
       )}
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   base: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     gap: Spacing.xs,
     borderRadius: Radius.control,
-    borderCurve: 'continuous',
+    borderCurve: "continuous",
   },
   pressed: {
     opacity: 0.7,
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.4,
   },
-});
+})
 
 const sizes = StyleSheet.create({
   md: {
@@ -99,4 +104,4 @@ const sizes = StyleSheet.create({
     minHeight: 56,
     paddingHorizontal: Spacing.lg,
   },
-});
+})

@@ -1,6 +1,6 @@
 # Pruebas
 
-Pruebas unitarias con `jest-expo` y `@testing-library/react-native`. Se corren con `npm test` y también en el pre-commit.
+Pruebas unitarias con `jest-expo` y `@testing-library/react-native`. Se corren con `npm test` y también en el pre-commit ([`commits.md`](./commits.md#hooks)), que bloquea el commit si alguna falla.
 
 ## Dónde viven
 
@@ -17,6 +17,8 @@ Pruebas unitarias con `jest-expo` y `@testing-library/react-native`. Se corren c
 - La fecha actual se inyecta o se fija; un test nunca depende de la hora real.
 - Solo se mockea la frontera: `apiClient`, `expo-secure-store`, `expo-router`, `AsyncStorage`. La lógica propia no se mockea.
 - Un test que falla no se borra ni se salta (`it.skip`) para poder commitear.
+- Los tests siguen el formato de Biome como cualquier otro archivo.
+- El huso horario de las pruebas es UTC (`src/test/global-setup.js`); un test de fechas no depende de la máquina.
 
 ## Fases
 

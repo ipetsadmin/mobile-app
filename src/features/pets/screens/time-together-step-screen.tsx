@@ -1,21 +1,21 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-import { DateField } from "@/components/form/date-field";
-import { OptionGroupField } from "@/components/form/option-group-field";
+import { DateField } from "@/components/form/date-field"
+import { OptionGroupField } from "@/components/form/option-group-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useTimeTogetherStep } from "../hooks/use-time-together-step";
-import { TogetherMode } from "../schema/companion.schema";
+import { StepScaffold } from "../components/step-scaffold"
+import { useTimeTogetherStep } from "../hooks/use-time-together-step"
+import { TogetherMode } from "../schema/companion.schema"
 
 type TimeTogetherStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function TimeTogetherStepScreen({
   onNext,
 }: TimeTogetherStepScreenProps) {
-  const { t } = useTranslation();
-  const step = useTimeTogetherStep({ onNext });
+  const { t } = useTranslation()
+  const step = useTimeTogetherStep({ onNext })
 
   return (
     <StepScaffold
@@ -53,5 +53,5 @@ export function TimeTogetherStepScreen({
         onValueChange={step.matchModeToDate}
       />
     </StepScaffold>
-  );
+  )
 }

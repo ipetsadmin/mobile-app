@@ -1,26 +1,24 @@
-import { router, useFocusEffect } from "expo-router";
-import { useCallback } from "react";
-import { BackHandler } from "react-native";
+import { router, useFocusEffect } from "expo-router"
+import { useCallback } from "react"
+import { BackHandler } from "react-native"
 
-import { PetTypeStepScreen, useHasPets } from "@/features/pets";
+import { PetTypeStepScreen, useHasPets } from "@/features/pets"
 
 export default function NewCompanionPetTypeRoute() {
-  const { hasPets } = useHasPets();
+  const { hasPets } = useHasPets()
 
   useFocusEffect(
     useCallback(() => {
-      if (hasPets) return;
+      if (hasPets) return
 
       const subscription = BackHandler.addEventListener(
         "hardwareBackPress",
         () => true,
-      );
+      )
 
-      return () => subscription.remove();
+      return () => subscription.remove()
     }, [hasPets]),
-  );
+  )
 
-  return (
-    <PetTypeStepScreen onNext={() => router.push("/new-companion/name")} />
-  );
+  return <PetTypeStepScreen onNext={() => router.push("/new-companion/name")} />
 }

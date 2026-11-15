@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { TimeTogetherStepScreen } from "@/features/pets";
+import { TimeTogetherStepScreen } from "@/features/pets"
 
 export default function EditCompanionTimeTogetherRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <TimeTogetherStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionTimeTogetherRoute() {
         })
       }
     />
-  );
+  )
 }

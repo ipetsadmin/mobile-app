@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { WeightStepScreen } from "@/features/pets";
+import { WeightStepScreen } from "@/features/pets"
 
 export default function EditCompanionWeightRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <WeightStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionWeightRoute() {
         })
       }
     />
-  );
+  )
 }

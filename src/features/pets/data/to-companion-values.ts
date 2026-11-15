@@ -2,14 +2,14 @@ import {
   BeenWithSource,
   BirthDateSource,
   type PetResponse,
-} from "@ipetsadmin/contracts";
+} from "@ipetsadmin/contracts"
 
 import {
   BirthDateMode,
-  TogetherMode,
   type CompanionValues,
-} from "../schema/companion.schema";
-import { fromContractReason } from "./not-neutered-reasons";
+  TogetherMode,
+} from "../schema/companion.schema"
+import { fromContractReason } from "./not-neutered-reasons"
 
 export function toCompanionValues(pet: PetResponse): CompanionValues {
   return {
@@ -39,5 +39,5 @@ export function toCompanionValues(pet: PetResponse): CompanionValues {
       : undefined,
     microchipNumber: pet.microchipNumber ?? "",
     photoUri: pet.photos[0]?.url,
-  };
+  }
 }

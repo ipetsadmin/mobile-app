@@ -1,27 +1,27 @@
-import { useTranslation } from "react-i18next";
-import { ScrollView, StyleSheet } from "react-native";
+import { useTranslation } from "react-i18next"
+import { ScrollView, StyleSheet } from "react-native"
 
-import { StatusMessage } from "@/components/status-message";
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
-import { useAccount } from "@/features/account";
-import { useTheme } from "@/hooks/use-theme";
+import { StatusMessage } from "@/components/status-message"
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { useAccount } from "@/features/account"
+import { useTheme } from "@/hooks/use-theme"
 
-import { HealthCard } from "../components/health-card";
-import { TiltCard } from "../components/tilt-card";
-import { usePet } from "../data/use-pet";
-import { useShareHealthCard } from "../hooks/use-share-health-card";
+import { HealthCard } from "../components/health-card"
+import { TiltCard } from "../components/tilt-card"
+import { usePet } from "../data/use-pet"
+import { useShareHealthCard } from "../hooks/use-share-health-card"
 
 type HealthCardScreenProps = {
-  petId: string;
-};
+  petId: string
+}
 
 export function HealthCardScreen({ petId }: HealthCardScreenProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const { data: pet, isPending, isError, refetch } = usePet(petId);
-  const { account } = useAccount();
-  const shareHealthCard = useShareHealthCard(pet?.name);
+  const { t } = useTranslation()
+  const theme = useTheme()
+  const { data: pet, isPending, isError, refetch } = usePet(petId)
+  const { account } = useAccount()
+  const shareHealthCard = useShareHealthCard(pet?.name)
 
   return (
     <ScrollView
@@ -53,7 +53,7 @@ export function HealthCardScreen({ petId }: HealthCardScreenProps) {
         </>
       )}
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
     padding: Spacing.lg,
   },
-});
+})

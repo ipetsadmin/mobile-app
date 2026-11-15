@@ -1,12 +1,12 @@
-import { useWatch } from "react-hook-form";
-import { useTranslation } from "react-i18next";
+import { useWatch } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 
-import { OptionGroupField } from "@/components/form/option-group-field";
-import { SwitchField } from "@/components/form/switch-field";
+import { OptionGroupField } from "@/components/form/option-group-field"
+import { SwitchField } from "@/components/form/switch-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
-import { NotNeuteredReason } from "../schema/companion.schema";
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
+import { NotNeuteredReason } from "../schema/companion.schema"
 
 const reasonOptions = [
   {
@@ -22,19 +22,19 @@ const reasonOptions = [
     labelKey: "newCompanion.neutered.healthConcerns",
   },
   { value: NotNeuteredReason.OTHER, labelKey: "newCompanion.neutered.other" },
-] as const;
+] as const
 
 type NeuteredStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function NeuteredStepScreen({ onNext }: NeuteredStepScreenProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const { control, goNext, clearField } = useCompanionStep({
     fields: ["isNeutered", "notNeuteredReason"],
     onNext,
-  });
-  const isNeutered = useWatch({ control, name: "isNeutered" });
+  })
+  const isNeutered = useWatch({ control, name: "isNeutered" })
 
   return (
     <StepScaffold
@@ -65,5 +65,5 @@ export function NeuteredStepScreen({ onNext }: NeuteredStepScreenProps) {
         />
       )}
     </StepScaffold>
-  );
+  )
 }

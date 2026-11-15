@@ -1,10 +1,10 @@
-import { router, Stack, useLocalSearchParams } from 'expo-router';
+import { router, Stack, useLocalSearchParams } from "expo-router"
 
-import { CompanionDetailScreen, CompanionHeaderActions } from '@/features/pets';
+import { CompanionDetailScreen, CompanionHeaderActions } from "@/features/pets"
 
 export default function CompanionDetailRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
-  const params = { petId };
+  const { petId } = useLocalSearchParams<{ petId: string }>()
+  const params = { petId }
 
   return (
     <>
@@ -12,18 +12,26 @@ export default function CompanionDetailRoute() {
         options={{
           headerRight: () => (
             <CompanionHeaderActions
-              onOpenHealthCard={() => router.push({ pathname: '/health-card/[petId]', params })}
-              onEdit={() => router.push({ pathname: '/edit-companion/[petId]', params })}
+              onOpenHealthCard={() =>
+                router.push({ pathname: "/health-card/[petId]", params })
+              }
+              onEdit={() =>
+                router.push({ pathname: "/edit-companion/[petId]", params })
+              }
             />
           ),
         }}
       />
       <CompanionDetailScreen
         petId={petId}
-        onAddVaccine={() => router.push({ pathname: '/new-vaccine', params })}
-        onAddAppointment={() => router.push({ pathname: '/new-appointment', params })}
-        onAddTreatment={() => router.push({ pathname: '/new-treatment', params })}
+        onAddVaccine={() => router.push({ pathname: "/new-vaccine", params })}
+        onAddAppointment={() =>
+          router.push({ pathname: "/new-appointment", params })
+        }
+        onAddTreatment={() =>
+          router.push({ pathname: "/new-treatment", params })
+        }
       />
     </>
-  );
+  )
 }

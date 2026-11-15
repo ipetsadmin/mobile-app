@@ -1,21 +1,22 @@
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router"
 
-import { useHeaderOptions } from '@/hooks/use-header-options';
+import { useHeaderOptions } from "@/hooks/use-header-options"
 
 export const unstable_settings = {
-  anchor: 'index',
-};
+  anchor: "index",
+}
 
 export default function PublicLayout() {
-  const { standard } = useHeaderOptions();
+  const { standard } = useHeaderOptions()
 
   return (
     <Stack
       screenOptions={{
-        title: '',
+        title: "",
         ...standard,
-      }}>
+      }}
+    >
       <Stack.Screen name="index" options={{ headerShown: false }} />
     </Stack>
-  );
+  )
 }

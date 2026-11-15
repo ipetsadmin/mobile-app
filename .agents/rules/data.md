@@ -50,7 +50,7 @@ No hace nada de UI:
 Lo que pasa después de una mutación lo decide quien la llama, con los callbacks por llamada de React Query:
 
 ```ts
-mutate(values, { onSuccess: onPetCreated });
+mutate(values, { onSuccess: onPetCreated })
 ```
 
 Si la conversión al body supera unas pocas líneas, se extrae a una función pura en la misma carpeta (`to-create-pet-body.ts`).

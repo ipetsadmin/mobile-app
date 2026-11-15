@@ -1,19 +1,19 @@
-import type { Species } from "@ipetsadmin/contracts";
-import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
+import type { Species } from "@ipetsadmin/contracts"
+import { Image } from "expo-image"
+import { StyleSheet, View } from "react-native"
 
-import { Radius } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { Radius } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { SpeciesIcon } from "./species-icon";
+import { SpeciesIcon } from "./species-icon"
 
 type PetAvatarProps = {
-  species: Species;
-  photoUrl?: string;
-};
+  species: Species
+  photoUrl?: string
+}
 
 export function PetAvatar({ species, photoUrl }: PetAvatarProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View
@@ -35,7 +35,7 @@ export function PetAvatar({ species, photoUrl }: PetAvatarProps) {
         <SpeciesIcon species={species} size={32} />
       )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-});
+})

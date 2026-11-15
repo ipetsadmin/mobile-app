@@ -19,6 +19,7 @@ src/
 ├── hooks/               Hooks compartidos sin dominio.
 ├── lib/                 Infraestructura: cliente de la API, storage, i18n.
 ├── constants/           theme.ts, query keys, storage keys.
+├── test/                Setup, helpers y factories de pruebas.
 └── utils/               Funciones puras.
 ```
 
@@ -109,6 +110,7 @@ Código transversal sin dominio. `utils/` contiene funciones puras con su test a
 | `hooks/` | `providers/` (solo contextos), `lib/`, `utils/`, `constants/` |
 | `lib/` | `utils/`, `constants/` |
 | `utils/`, `constants/` | Nada de las carpetas anteriores |
+| `test/` | Cualquier carpeta de `src/`. Solo la importan archivos de test |
 
 Reglas que no admiten excepción:
 
@@ -144,5 +146,7 @@ La sesión no guarda datos de otros dominios. Si una decisión depende de un dat
 | Una función pura reutilizable | `src/utils/` |
 | Un color, espacio, radio o fuente | `src/constants/theme.ts` |
 | Un texto visible | `src/lib/i18n/locales/` |
+| Un test | Junto al archivo que prueba (`*.test.ts(x)`) |
+| Un helper, mock o factory de pruebas | `src/test/` |
 
 Un componente sube de una feature a `src/components/` cuando una segunda feature lo necesita, no antes.

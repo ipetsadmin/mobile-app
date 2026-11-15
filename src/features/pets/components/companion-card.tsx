@@ -1,30 +1,30 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
-import { SymbolView } from "expo-symbols";
-import { useTranslation } from "react-i18next";
-import { Pressable, StyleSheet, View } from "react-native";
+import type { PetResponse } from "@ipetsadmin/contracts"
+import { SymbolView } from "expo-symbols"
+import { useTranslation } from "react-i18next"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
-import { getAge } from "@/utils/get-age";
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
+import { getAge } from "@/utils/get-age"
 
-import { PetAvatar } from "./pet-avatar";
-import { ageKeys, genderKeys, weightUnitKeys } from "./pet-labels";
+import { PetAvatar } from "./pet-avatar"
+import { ageKeys, genderKeys, weightUnitKeys } from "./pet-labels"
 
 type CompanionCardProps = {
-  pet: PetResponse;
-  onPress: () => void;
-};
+  pet: PetResponse
+  onPress: () => void
+}
 
 export function CompanionCard({ pet, onPress }: CompanionCardProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const age = getAge(pet.birthDate.date, new Date());
+  const { t } = useTranslation()
+  const theme = useTheme()
+  const age = getAge(pet.birthDate.date, new Date())
   const details = [
     t(ageKeys[age.unit], { count: age.count }),
     t(genderKeys[pet.gender]),
     `${pet.weight} ${t(weightUnitKeys[pet.weightUnit])}`,
-  ];
+  ]
 
   return (
     <Pressable
@@ -54,7 +54,7 @@ export function CompanionCard({ pet, onPress }: CompanionCardProps) {
         tintColor={theme.text}
       />
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.7,
   },
-});
+})

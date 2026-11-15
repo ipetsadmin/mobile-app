@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next";
-import { Share } from "react-native";
+import { useTranslation } from "react-i18next"
+import { Share } from "react-native"
 
 export function useShareHealthCard(petName?: string) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return () =>
-    Share.share({ message: t("healthCard.shareMessage", { name: petName }) });
+    Share.share({ message: t("healthCard.shareMessage", { name: petName }) })
 }

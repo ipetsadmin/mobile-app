@@ -5,15 +5,15 @@ Cómo escribir un componente, sea compartido (`src/components/`) o propio de una
 ## Forma base
 
 ```tsx
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 
 type PetSummaryProps = {
-  name: string;
-  breed: string;
-};
+  name: string
+  breed: string
+}
 
 export function PetSummary({ name, breed }: PetSummaryProps) {
   return (
@@ -23,14 +23,14 @@ export function PetSummary({ name, breed }: PetSummaryProps) {
         {breed}
       </ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    gap: Spacing['2xs'],
+    gap: Spacing["2xs"],
   },
-});
+})
 ```
 
 - Declaración con `function` y export nombrado.

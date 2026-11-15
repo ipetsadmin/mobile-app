@@ -1,11 +1,11 @@
-import { Toaster } from 'sonner-native';
+import { Toaster } from "sonner-native"
 
-import { Radius, ThemeSchemes } from '@/constants/theme';
-import { useTheme, useThemePreference } from '@/hooks/use-theme';
+import { Radius, ThemeSchemes } from "@/constants/theme"
+import { useTheme, useThemePreference } from "@/hooks/use-theme"
 
 export function AppToaster() {
-  const theme = useTheme();
-  const { themeName } = useThemePreference();
+  const theme = useTheme()
+  const { themeName } = useThemePreference()
 
   return (
     <Toaster
@@ -15,10 +15,10 @@ export function AppToaster() {
           backgroundColor: theme.backgroundElement,
           borderColor: theme.border,
           borderRadius: Radius.card,
-          borderCurve: 'continuous',
+          borderCurve: "continuous",
         },
         titleStyle: { color: theme.text },
       }}
     />
-  );
+  )
 }

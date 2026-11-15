@@ -1,16 +1,20 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native"
 
-import { BrandMark } from '@/components/brand-mark';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { BrandMark } from "@/components/brand-mark"
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 
 type AuthHeaderProps = {
-  title: string;
-  subtitle: string;
-  showBrandMark?: boolean;
-};
+  title: string
+  subtitle: string
+  showBrandMark?: boolean
+}
 
-export function AuthHeader({ title, subtitle, showBrandMark = false }: AuthHeaderProps) {
+export function AuthHeader({
+  title,
+  subtitle,
+  showBrandMark = false,
+}: AuthHeaderProps) {
   return (
     <View style={styles.container}>
       {showBrandMark && <BrandMark />}
@@ -19,11 +23,11 @@ export function AuthHeader({ title, subtitle, showBrandMark = false }: AuthHeade
       </ThemedText>
       <ThemedText type="body">{subtitle}</ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     gap: Spacing.sm,
   },
-});
+})

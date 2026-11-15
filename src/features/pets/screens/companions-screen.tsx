@@ -1,30 +1,30 @@
-import { useTranslation } from "react-i18next";
-import { FlatList, StyleSheet, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useTranslation } from "react-i18next"
+import { FlatList, StyleSheet, View } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { CompanionCard } from "../components/companion-card";
-import { CompanionsListEmpty } from "../components/companions-list-empty";
-import { NewCompanionCard } from "../components/new-companion-card";
-import { usePets } from "../data/use-pets";
+import { CompanionCard } from "../components/companion-card"
+import { CompanionsListEmpty } from "../components/companions-list-empty"
+import { NewCompanionCard } from "../components/new-companion-card"
+import { usePets } from "../data/use-pets"
 
 type CompanionsScreenProps = {
-  onOpenCompanion: (petId: string) => void;
-  onNewCompanion: () => void;
-};
+  onOpenCompanion: (petId: string) => void
+  onNewCompanion: () => void
+}
 
 export function CompanionsScreen({
   onOpenCompanion,
   onNewCompanion,
 }: CompanionsScreenProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const insets = useSafeAreaInsets();
-  const { data: pets = [], isPending, isError, refetch } = usePets();
-  const hasPets = pets.length > 0;
+  const { t } = useTranslation()
+  const theme = useTheme()
+  const insets = useSafeAreaInsets()
+  const { data: pets = [], isPending, isError, refetch } = usePets()
+  const hasPets = pets.length > 0
 
   return (
     <FlatList
@@ -59,7 +59,7 @@ export function CompanionsScreen({
         />
       }
     />
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
     paddingBottom: Spacing.sm,
   },
-});
+})

@@ -1,15 +1,15 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-import { StatusMessage } from "@/components/status-message";
+import { StatusMessage } from "@/components/status-message"
 
-import { CompanionsEmptyState } from "./companions-empty-state";
+import { CompanionsEmptyState } from "./companions-empty-state"
 
 type CompanionsListEmptyProps = {
-  isPending: boolean;
-  isError: boolean;
-  onRetry: () => void;
-  onNewCompanion: () => void;
-};
+  isPending: boolean
+  isError: boolean
+  onRetry: () => void
+  onNewCompanion: () => void
+}
 
 export function CompanionsListEmpty({
   isPending,
@@ -17,9 +17,9 @@ export function CompanionsListEmpty({
   onRetry,
   onNewCompanion,
 }: CompanionsListEmptyProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  if (isPending) return <StatusMessage />;
+  if (isPending) return <StatusMessage />
 
   if (isError) {
     return (
@@ -28,8 +28,8 @@ export function CompanionsListEmpty({
         actionLabel={t("common.retry")}
         onAction={onRetry}
       />
-    );
+    )
   }
 
-  return <CompanionsEmptyState onNewCompanion={onNewCompanion} />;
+  return <CompanionsEmptyState onNewCompanion={onNewCompanion} />
 }

@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 export function HealthCardFooter() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <View style={styles.footer}>
@@ -19,7 +19,7 @@ export function HealthCardFooter() {
         <View style={[styles.dot, { backgroundColor: theme.accent }]} />
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: Radius.pill,
   },
-});
+})

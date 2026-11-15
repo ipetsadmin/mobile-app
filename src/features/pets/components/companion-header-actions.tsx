@@ -1,21 +1,21 @@
-import { SymbolView } from "expo-symbols";
-import { useTranslation } from "react-i18next";
-import { Pressable, StyleSheet, View } from "react-native";
+import { SymbolView } from "expo-symbols"
+import { useTranslation } from "react-i18next"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type CompanionHeaderActionsProps = {
-  onOpenHealthCard: () => void;
-  onEdit: () => void;
-};
+  onOpenHealthCard: () => void
+  onEdit: () => void
+}
 
 export function CompanionHeaderActions({
   onOpenHealthCard,
   onEdit,
 }: CompanionHeaderActionsProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <View style={styles.actions}>
@@ -26,7 +26,11 @@ export function CompanionHeaderActions({
         style={({ pressed }) => [styles.action, pressed && styles.pressed]}
       >
         <SymbolView
-          name={{ ios: "person.text.rectangle", android: "badge", web: "badge" }}
+          name={{
+            ios: "person.text.rectangle",
+            android: "badge",
+            web: "badge",
+          }}
           size={22}
           weight="medium"
           tintColor={theme.text}
@@ -46,7 +50,7 @@ export function CompanionHeaderActions({
         />
       </Pressable>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -63,4 +67,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.6,
   },
-});
+})

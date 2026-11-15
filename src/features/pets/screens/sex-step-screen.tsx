@@ -1,18 +1,18 @@
-import { Gender } from "@ipetsadmin/contracts";
-import { useTranslation } from "react-i18next";
+import { Gender } from "@ipetsadmin/contracts"
+import { useTranslation } from "react-i18next"
 
-import { OptionGroupField } from "@/components/form/option-group-field";
+import { OptionGroupField } from "@/components/form/option-group-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
 
 type SexStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function SexStepScreen({ onNext }: SexStepScreenProps) {
-  const { t } = useTranslation();
-  const { control, goNext } = useCompanionStep({ fields: ["gender"], onNext });
+  const { t } = useTranslation()
+  const { control, goNext } = useCompanionStep({ fields: ["gender"], onNext })
 
   return (
     <StepScaffold
@@ -32,5 +32,5 @@ export function SexStepScreen({ onNext }: SexStepScreenProps) {
         ]}
       />
     </StepScaffold>
-  );
+  )
 }

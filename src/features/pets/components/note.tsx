@@ -1,15 +1,15 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing, Typography } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing, Typography } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type NoteProps = {
-  text: string;
-};
+  text: string
+}
 
 export function Note({ text }: NoteProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View style={[styles.note, { backgroundColor: theme.backgroundSelected }]}>
@@ -18,7 +18,7 @@ export function Note({ text }: NoteProps) {
         {text}
       </ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
   },
-});
+})

@@ -4,14 +4,14 @@
 
 No hagas commit ni push a menos que el usuario lo pida. Deja el cambio listo y avisa que está para revisión.
 
-Antes de un commit, corre:
+## Hooks
 
-```bash
-npx tsc --noEmit
-npx expo lint
-```
+Husky corre dos hooks en cada commit:
 
-Si alguno falla, se arregla primero.
+- **`pre-commit`**: Biome sobre los archivos del commit (`lint-staged`), `tsc --noEmit`, `expo lint` y `jest --ci`, en ese orden. Si un paso falla, el commit se cancela y se muestra qué comando corre para reproducirlo.
+- **`commit-msg`**: `commitlint` valida el formato del mensaje.
+
+Si un paso falla, se arregla antes de volver a commitear. Los hooks se instalan solos con `npm install` (script `prepare`).
 
 ## Formato
 
@@ -20,7 +20,7 @@ Si alguno falla, se arregla primero.
 ```
 
 - **`type`**: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `perf`, `build`, `ci` o `revert`.
-- **`scope`**: opcional, en kebab-case. La pantalla, el dominio o la carpeta que se tocó (`sign-in`, `pet`, `theme`).
+- **`scope`**: opcional, en kebab-case (commitlint lo exige). La pantalla, el dominio o la carpeta que se tocó (`sign-in`, `pet`, `theme`).
 - **`subject`**: hasta 72 caracteres, en minúscula, en imperativo y sin punto final.
 
 ```
@@ -37,7 +37,7 @@ Solo si el subject no alcanza para explicar el porqué. Viñetas cortas, una por
 ## Qué no hacer
 
 - No mezclar cambios sin relación en un mismo commit.
-- No usar `--no-verify` ni `git push --force` salvo pedido explícito.
+- No saltarse los hooks con `--no-verify` ni `git push --force` salvo pedido explícito.
 - No commitear `ios/`, `android/`, `.expo/`, archivos `.env` ni credenciales.
 
 ## Ramas

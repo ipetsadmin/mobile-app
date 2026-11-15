@@ -1,56 +1,54 @@
-# Welcome to your Expo app 👋
+# Truffa
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+App móvil de Truffa construida con [Expo](https://expo.dev) (SDK 57), React Native y Expo Router.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Empezar
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+`npm install` también instala los hooks de git (Husky). Para correr la app necesitas un development build: `npm run ios` o `npm run android`.
 
-### Other setup steps
+Copia las variables de entorno a `.env.local`; la API se lee de `EXPO_PUBLIC_API_URL`.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Scripts
 
-## Learn more
+| Comando | Qué hace |
+|---|---|
+| `npm start` | Servidor de desarrollo de Expo |
+| `npm run ios` / `npm run android` | Compila y abre la app en el simulador o emulador |
+| `npm run biome:check` | Formato, imports y reglas de Biome sobre `src/` (con `--write`) |
+| `npx expo lint` | Lint de Expo (ESLint) |
+| `npm run typecheck` | Revisión de tipos con TypeScript |
+| `npm test` | Pruebas unitarias con Jest |
 
-To learn more about developing your project with Expo, look at the following resources:
+## Estructura
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
+src/
+├── app/         Rutas de Expo Router
+├── features/    Un dominio por carpeta (screens, components, data, hooks, schema)
+├── components/  UI compartida
+├── hooks/       Hooks sin dominio
+├── lib/         Cliente de la API, storage, i18n
+├── constants/   Tema, query keys
+├── utils/       Funciones puras
+└── test/        Setup, helpers y factories de pruebas
+```
 
-## Join the community
+## Calidad antes de cada commit
 
-Join our community of developers creating universal apps.
+Husky bloquea el commit si algo falla:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. Biome sobre los archivos del commit.
+2. `tsc --noEmit`.
+3. `expo lint`.
+4. `jest --ci`.
+
+El mensaje se valida con commitlint (conventional commits, por ejemplo `fix(pet): invalidate pet list after create`).
+
+## Reglas del proyecto
+
+Las reglas de arquitectura, estilo, componentes, estilos, datos, formularios, textos, pruebas y commits viven en [`.agents/rules/`](./.agents/rules/orquestador.md). El punto de entrada es [`orquestador.md`](./.agents/rules/orquestador.md); [`AGENTS.md`](./AGENTS.md) lo referencia para los agentes de código.

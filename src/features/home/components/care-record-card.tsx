@@ -1,23 +1,28 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Fonts, Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Fonts, Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type CareRecordCardProps = {
-  title: string;
-  body: string;
-  actionLabel: string;
-  onPress: () => void;
-};
+  title: string
+  body: string
+  actionLabel: string
+  onPress: () => void
+}
 
-export function CareRecordCard({ title, body, actionLabel, onPress }: CareRecordCardProps) {
-  const theme = useTheme();
-  const clear = `${theme.secondary}00`;
+export function CareRecordCard({
+  title,
+  body,
+  actionLabel,
+  onPress,
+}: CareRecordCardProps) {
+  const theme = useTheme()
+  const clear = `${theme.secondary}00`
   const glows = [
     `radial-gradient(circle at 5% 130%, ${theme.secondary} 0%, ${clear} 28%)`,
     `radial-gradient(circle at 90% 135%, ${theme.secondary} 0%, ${clear} 30%)`,
-  ];
+  ]
 
   return (
     <Pressable
@@ -26,12 +31,19 @@ export function CareRecordCard({ title, body, actionLabel, onPress }: CareRecord
       onPress={onPress}
       style={({ pressed }) => [
         styles.card,
-        { backgroundColor: theme.backgroundSelected, borderColor: theme.border },
+        {
+          backgroundColor: theme.backgroundSelected,
+          borderColor: theme.border,
+        },
         pressed && styles.pressed,
-      ]}>
+      ]}
+    >
       <View
         pointerEvents="none"
-        style={[StyleSheet.absoluteFill, { experimental_backgroundImage: glows.join(', ') }]}
+        style={[
+          StyleSheet.absoluteFill,
+          { experimental_backgroundImage: glows.join(", ") },
+        ]}
       />
       <View style={[styles.dot, { backgroundColor: theme.secondary }]} />
       <ThemedText type="subheading" style={styles.title}>
@@ -42,20 +54,20 @@ export function CareRecordCard({ title, body, actionLabel, onPress }: CareRecord
         {`${actionLabel} →`}
       </ThemedText>
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   card: {
-    gap: Spacing['2xs'],
+    gap: Spacing["2xs"],
     padding: Spacing.md,
     borderWidth: 1,
     borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
+    borderCurve: "continuous",
+    overflow: "hidden",
   },
   dot: {
-    position: 'absolute',
+    position: "absolute",
     top: Spacing.md,
     right: Spacing.md,
     width: 8,
@@ -72,4 +84,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.8,
   },
-});
+})

@@ -1,46 +1,46 @@
-import { useEffect, useState } from "react";
-import { useFormContext, type Path } from "react-hook-form";
+import { useEffect, useState } from "react"
+import { type Path, useFormContext } from "react-hook-form"
 
-import type { CompanionValues } from "../schema/companion.schema";
+import type { CompanionValues } from "../schema/companion.schema"
 
 type UseCompanionStepArgs = {
-  fields: Path<CompanionValues>[];
-  onNext: () => void;
-};
+  fields: Path<CompanionValues>[]
+  onNext: () => void
+}
 
 export function useCompanionStep({ fields, onNext }: UseCompanionStepArgs) {
   const { control, trigger, setValue, watch } =
-    useFormContext<CompanionValues>();
-  const [hasFailedNext, setHasFailedNext] = useState(false);
+    useFormContext<CompanionValues>()
+  const [hasFailedNext, setHasFailedNext] = useState(false)
 
   useEffect(() => {
     if (!hasFailedNext) {
-      return;
+      return
     }
 
     const subscription = watch((_values, { name }) => {
       const isStepField = fields.some(
         (field) => name === field || name?.startsWith(`${field}.`),
-      );
+      )
 
       if (name && isStepField) {
-        trigger(name);
+        trigger(name)
       }
-    });
+    })
 
-    return () => subscription.unsubscribe();
-  }, [hasFailedNext, fields, watch, trigger]);
+    return () => subscription.unsubscribe()
+  }, [hasFailedNext, fields, watch, trigger])
 
   const goNext = async () => {
-    const isStepValid = await trigger(fields);
+    const isStepValid = await trigger(fields)
 
     if (isStepValid) {
-      onNext();
-      return;
+      onNext()
+      return
     }
 
-    setHasFailedNext(true);
-  };
+    setHasFailedNext(true)
+  }
 
   return {
     control,
@@ -48,5 +48,5 @@ export function useCompanionStep({ fields, onNext }: UseCompanionStepArgs) {
     setValue,
     clearField: (name: Path<CompanionValues>) =>
       setValue(name, undefined as never),
-  };
+  }
 }

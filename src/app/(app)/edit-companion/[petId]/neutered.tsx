@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { NeuteredStepScreen } from "@/features/pets";
+import { NeuteredStepScreen } from "@/features/pets"
 
 export default function EditCompanionNeuteredRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <NeuteredStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionNeuteredRoute() {
         })
       }
     />
-  );
+  )
 }

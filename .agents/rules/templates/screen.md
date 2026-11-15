@@ -17,17 +17,17 @@ src/features/auth/
 La ruta renderiza la pantalla y decide la navegación. Es el único archivo que importa `expo-router`.
 
 ```tsx
-import { router } from 'expo-router';
+import { router } from "expo-router"
 
-import { SignInScreen } from '@/features/auth';
+import { SignInScreen } from "@/features/auth"
 
 export default function SignInRoute() {
   return (
     <SignInScreen
-      onForgotPassword={() => router.push('/forgot-password')}
-      onCreateAccount={() => router.push('/sign-up')}
+      onForgotPassword={() => router.push("/forgot-password")}
+      onCreateAccount={() => router.push("/sign-up")}
     />
-  );
+  )
 }
 ```
 
@@ -36,49 +36,49 @@ Después de iniciar sesión no hay navegación explícita: la sesión cambia y e
 Una ruta con parámetros los lee y los pasa como props:
 
 ```tsx
-import { router, useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from "expo-router"
 
-import { PetDetailScreen } from '@/features/pets';
+import { PetDetailScreen } from "@/features/pets"
 
 export default function PetDetailRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
-  return <PetDetailScreen petId={petId} onClose={() => router.back()} />;
+  return <PetDetailScreen petId={petId} onClose={() => router.back()} />
 }
 ```
 
 ## `schema/sign-in.schema.ts`
 
 ```ts
-import { z } from 'zod';
+import { z } from "zod"
 
 export const signInSchema = z.object({
-  email: z.email('validation.emailInvalid'),
-  password: z.string().min(1, 'validation.required'),
-});
+  email: z.email("validation.emailInvalid"),
+  password: z.string().min(1, "validation.required"),
+})
 
-export type SignInValues = z.infer<typeof signInSchema>;
+export type SignInValues = z.infer<typeof signInSchema>
 ```
 
 ## `data/use-sign-in.ts`
 
 ```ts
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query"
 
-import { apiClient } from '@/lib/api-client';
+import { apiClient } from "@/lib/api-client"
 
-import type { SignInValues } from '../schema/sign-in.schema';
-import { useSession } from './use-session';
+import type { SignInValues } from "../schema/sign-in.schema"
+import { useSession } from "./use-session"
 
 export function useSignIn() {
-  const { startSession } = useSession();
+  const { startSession } = useSession()
 
   return useMutation({
     mutationFn: (values: SignInValues) => apiClient.auth.login(values),
     onSuccess: (response) => {
-      if (response.data) startSession(response.data);
+      if (response.data) startSession(response.data)
     },
-  });
+  })
 }
 ```
 
@@ -87,29 +87,31 @@ export function useSignIn() {
 Une el formulario con la mutación y devuelve solo lo que la pantalla necesita.
 
 ```ts
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 
-import { useSignIn } from '../data/use-sign-in';
-import { signInSchema, type SignInValues } from '../schema/sign-in.schema';
+import { useSignIn } from "../data/use-sign-in"
+import { signInSchema, type SignInValues } from "../schema/sign-in.schema"
 
 export function useSignInForm() {
   const { control, handleSubmit } = useForm<SignInValues>({
     resolver: zodResolver(signInSchema),
-    defaultValues: { email: '', password: '' },
-  });
-  const { mutate, isPending, isError } = useSignIn();
+    defaultValues: { email: "", password: "" },
+  })
+  const { mutate, isPending, isError } = useSignIn()
 
-  const submit = handleSubmit((values) => mutate(values));
+  const submit = handleSubmit((values) => mutate(values))
 
-  return { control, submit, isPending, isError };
+  return { control, submit, isPending, isError }
 }
 ```
 
 Cuando la pantalla debe reaccionar al éxito, el hook recibe el callback y lo pasa a `mutate`:
 
 ```ts
-const submit = handleSubmit((values) => mutate(values, { onSuccess: onPetCreated }));
+const submit = handleSubmit((values) =>
+  mutate(values, { onSuccess: onPetCreated }),
+)
 ```
 
 ## `screens/sign-in-screen.tsx`
@@ -117,38 +119,42 @@ const submit = handleSubmit((values) => mutate(values, { onSuccess: onPetCreated
 La pantalla compone campos y botones compartidos. No importa `expo-router`, no llama al cliente y no escribe textos.
 
 ```tsx
-import { useTranslation } from 'react-i18next';
-import { ScrollView, StyleSheet } from 'react-native';
+import { useTranslation } from "react-i18next"
+import { ScrollView, StyleSheet } from "react-native"
 
-import { Button } from '@/components/button';
-import { TextField } from '@/components/form/text-field';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Button } from "@/components/button"
+import { TextField } from "@/components/form/text-field"
+import { ThemedText } from "@/components/themed-text"
+import { ThemedView } from "@/components/themed-view"
+import { Spacing } from "@/constants/theme"
 
-import { AuthHeader } from '../components/auth-header';
-import { useSignInForm } from '../hooks/use-sign-in-form';
+import { AuthHeader } from "../components/auth-header"
+import { useSignInForm } from "../hooks/use-sign-in-form"
 
 type SignInScreenProps = {
-  onForgotPassword: () => void;
-  onCreateAccount: () => void;
-};
+  onForgotPassword: () => void
+  onCreateAccount: () => void
+}
 
-export function SignInScreen({ onForgotPassword, onCreateAccount }: SignInScreenProps) {
-  const { t } = useTranslation();
-  const { control, submit, isPending, isError } = useSignInForm();
+export function SignInScreen({
+  onForgotPassword,
+  onCreateAccount,
+}: SignInScreenProps) {
+  const { t } = useTranslation()
+  const { control, submit, isPending, isError } = useSignInForm()
 
   return (
     <ThemedView style={styles.screen}>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={styles.content}>
-        <AuthHeader title={t('signIn.title')} subtitle={t('signIn.subtitle')} />
+        contentContainerStyle={styles.content}
+      >
+        <AuthHeader title={t("signIn.title")} subtitle={t("signIn.subtitle")} />
         <TextField
           control={control}
           name="email"
-          label={t('signIn.email')}
+          label={t("signIn.email")}
           keyboardType="email-address"
           autoCapitalize="none"
           textContentType="emailAddress"
@@ -156,29 +162,33 @@ export function SignInScreen({ onForgotPassword, onCreateAccount }: SignInScreen
         <TextField
           control={control}
           name="password"
-          label={t('signIn.password')}
+          label={t("signIn.password")}
           secureTextEntry
           textContentType="password"
         />
         {isError && (
           <ThemedText type="bodySmall" themeColor="accent" selectable>
-            {t('signIn.error')}
+            {t("signIn.error")}
           </ThemedText>
         )}
-        <Button title={t('signIn.submit')} loading={isPending} onPress={submit} />
+        <Button
+          title={t("signIn.submit")}
+          loading={isPending}
+          onPress={submit}
+        />
         <Button
           variant="secondary"
-          title={t('signIn.forgotPassword')}
+          title={t("signIn.forgotPassword")}
           onPress={onForgotPassword}
         />
         <Button
           variant="secondary"
-          title={t('signIn.createAccount')}
+          title={t("signIn.createAccount")}
           onPress={onCreateAccount}
         />
       </ScrollView>
     </ThemedView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -189,16 +199,16 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     gap: Spacing.md,
   },
-});
+})
 ```
 
 ## `index.ts` de `auth`
 
 ```ts
-export { SignInScreen } from './screens/sign-in-screen';
+export { SignInScreen } from "./screens/sign-in-screen"
 
-export { useAuthenticatedSession } from './data/use-authenticated-session';
-export { useSession } from './data/use-session';
+export { useAuthenticatedSession } from "./data/use-authenticated-session"
+export { useSession } from "./data/use-session"
 ```
 
 ## Flujos de varios pasos

@@ -37,19 +37,19 @@ Antes de usar cualquier API de Expo, EAS o React Native, sigue lo que dice `AGEN
 5. **Pantalla.** Crea `screens/{nombre}-screen.tsx` y expórtala en el `index.ts` de la feature ([`templates/screen.md`](./templates/screen.md)).
 6. **Ruta.** Crea el archivo en `src/app/` que renderiza la pantalla y decide la navegación.
 7. **Textos.** Agrega las claves a todos los idiomas ([`i18n.md`](./i18n.md)).
-8. **Verificación.** Corre `npx tsc --noEmit`, `npx expo lint` y `npm test`, y revisa que ningún archivo supere su tamaño máximo.
+8. **Verificación.** Corre `npm run biome:check`, `npx tsc --noEmit`, `npx expo lint` y `npm test`, y revisa que ningún archivo supere su tamaño máximo.
 
 ## Resumen de una línea por regla
 
 - **`architecture.md`**: un dominio por feature, cada feature se consume por su `index.ts`, `src/app` solo tiene rutas y es el único lugar que navega.
-- **`code-style.md`**: cero comentarios, límites de líneas por tipo de archivo, sin `any` ni `enum`, kebab-case, export nombrado salvo en rutas.
+- **`code-style.md`**: Biome formatea (comillas dobles, sin `;`), cero comentarios, límites de líneas por tipo de archivo, sin `any` ni `enum`, kebab-case, export nombrado salvo en rutas.
 - **`components.md`**: un componente por archivo, `export function`, `src/components` es presentacional, control nativo de `@expo/ui` antes que uno propio.
 - **`styling.md`**: `StyleSheet.create` al final del archivo, valores solo desde `@/constants/theme`, colores solo con `useTheme()`.
 - **`data.md`**: `apiClient` es el único acceso a la API, un hook por integración en `data/`, tipos siempre de `@ipetsadmin/contracts`.
 - **`forms.md`**: `react-hook-form` con schema de `zod`, la lógica en un hook de la feature, los mensajes de error son claves de i18n.
 - **`i18n.md`**: ningún texto visible escrito en el código.
 - **`testing.md`**: el test vive junto al archivo, se mockea solo la frontera, y se avanza por fases (infra, utils, schemas, hooks de datos, hooks, componentes, pantallas, rutas).
-- **`commits.md`**: conventional commits, y solo cuando el usuario lo pide.
+- **`commits.md`**: conventional commits validados por commitlint, hooks de husky que bloquean si falla algo, y solo cuando el usuario lo pide.
 
 ## Si una regla contradice código existente
 

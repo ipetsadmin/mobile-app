@@ -1,23 +1,23 @@
-import type { PutPetDetailsBody } from "@ipetsadmin/api-client";
+import type { PutPetDetailsBody } from "@ipetsadmin/api-client"
 import {
   BeenWithSource,
+  BirthDateSource,
   type CatBreed,
   type DogBreed,
-  BirthDateSource,
-} from "@ipetsadmin/contracts";
+} from "@ipetsadmin/contracts"
 
-import { toNoon } from "@/utils/calendar";
+import { toNoon } from "@/utils/calendar"
 
 import {
   BirthDateMode,
-  TogetherMode,
   type CompanionValues,
-} from "../schema/companion.schema";
-import { toContractReason } from "./not-neutered-reasons";
+  TogetherMode,
+} from "../schema/companion.schema"
+import { toContractReason } from "./not-neutered-reasons"
 
 export function toPetDetailsBody(values: CompanionValues) {
-  const isNeutered = values.isNeutered === true;
-  const microchipNumber = values.microchipNumber?.replace(/\s/g, "");
+  const isNeutered = values.isNeutered === true
+  const microchipNumber = values.microchipNumber?.replace(/\s/g, "")
 
   return {
     name: values.name.trim(),
@@ -46,5 +46,5 @@ export function toPetDetailsBody(values: CompanionValues) {
         ? toContractReason[values.notNeuteredReason]
         : undefined,
     microchipNumber: microchipNumber || undefined,
-  } satisfies PutPetDetailsBody;
+  } satisfies PutPetDetailsBody
 }

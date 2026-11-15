@@ -2,6 +2,15 @@
 
 Aplica a todo archivo `.ts` o `.tsx` que se escriba o edite, en cualquier carpeta.
 
+## Formato
+
+Biome formatea y ordena los imports (`biome.json`). No se discute el formato a mano: comillas dobles, sin punto y coma al final de línea, indentación de 2 espacios.
+
+- `npm run biome:check` corrige formato, imports y reglas seguras en `src/`.
+- El pre-commit corre Biome solo sobre los archivos del commit, así que un archivo viejo se reformatea cuando se toca.
+- Biome cubre formato y reglas de correctitud; ESLint (`npx expo lint`) cubre las reglas de Expo. Ambos deben pasar.
+- Las reglas de `noUnusedImports`, `noUnusedVariables`, `useExhaustiveDependencies` y `useHookAtTopLevel` son error, no warning.
+
 ## Sin comentarios
 
 No escribas comentarios. El código se explica con nombres claros de variables, funciones, tipos y componentes.
@@ -33,6 +42,7 @@ La explicación de un cambio va en la respuesta al usuario o en el mensaje del c
 | Hook | 80 |
 | Schema de validación | 80 |
 | Archivo de `utils/` o `lib/` | 120 |
+| Test (`*.test.ts(x)`) | 200 |
 | `index.ts` de una feature | 40 |
 | Cualquier otro | 200 |
 
@@ -88,7 +98,7 @@ Cuando un archivo se acerca al límite, se divide por responsabilidad: un subcom
 
 ## Dependencias
 
-- Se instalan con `npx expo install <paquete>`, nunca con `npm install` directo.
+- Se instalan con `npx expo install <paquete>`, nunca con `npm install` directo. Vale también para herramientas de desarrollo (`--dev`).
 - Antes de agregar una librería, revisa si existe un módulo de Expo que lo resuelva.
 - No se agrega una dependencia nueva sin que el usuario lo pida o lo apruebe.
 

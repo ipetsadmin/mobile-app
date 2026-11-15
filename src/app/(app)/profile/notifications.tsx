@@ -1,5 +1,5 @@
-import { NotificationPreferencesScreen } from '@/features/account';
+import { NotificationPreferencesScreen } from "@/features/account"
 
 export default function NotificationPreferencesRoute() {
-  return <NotificationPreferencesScreen />;
+  return <NotificationPreferencesScreen />
 }

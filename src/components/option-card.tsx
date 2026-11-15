@@ -1,22 +1,29 @@
-import type { ReactNode } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import type { ReactNode } from "react"
+import { Pressable, StyleSheet } from "react-native"
 
-import { RadioMark } from '@/components/radio-mark';
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { RadioMark } from "@/components/radio-mark"
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type OptionCardProps = {
-  label: string;
-  icon?: ReactNode;
-  selected: boolean;
-  layout?: keyof typeof layouts;
-  disabled?: boolean;
-  onPress: () => void;
-};
+  label: string
+  icon?: ReactNode
+  selected: boolean
+  layout?: keyof typeof layouts
+  disabled?: boolean
+  onPress: () => void
+}
 
-export function OptionCard({ label, icon, selected, layout = 'row', disabled = false, onPress }: OptionCardProps) {
-  const theme = useTheme();
+export function OptionCard({
+  label,
+  icon,
+  selected,
+  layout = "row",
+  disabled = false,
+  onPress,
+}: OptionCardProps) {
+  const theme = useTheme()
 
   return (
     <Pressable
@@ -29,19 +36,22 @@ export function OptionCard({ label, icon, selected, layout = 'row', disabled = f
         styles.card,
         layouts[layout],
         {
-          backgroundColor: selected ? theme.backgroundSelected : theme.backgroundField,
+          backgroundColor: selected
+            ? theme.backgroundSelected
+            : theme.backgroundField,
           borderColor: selected ? theme.primary : theme.border,
         },
         pressed && styles.pressed,
         disabled && !selected && styles.disabled,
-      ]}>
+      ]}
+    >
       <RadioMark selected={selected} />
       {icon}
       <ThemedText type="button" style={styles.label}>
         {label}
       </ThemedText>
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -49,7 +59,7 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
     borderWidth: 1,
     borderRadius: Radius.card,
-    borderCurve: 'continuous',
+    borderCurve: "continuous",
   },
   label: {
     flexShrink: 1,
@@ -60,20 +70,20 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.4,
   },
-});
+})
 
 const layouts = StyleSheet.create({
   row: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     minHeight: 72,
     paddingHorizontal: Spacing.lg,
   },
   compact: {
     flexGrow: 1,
-    flexBasis: '40%',
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexBasis: "40%",
+    flexDirection: "row",
+    alignItems: "center",
     gap: Spacing.xs,
     minHeight: 56,
     paddingHorizontal: Spacing.sm,
@@ -81,8 +91,8 @@ const layouts = StyleSheet.create({
   },
   tile: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     minHeight: 160,
     padding: Spacing.md,
   },
-});
+})

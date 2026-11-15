@@ -1,22 +1,27 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { toast } from 'sonner-native';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
+import { toast } from "sonner-native"
 
-import { useRequestPasswordReset } from '../data/use-request-password-reset';
-import { resetPasswordSchema, type ResetPasswordValues } from '../schema/reset-password.schema';
+import { useRequestPasswordReset } from "../data/use-request-password-reset"
+import {
+  type ResetPasswordValues,
+  resetPasswordSchema,
+} from "../schema/reset-password.schema"
 
 type UseResetPasswordFormArgs = {
-  onRequested: () => void;
-};
+  onRequested: () => void
+}
 
-export function useResetPasswordForm({ onRequested }: UseResetPasswordFormArgs) {
-  const { t } = useTranslation();
+export function useResetPasswordForm({
+  onRequested,
+}: UseResetPasswordFormArgs) {
+  const { t } = useTranslation()
   const { control, handleSubmit } = useForm<ResetPasswordValues>({
     resolver: zodResolver(resetPasswordSchema),
-    defaultValues: { email: '' },
-  });
-  const { mutate, isPending } = useRequestPasswordReset();
+    defaultValues: { email: "" },
+  })
+  const { mutate, isPending } = useRequestPasswordReset()
 
   return {
     control,
@@ -24,11 +29,11 @@ export function useResetPasswordForm({ onRequested }: UseResetPasswordFormArgs) 
     submit: handleSubmit((values) =>
       mutate(values, {
         onSuccess: () => {
-          toast.success(t('resetPassword.sent'));
-          onRequested();
+          toast.success(t("resetPassword.sent"))
+          onRequested()
         },
-        onError: () => toast.error(t('resetPassword.error')),
+        onError: () => toast.error(t("resetPassword.error")),
       }),
     ),
-  };
+  }
 }

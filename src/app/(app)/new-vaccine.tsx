@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from "expo-router"
 
-import { NewVaccineScreen } from '@/features/health';
+import { NewVaccineScreen } from "@/features/health"
 
 export default function NewVaccineRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
-  return <NewVaccineScreen petId={petId} onVaccineSaved={() => router.back()} />;
+  return <NewVaccineScreen petId={petId} onVaccineSaved={() => router.back()} />
 }

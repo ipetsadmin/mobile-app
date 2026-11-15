@@ -1,19 +1,23 @@
-import { useQueryClient, type QueryKey } from '@tanstack/react-query';
-import { useState } from 'react';
+import { type QueryKey, useQueryClient } from "@tanstack/react-query"
+import { useState } from "react"
 
 export function usePullRefresh(queryKeys: QueryKey[]) {
-  const queryClient = useQueryClient();
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const queryClient = useQueryClient()
+  const [isRefreshing, setIsRefreshing] = useState(false)
 
   const onRefresh = async () => {
-    setIsRefreshing(true);
+    setIsRefreshing(true)
 
     try {
-      await Promise.all(queryKeys.map((queryKey) => queryClient.invalidateQueries({ queryKey })));
+      await Promise.all(
+        queryKeys.map((queryKey) =>
+          queryClient.invalidateQueries({ queryKey }),
+        ),
+      )
     } finally {
-      setIsRefreshing(false);
+      setIsRefreshing(false)
     }
-  };
+  }
 
-  return { isRefreshing, onRefresh };
+  return { isRefreshing, onRefresh }
 }

@@ -1,22 +1,22 @@
-import { Image } from "expo-image";
-import { SymbolView } from "expo-symbols";
-import { StyleSheet, View } from "react-native";
+import { Image } from "expo-image"
+import { SymbolView } from "expo-symbols"
+import { StyleSheet, View } from "react-native"
 
-import { Radius } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { Radius } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-const PREVIEW_SIZE = 200;
+const PREVIEW_SIZE = 200
 
 type PetPhotoPreviewProps = {
-  uri?: string;
-  accessibilityLabel: string;
-};
+  uri?: string
+  accessibilityLabel: string
+}
 
 export function PetPhotoPreview({
   uri,
   accessibilityLabel,
 }: PetPhotoPreviewProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View
@@ -47,7 +47,7 @@ export function PetPhotoPreview({
         />
       )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-});
+})

@@ -1,18 +1,18 @@
 type PendingCredentials = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
-let pending: PendingCredentials | undefined;
+let pending: PendingCredentials | undefined
 
 export function setPendingCredentials(email: string, password: string) {
-  pending = { email, password };
+  pending = { email, password }
 }
 
 export function getPendingPassword(email: string) {
-  return pending?.email === email ? pending.password : undefined;
+  return pending?.email === email ? pending.password : undefined
 }
 
 export function clearPendingCredentials() {
-  pending = undefined;
+  pending = undefined
 }

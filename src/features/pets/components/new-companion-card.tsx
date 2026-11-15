@@ -1,20 +1,20 @@
-import { SymbolView } from "expo-symbols";
-import { useTranslation } from "react-i18next";
-import { Pressable, StyleSheet, View } from "react-native";
+import { SymbolView } from "expo-symbols"
+import { useTranslation } from "react-i18next"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { NewCompanionBackdrop } from "./new-companion-backdrop";
+import { NewCompanionBackdrop } from "./new-companion-backdrop"
 
 type NewCompanionCardProps = {
-  onPress: () => void;
-};
+  onPress: () => void
+}
 
 export function NewCompanionCard({ onPress }: NewCompanionCardProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <Pressable
@@ -45,7 +45,7 @@ export function NewCompanionCard({ onPress }: NewCompanionCardProps) {
         </ThemedText>
       </View>
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.7,
   },
-});
+})

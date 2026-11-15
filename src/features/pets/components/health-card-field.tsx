@@ -1,12 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 
 type HealthCardFieldProps = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 export function HealthCardField({ label, value }: HealthCardFieldProps) {
   return (
@@ -16,7 +16,7 @@ export function HealthCardField({ label, value }: HealthCardFieldProps) {
         {value}
       </ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: Spacing["2xs"],
   },
-});
+})

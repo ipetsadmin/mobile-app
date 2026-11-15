@@ -1,13 +1,13 @@
-import { Fonts } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Fonts } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 export function useHeaderOptions() {
-  const theme = useTheme();
+  const theme = useTheme()
   const base = {
-    headerBackButtonDisplayMode: 'minimal',
+    headerBackButtonDisplayMode: "minimal",
     headerShadowVisible: false,
     headerTintColor: theme.text,
-  } as const;
+  } as const
 
   return {
     standard: {
@@ -19,11 +19,11 @@ export function useHeaderOptions() {
       ...base,
       headerLargeTitleEnabled: true,
       headerTransparent: true,
-      headerBlurEffect: 'none',
+      headerBlurEffect: "none",
       headerLargeTitleShadowVisible: false,
-      headerLargeStyle: { backgroundColor: 'transparent' },
+      headerLargeStyle: { backgroundColor: "transparent" },
       headerTitleStyle: { fontFamily: Fonts.medium, color: theme.text },
       headerLargeTitleStyle: { fontFamily: Fonts.medium, color: theme.text },
     },
-  } as const;
+  } as const
 }

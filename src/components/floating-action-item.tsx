@@ -1,30 +1,40 @@
-import { SymbolView, type SymbolViewProps } from 'expo-symbols';
-import { Pressable, StyleSheet } from 'react-native';
-import Animated, { FadeInDown, FadeOut, ReduceMotion } from 'react-native-reanimated';
+import { SymbolView, type SymbolViewProps } from "expo-symbols"
+import { Pressable, StyleSheet } from "react-native"
+import Animated, {
+  FadeInDown,
+  FadeOut,
+  ReduceMotion,
+} from "react-native-reanimated"
 
-import { ThemedText } from '@/components/themed-text';
-import { Motion, Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Motion, Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 export type FloatingAction = {
-  key: string;
-  label: string;
-  icon: SymbolViewProps['name'];
-  onPress: () => void;
-};
+  key: string
+  label: string
+  icon: SymbolViewProps["name"]
+  onPress: () => void
+}
 
 type FloatingActionItemProps = {
-  action: FloatingAction;
-  delay: number;
-  onPress: () => void;
-};
+  action: FloatingAction
+  delay: number
+  onPress: () => void
+}
 
-export function FloatingActionItem({ action, delay, onPress }: FloatingActionItemProps) {
-  const theme = useTheme();
+export function FloatingActionItem({
+  action,
+  delay,
+  onPress,
+}: FloatingActionItemProps) {
+  const theme = useTheme()
 
   return (
     <Animated.View
-      entering={FadeInDown.delay(delay).duration(Motion.fast).reduceMotion(ReduceMotion.System)}
+      entering={FadeInDown.delay(delay)
+        .duration(Motion.fast)
+        .reduceMotion(ReduceMotion.System)}
       exiting={FadeOut.duration(100).reduceMotion(ReduceMotion.System)}
     >
       <Pressable
@@ -33,21 +43,29 @@ export function FloatingActionItem({ action, delay, onPress }: FloatingActionIte
         onPress={onPress}
         style={({ pressed }) => [
           styles.action,
-          { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+          {
+            backgroundColor: theme.backgroundElement,
+            borderColor: theme.border,
+          },
           pressed && styles.pressed,
         ]}
       >
         <ThemedText type="button">{action.label}</ThemedText>
-        <SymbolView name={action.icon} size={20} weight="medium" tintColor={theme.text} />
+        <SymbolView
+          name={action.icon}
+          size={20}
+          weight="medium"
+          tintColor={theme.text}
+        />
       </Pressable>
     </Animated.View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   action: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: Spacing.sm,
     minHeight: 48,
     paddingHorizontal: Spacing.md,
@@ -57,4 +75,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.7,
   },
-});
+})

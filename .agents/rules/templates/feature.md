@@ -33,11 +33,11 @@ Una entrada por dominio. Se agrega al crear la feature.
 ```ts
 export const queryKeys = {
   pets: {
-    all: ['pets'] as const,
-    list: (userId: string) => ['pets', 'list', userId] as const,
-    detail: (petId: string) => ['pets', 'detail', petId] as const,
+    all: ["pets"] as const,
+    list: (userId: string) => ["pets", "list", userId] as const,
+    detail: (petId: string) => ["pets", "detail", petId] as const,
   },
-};
+}
 ```
 
 ## `data/use-pets.ts`
@@ -45,20 +45,20 @@ export const queryKeys = {
 Consulta de lista. Desenvuelve `IApiResponse` con `select`.
 
 ```ts
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query"
 
-import { queryKeys } from '@/constants/query-keys';
-import { useAuthenticatedSession } from '@/features/auth';
-import { apiClient } from '@/lib/api-client';
+import { queryKeys } from "@/constants/query-keys"
+import { useAuthenticatedSession } from "@/features/auth"
+import { apiClient } from "@/lib/api-client"
 
 export function usePets() {
-  const { accessToken, user } = useAuthenticatedSession();
+  const { accessToken, user } = useAuthenticatedSession()
 
   return useQuery({
     queryKey: queryKeys.pets.list(user.id),
     queryFn: () => apiClient.users.getPets(accessToken, user.id),
     select: (response) => response.data ?? [],
-  });
+  })
 }
 ```
 
@@ -67,20 +67,20 @@ export function usePets() {
 Consulta de detalle. El identificador llega por argumento.
 
 ```ts
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query"
 
-import { queryKeys } from '@/constants/query-keys';
-import { useAuthenticatedSession } from '@/features/auth';
-import { apiClient } from '@/lib/api-client';
+import { queryKeys } from "@/constants/query-keys"
+import { useAuthenticatedSession } from "@/features/auth"
+import { apiClient } from "@/lib/api-client"
 
 export function usePet(petId: string) {
-  const { accessToken } = useAuthenticatedSession();
+  const { accessToken } = useAuthenticatedSession()
 
   return useQuery({
     queryKey: queryKeys.pets.detail(petId),
     queryFn: () => apiClient.pets.getById(accessToken, petId),
     select: (response) => response.data,
-  });
+  })
 }
 ```
 
@@ -89,24 +89,25 @@ export function usePet(petId: string) {
 Mutación. Convierte los valores del formulario al body, llama al cliente e invalida la caché.
 
 ```ts
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-import { queryKeys } from '@/constants/query-keys';
-import { useAuthenticatedSession } from '@/features/auth';
-import { apiClient } from '@/lib/api-client';
+import { queryKeys } from "@/constants/query-keys"
+import { useAuthenticatedSession } from "@/features/auth"
+import { apiClient } from "@/lib/api-client"
 
-import type { CreatePetValues } from '../schema/pet.schema';
-import { toCreatePetBody } from './to-create-pet-body';
+import type { CreatePetValues } from "../schema/pet.schema"
+import { toCreatePetBody } from "./to-create-pet-body"
 
 export function useCreatePet() {
-  const { accessToken, user } = useAuthenticatedSession();
-  const queryClient = useQueryClient();
+  const { accessToken, user } = useAuthenticatedSession()
+  const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: (values: CreatePetValues) =>
       apiClient.users.createPet(accessToken, user.id, toCreatePetBody(values)),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.pets.all }),
-  });
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: queryKeys.pets.all }),
+  })
 }
 ```
 
@@ -115,12 +116,14 @@ export function useCreatePet() {
 Función pura que adapta lo que escribe el usuario a lo que espera el endpoint.
 
 ```ts
-import type { PostUserPetRequestBody } from '@ipetsadmin/api-client';
-import { PetStatus, WeightUnit } from '@ipetsadmin/contracts';
+import type { PostUserPetRequestBody } from "@ipetsadmin/api-client"
+import { PetStatus, WeightUnit } from "@ipetsadmin/contracts"
 
-import type { CreatePetValues } from '../schema/pet.schema';
+import type { CreatePetValues } from "../schema/pet.schema"
 
-export function toCreatePetBody(values: CreatePetValues): PostUserPetRequestBody {
+export function toCreatePetBody(
+  values: CreatePetValues,
+): PostUserPetRequestBody {
   return {
     ...values,
     name: values.name.trim(),
@@ -128,7 +131,7 @@ export function toCreatePetBody(values: CreatePetValues): PostUserPetRequestBody
     weight: Number(values.weight),
     weightUnit: WeightUnit.KG,
     status: PetStatus.ACTIVE,
-  };
+  }
 }
 ```
 
@@ -137,25 +140,25 @@ export function toCreatePetBody(values: CreatePetValues): PostUserPetRequestBody
 Resuelve los cuatro estados y recibe la navegación por callbacks.
 
 ```tsx
-import { PetList } from '../components/pet-list';
-import { PetsEmpty } from '../components/pets-empty';
-import { PetsError } from '../components/pets-error';
-import { PetsLoading } from '../components/pets-loading';
-import { usePets } from '../data/use-pets';
+import { PetList } from "../components/pet-list"
+import { PetsEmpty } from "../components/pets-empty"
+import { PetsError } from "../components/pets-error"
+import { PetsLoading } from "../components/pets-loading"
+import { usePets } from "../data/use-pets"
 
 type PetsScreenProps = {
-  onSelectPet: (petId: string) => void;
-  onAddPet: () => void;
-};
+  onSelectPet: (petId: string) => void
+  onAddPet: () => void
+}
 
 export function PetsScreen({ onSelectPet, onAddPet }: PetsScreenProps) {
-  const { data: pets, isPending, isError, refetch } = usePets();
+  const { data: pets, isPending, isError, refetch } = usePets()
 
-  if (isPending) return <PetsLoading />;
-  if (isError) return <PetsError onRetry={refetch} />;
-  if (pets.length === 0) return <PetsEmpty onAddPet={onAddPet} />;
+  if (isPending) return <PetsLoading />
+  if (isError) return <PetsError onRetry={refetch} />
+  if (pets.length === 0) return <PetsEmpty onAddPet={onAddPet} />
 
-  return <PetList pets={pets} onSelectPet={onSelectPet} />;
+  return <PetList pets={pets} onSelectPet={onSelectPet} />
 }
 ```
 
@@ -164,16 +167,16 @@ export function PetsScreen({ onSelectPet, onAddPet }: PetsScreenProps) {
 Única entrada a la feature. Orden: pantallas, componentes de dominio, hooks de datos, tipos.
 
 ```ts
-export { CreatePetScreen } from './screens/create-pet-screen';
-export { PetDetailScreen } from './screens/pet-detail-screen';
-export { PetsScreen } from './screens/pets-screen';
+export { CreatePetScreen } from "./screens/create-pet-screen"
+export { PetDetailScreen } from "./screens/pet-detail-screen"
+export { PetsScreen } from "./screens/pets-screen"
 
-export { PetAvatar } from './components/pet-avatar';
+export { PetAvatar } from "./components/pet-avatar"
 
-export { usePet } from './data/use-pet';
-export { usePets } from './data/use-pets';
+export { usePet } from "./data/use-pet"
+export { usePets } from "./data/use-pets"
 
-export type { CreatePetValues } from './schema/pet.schema';
+export type { CreatePetValues } from "./schema/pet.schema"
 ```
 
 Se exporta solo lo que algo externo consume. `PetList`, `useCreatePet` y `toCreatePetBody` son internos mientras nadie fuera de `pets` los necesite.
@@ -181,17 +184,17 @@ Se exporta solo lo que algo externo consume. `PetList`, `useCreatePet` y `toCrea
 ## Cómo la consume una ruta
 
 ```tsx
-import { router } from 'expo-router';
+import { router } from "expo-router"
 
-import { PetsScreen } from '@/features/pets';
+import { PetsScreen } from "@/features/pets"
 
 export default function PetsRoute() {
   return (
     <PetsScreen
       onSelectPet={(petId) => router.push(`/pets/${petId}`)}
-      onAddPet={() => router.push('/pets/new')}
+      onAddPet={() => router.push("/pets/new")}
     />
-  );
+  )
 }
 ```
 
@@ -200,7 +203,7 @@ export default function PetsRoute() {
 `home` muestra un resumen de mascotas. Importa el hook y el componente de dominio desde el `index.ts`, nunca una pantalla ni un archivo interno.
 
 ```tsx
-import { PetAvatar, usePets } from '@/features/pets';
+import { PetAvatar, usePets } from "@/features/pets"
 ```
 
 `pets` no puede importar de `home`: la dependencia va en un solo sentido.

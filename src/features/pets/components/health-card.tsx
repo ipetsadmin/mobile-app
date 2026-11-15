@@ -1,27 +1,27 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
-import { Image } from "expo-image";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import type { PetResponse } from "@ipetsadmin/contracts"
+import { Image } from "expo-image"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
-import { formatMediumDate } from "@/utils/format-date";
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
+import { formatMediumDate } from "@/utils/format-date"
 
-import { HealthCardField } from "./health-card-field";
-import { HealthCardFooter } from "./health-card-footer";
-import { HealthCardHeader } from "./health-card-header";
-import { weightUnitKeys } from "./pet-labels";
+import { HealthCardField } from "./health-card-field"
+import { HealthCardFooter } from "./health-card-footer"
+import { HealthCardHeader } from "./health-card-header"
+import { weightUnitKeys } from "./pet-labels"
 
 type HealthCardProps = {
-  pet: PetResponse;
-  caretakerName: string;
-  onShare: () => void;
-};
+  pet: PetResponse
+  caretakerName: string
+  onShare: () => void
+}
 
 export function HealthCard({ pet, caretakerName, onShare }: HealthCardProps) {
-  const { t, i18n } = useTranslation();
-  const theme = useTheme();
-  const weight = `${pet.weight} ${t(weightUnitKeys[pet.weightUnit])}`;
+  const { t, i18n } = useTranslation()
+  const theme = useTheme()
+  const weight = `${pet.weight} ${t(weightUnitKeys[pet.weightUnit])}`
 
   return (
     <View
@@ -68,7 +68,7 @@ export function HealthCard({ pet, caretakerName, onShare }: HealthCardProps) {
       </View>
       <HealthCardFooter />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
   },
-});
+})

@@ -1,19 +1,19 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import type { PetResponse } from "@ipetsadmin/contracts"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Spacing } from "@/constants/theme";
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
 
-import { PetAvatar } from "./pet-avatar";
-import { genderKeys } from "./pet-labels";
+import { PetAvatar } from "./pet-avatar"
+import { genderKeys } from "./pet-labels"
 
 type CompanionHeaderProps = {
-  pet: PetResponse;
-};
+  pet: PetResponse
+}
 
 export function CompanionHeader({ pet }: CompanionHeaderProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <View style={styles.header}>
@@ -25,7 +25,7 @@ export function CompanionHeader({ pet }: CompanionHeaderProps) {
         <ThemedText type="body">{`${pet.breed} · ${t(genderKeys[pet.gender])}`}</ThemedText>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   texts: {
     flex: 1,
   },
-});
+})

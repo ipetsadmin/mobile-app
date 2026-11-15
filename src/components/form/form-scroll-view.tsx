@@ -1,18 +1,21 @@
-import type { PropsWithChildren } from 'react';
-import { StyleSheet, type StyleProp, type ViewStyle } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import type { PropsWithChildren } from "react"
+import { type StyleProp, StyleSheet, type ViewStyle } from "react-native"
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { Spacing } from '@/constants/theme';
+import { Spacing } from "@/constants/theme"
 
-const SUBMIT_BUTTON_CLEARANCE = 160;
+const SUBMIT_BUTTON_CLEARANCE = 160
 
 type FormScrollViewProps = PropsWithChildren<{
-  contentContainerStyle?: StyleProp<ViewStyle>;
-}>;
+  contentContainerStyle?: StyleProp<ViewStyle>
+}>
 
-export function FormScrollView({ children, contentContainerStyle }: FormScrollViewProps) {
-  const insets = useSafeAreaInsets();
+export function FormScrollView({
+  children,
+  contentContainerStyle,
+}: FormScrollViewProps) {
+  const insets = useSafeAreaInsets()
 
   return (
     <KeyboardAwareScrollView
@@ -23,10 +26,11 @@ export function FormScrollView({ children, contentContainerStyle }: FormScrollVi
         styles.content,
         { paddingBottom: insets.bottom + Spacing.lg },
         contentContainerStyle,
-      ]}>
+      ]}
+    >
       {children}
     </KeyboardAwareScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -35,4 +39,4 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.md,
     gap: Spacing.xl,
   },
-});
+})

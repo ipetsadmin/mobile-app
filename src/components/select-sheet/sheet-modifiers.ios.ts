@@ -1,3 +1,5 @@
-import { ignoreSafeArea } from '@expo/ui/swift-ui/modifiers';
+import { ignoreSafeArea } from "@expo/ui/swift-ui/modifiers"
 
-export const sheetModifiers = [ignoreSafeArea({ regions: 'container', edges: 'bottom' })];
+export const sheetModifiers = [
+  ignoreSafeArea({ regions: "container", edges: "bottom" }),
+]

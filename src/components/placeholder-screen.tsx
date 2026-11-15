@@ -1,24 +1,28 @@
-import { ScrollView, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, StyleSheet } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 
-import { Button, type ButtonVariant } from '@/components/button';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Button, type ButtonVariant } from "@/components/button"
+import { ThemedText } from "@/components/themed-text"
+import { ThemedView } from "@/components/themed-view"
+import { Spacing } from "@/constants/theme"
 
 export type PlaceholderAction = {
-  label: string;
-  variant?: ButtonVariant;
-  onPress: () => void;
-};
+  label: string
+  variant?: ButtonVariant
+  onPress: () => void
+}
 
 type PlaceholderScreenProps = {
-  eyebrow?: string;
-  title: string;
-  actions: PlaceholderAction[];
-};
+  eyebrow?: string
+  title: string
+  actions: PlaceholderAction[]
+}
 
-export function PlaceholderScreen({ eyebrow, title, actions }: PlaceholderScreenProps) {
+export function PlaceholderScreen({
+  eyebrow,
+  title,
+  actions,
+}: PlaceholderScreenProps) {
   return (
     <ThemedView style={styles.screen}>
       <SafeAreaView style={styles.screen}>
@@ -40,7 +44,7 @@ export function PlaceholderScreen({ eyebrow, title, actions }: PlaceholderScreen
         </ScrollView>
       </SafeAreaView>
     </ThemedView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -51,4 +55,4 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     gap: Spacing.md,
   },
-});
+})

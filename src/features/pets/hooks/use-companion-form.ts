@@ -1,14 +1,14 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { WeightUnit, type PetResponse } from "@ipetsadmin/contracts";
-import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { type PetResponse, WeightUnit } from "@ipetsadmin/contracts"
+import { useForm } from "react-hook-form"
 
-import { toCompanionValues } from "../data/to-companion-values";
+import { toCompanionValues } from "../data/to-companion-values"
 import {
   BirthDateMode,
+  type CompanionValues,
   companionSchema,
   TogetherMode,
-  type CompanionValues,
-} from "../schema/companion.schema";
+} from "../schema/companion.schema"
 
 export function useCompanionForm(pet?: PetResponse) {
   return useForm<CompanionValues>({
@@ -24,5 +24,5 @@ export function useCompanionForm(pet?: PetResponse) {
           isNeutered: false,
           microchipNumber: "",
         },
-  });
+  })
 }

@@ -1,20 +1,20 @@
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from "react-native"
 
-import { OptionCard } from '@/components/option-card';
-import { Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { OptionCard } from "@/components/option-card"
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type Option<T extends string> = {
-  value: T;
-  label: string;
-};
+  value: T
+  label: string
+}
 
 type OptionListProps<T extends string> = {
-  label: string;
-  options: Option<T>[];
-  value: T;
-  onChange: (value: T) => void;
-};
+  label: string
+  options: Option<T>[]
+  value: T
+  onChange: (value: T) => void
+}
 
 export function OptionList<T extends string>({
   label,
@@ -22,7 +22,7 @@ export function OptionList<T extends string>({
   value,
   onChange,
 }: OptionListProps<T>) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <ScrollView
@@ -30,7 +30,8 @@ export function OptionList<T extends string>({
       accessibilityLabel={label}
       contentInsetAdjustmentBehavior="automatic"
       style={{ backgroundColor: theme.background }}
-      contentContainerStyle={styles.content}>
+      contentContainerStyle={styles.content}
+    >
       {options.map((option) => (
         <OptionCard
           key={option.value}
@@ -40,7 +41,7 @@ export function OptionList<T extends string>({
         />
       ))}
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -48,4 +49,4 @@ const styles = StyleSheet.create({
     gap: Spacing.md,
     padding: Spacing.lg,
   },
-});
+})

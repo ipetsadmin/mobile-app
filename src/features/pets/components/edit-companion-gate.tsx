@@ -1,31 +1,31 @@
-import type { PropsWithChildren } from "react";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import type { PropsWithChildren } from "react"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { HeaderBackButton } from "@/components/header-back-button";
-import { StatusMessage } from "@/components/status-message";
-import { Spacing } from "@/constants/theme";
+import { HeaderBackButton } from "@/components/header-back-button"
+import { StatusMessage } from "@/components/status-message"
+import { Spacing } from "@/constants/theme"
 
-import { usePet } from "../data/use-pet";
-import { CompanionFormProvider } from "./companion-form-provider";
+import { usePet } from "../data/use-pet"
+import { CompanionFormProvider } from "./companion-form-provider"
 
 type EditCompanionGateProps = PropsWithChildren<{
-  petId: string;
-  onClose: () => void;
-}>;
+  petId: string
+  onClose: () => void
+}>
 
 export function EditCompanionGate({
   petId,
   onClose,
   children,
 }: EditCompanionGateProps) {
-  const { t } = useTranslation();
-  const insets = useSafeAreaInsets();
-  const { data: pet, isError, refetch } = usePet(petId);
+  const { t } = useTranslation()
+  const insets = useSafeAreaInsets()
+  const { data: pet, isError, refetch } = usePet(petId)
 
   if (pet) {
-    return <CompanionFormProvider pet={pet}>{children}</CompanionFormProvider>;
+    return <CompanionFormProvider pet={pet}>{children}</CompanionFormProvider>
   }
 
   return (
@@ -41,7 +41,7 @@ export function EditCompanionGate({
         <StatusMessage />
       )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: Spacing.lg,
   },
-});
+})

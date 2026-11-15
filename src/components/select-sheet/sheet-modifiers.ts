@@ -1,3 +1,3 @@
-import type { BottomSheetProps } from '@expo/ui';
+import type { BottomSheetProps } from "@expo/ui"
 
-export const sheetModifiers: BottomSheetProps['modifiers'] = [];
+export const sheetModifiers: BottomSheetProps["modifiers"] = []

@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { MicrochipStepScreen } from "@/features/pets";
+import { MicrochipStepScreen } from "@/features/pets"
 
 export default function EditCompanionMicrochipRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <MicrochipStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionMicrochipRoute() {
         })
       }
     />
-  );
+  )
 }

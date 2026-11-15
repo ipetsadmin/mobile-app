@@ -1,32 +1,32 @@
-import { useWatch } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import { useWatch } from "react-hook-form"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { Button } from "@/components/button";
-import { Spacing } from "@/constants/theme";
-import { usePhotoPicker } from "@/hooks/use-photo-picker";
+import { Button } from "@/components/button"
+import { Spacing } from "@/constants/theme"
+import { usePhotoPicker } from "@/hooks/use-photo-picker"
 
-import { PetPhotoPreview } from "../components/pet-photo-preview";
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
-import { useSaveCompanion } from "../hooks/use-save-companion";
+import { PetPhotoPreview } from "../components/pet-photo-preview"
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
+import { useSaveCompanion } from "../hooks/use-save-companion"
 
 type PhotoStepScreenProps = {
-  petId?: string;
-  onSaved: () => void;
-};
+  petId?: string
+  onSaved: () => void
+}
 
 export function PhotoStepScreen({ petId, onSaved }: PhotoStepScreenProps) {
-  const { t } = useTranslation();
-  const { submit, isPending } = useSaveCompanion({ petId, onSaved });
+  const { t } = useTranslation()
+  const { submit, isPending } = useSaveCompanion({ petId, onSaved })
   const { control, goNext, setValue } = useCompanionStep({
     fields: ["photoUri"],
     onNext: submit,
-  });
-  const photoUri = useWatch({ control, name: "photoUri" });
+  })
+  const photoUri = useWatch({ control, name: "photoUri" })
   const { takePhoto, chooseFromLibrary } = usePhotoPicker({
     onPhotoPicked: (uri) => setValue("photoUri", uri),
-  });
+  })
 
   return (
     <StepScaffold
@@ -56,11 +56,11 @@ export function PhotoStepScreen({ petId, onSaved }: PhotoStepScreenProps) {
         />
       </View>
     </StepScaffold>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   actions: {
     gap: Spacing.sm,
   },
-});
+})

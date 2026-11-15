@@ -1,22 +1,22 @@
-import { SymbolView } from 'expo-symbols';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { SymbolView } from "expo-symbols"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { CalendarArrow } from './calendar-arrow';
+import { CalendarArrow } from "./calendar-arrow"
 
 type CalendarHeaderProps = {
-  title: string;
-  previousLabel: string;
-  nextLabel: string;
-  canGoPrevious: boolean;
-  canGoNext: boolean;
-  onPrevious: () => void;
-  onNext: () => void;
-  onTitlePress?: () => void;
-};
+  title: string
+  previousLabel: string
+  nextLabel: string
+  canGoPrevious: boolean
+  canGoNext: boolean
+  onPrevious: () => void
+  onNext: () => void
+  onTitlePress?: () => void
+}
 
 export function CalendarHeader({
   title,
@@ -28,7 +28,7 @@ export function CalendarHeader({
   onNext,
   onTitlePress,
 }: CalendarHeaderProps) {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <View style={styles.header}>
       <Pressable
@@ -37,13 +37,18 @@ export function CalendarHeader({
         disabled={!onTitlePress}
         hitSlop={Spacing.xs}
         onPress={onTitlePress}
-        style={({ pressed }) => [styles.titleButton, pressed && styles.dimmed]}>
+        style={({ pressed }) => [styles.titleButton, pressed && styles.dimmed]}
+      >
         <ThemedText type="bodyStrong" style={styles.title}>
           {title}
         </ThemedText>
         {onTitlePress && (
           <SymbolView
-            name={{ ios: 'chevron.down', android: 'expand_more', web: 'expand_more' }}
+            name={{
+              ios: "chevron.down",
+              android: "expand_more",
+              web: "expand_more",
+            }}
             size={12}
             weight="semibold"
             tintColor={theme.text}
@@ -56,29 +61,34 @@ export function CalendarHeader({
         disabled={!canGoPrevious}
         onPress={onPrevious}
       />
-      <CalendarArrow direction="next" label={nextLabel} disabled={!canGoNext} onPress={onNext} />
+      <CalendarArrow
+        direction="next"
+        label={nextLabel}
+        disabled={!canGoNext}
+        onPress={onNext}
+      />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: Spacing.xs,
     paddingLeft: Spacing.xs,
   },
   titleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: Spacing.xs,
     minHeight: 36,
-    marginRight: 'auto',
+    marginRight: "auto",
   },
   title: {
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   dimmed: {
     opacity: 0.3,
   },
-});
+})

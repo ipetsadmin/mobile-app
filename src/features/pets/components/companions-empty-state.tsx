@@ -1,22 +1,22 @@
-import { Image } from "expo-image";
-import { useTranslation } from "react-i18next";
-import { StyleSheet, View } from "react-native";
+import { Image } from "expo-image"
+import { useTranslation } from "react-i18next"
+import { StyleSheet, View } from "react-native"
 
-import { BrandMark } from "@/components/brand-mark";
-import { Button } from "@/components/button";
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { BrandMark } from "@/components/brand-mark"
+import { Button } from "@/components/button"
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type CompanionsEmptyStateProps = {
-  onNewCompanion: () => void;
-};
+  onNewCompanion: () => void
+}
 
 export function CompanionsEmptyState({
   onNewCompanion,
 }: CompanionsEmptyStateProps) {
-  const { t } = useTranslation();
-  const theme = useTheme();
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <View
@@ -55,7 +55,7 @@ export function CompanionsEmptyState({
         style={styles.action}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
     marginTop: Spacing.md,
     paddingHorizontal: Spacing.xl,
   },
-});
+})

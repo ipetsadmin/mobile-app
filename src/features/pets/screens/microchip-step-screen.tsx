@@ -1,20 +1,20 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-import { TextField } from "@/components/form/text-field";
+import { TextField } from "@/components/form/text-field"
 
-import { StepScaffold } from "../components/step-scaffold";
-import { useCompanionStep } from "../hooks/use-companion-step";
+import { StepScaffold } from "../components/step-scaffold"
+import { useCompanionStep } from "../hooks/use-companion-step"
 
 type MicrochipStepScreenProps = {
-  onNext: () => void;
-};
+  onNext: () => void
+}
 
 export function MicrochipStepScreen({ onNext }: MicrochipStepScreenProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const { control, goNext } = useCompanionStep({
     fields: ["microchipNumber"],
     onNext,
-  });
+  })
 
   return (
     <StepScaffold
@@ -33,5 +33,5 @@ export function MicrochipStepScreen({ onNext }: MicrochipStepScreenProps) {
         autoFocus
       />
     </StepScaffold>
-  );
+  )
 }

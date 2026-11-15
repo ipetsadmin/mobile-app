@@ -1,25 +1,29 @@
-import { SymbolView } from 'expo-symbols';
-import { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { SymbolView } from "expo-symbols"
+import { useState } from "react"
+import { StyleSheet, TextInput } from "react-native"
 
-import { FieldControl } from '@/components/field-control';
-import { Spacing, Typography } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { FieldControl } from "@/components/field-control"
+import { Spacing, Typography } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type SearchInputProps = {
-  value: string;
-  placeholder: string;
-  onChangeText: (text: string) => void;
-};
+  value: string
+  placeholder: string
+  onChangeText: (text: string) => void
+}
 
-export function SearchInput({ value, placeholder, onChangeText }: SearchInputProps) {
-  const theme = useTheme();
-  const [isFocused, setIsFocused] = useState(false);
+export function SearchInput({
+  value,
+  placeholder,
+  onChangeText,
+}: SearchInputProps) {
+  const theme = useTheme()
+  const [isFocused, setIsFocused] = useState(false)
 
   return (
     <FieldControl isFocused={isFocused}>
       <SymbolView
-        name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }}
+        name={{ ios: "magnifyingglass", android: "search", web: "search" }}
         size={18}
         tintColor={theme.textSecondary}
       />
@@ -38,7 +42,7 @@ export function SearchInput({ value, placeholder, onChangeText }: SearchInputPro
         style={[styles.input, { color: theme.text }]}
       />
     </FieldControl>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -47,4 +51,4 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: Spacing.sm,
   },
-});
+})

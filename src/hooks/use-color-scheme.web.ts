@@ -1,15 +1,15 @@
-import { useSyncExternalStore } from 'react';
-import { useColorScheme as useRNColorScheme } from 'react-native';
+import { useSyncExternalStore } from "react"
+import { useColorScheme as useRNColorScheme } from "react-native"
 
-const subscribe = () => () => {};
+const subscribe = () => () => {}
 
 export function useColorScheme() {
   const hasHydrated = useSyncExternalStore(
     subscribe,
     () => true,
     () => false,
-  );
-  const colorScheme = useRNColorScheme();
+  )
+  const colorScheme = useRNColorScheme()
 
-  return hasHydrated ? colorScheme : 'light';
+  return hasHydrated ? colorScheme : "light"
 }

@@ -1,24 +1,29 @@
-import { Image } from 'expo-image';
-import { SymbolView } from 'expo-symbols';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Image } from "expo-image"
+import { SymbolView } from "expo-symbols"
+import { Pressable, StyleSheet, View } from "react-native"
 
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
-import { AccountAvatar } from './account-avatar';
+import { AccountAvatar } from "./account-avatar"
 
-const MARK_SIZE = 200;
+const MARK_SIZE = 200
 
 type ProfileCardProps = {
-  name: string;
-  email: string;
-  photoUri?: string;
-  onPress: () => void;
-};
+  name: string
+  email: string
+  photoUri?: string
+  onPress: () => void
+}
 
-export function ProfileCard({ name, email, photoUri, onPress }: ProfileCardProps) {
-  const theme = useTheme();
+export function ProfileCard({
+  name,
+  email,
+  photoUri,
+  onPress,
+}: ProfileCardProps) {
+  const theme = useTheme()
 
   return (
     <Pressable
@@ -29,9 +34,10 @@ export function ProfileCard({ name, email, photoUri, onPress }: ProfileCardProps
         styles.card,
         { backgroundColor: theme.muted, borderColor: theme.border },
         pressed && styles.pressed,
-      ]}>
+      ]}
+    >
       <Image
-        source={require('@/assets/icons/logo.svg')}
+        source={require("@/assets/icons/logo.svg")}
         tintColor={theme.primarySubdued}
         contentFit="contain"
         blurRadius={8}
@@ -48,30 +54,34 @@ export function ProfileCard({ name, email, photoUri, onPress }: ProfileCardProps
         </ThemedText>
       </View>
       <SymbolView
-        name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }}
+        name={{
+          ios: "chevron.right",
+          android: "chevron_right",
+          web: "chevron_right",
+        }}
         size={12}
         weight="semibold"
         tintColor={theme.text}
       />
     </Pressable>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: Spacing.md,
     minHeight: 88,
     padding: Spacing.md,
     borderWidth: 1,
     borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
+    borderCurve: "continuous",
+    overflow: "hidden",
   },
   mark: {
-    position: 'absolute',
-    top: '50%',
+    position: "absolute",
+    top: "50%",
     right: -MARK_SIZE / 2 + Spacing.lg,
     width: MARK_SIZE,
     height: MARK_SIZE,
@@ -84,4 +94,4 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.7,
   },
-});
+})

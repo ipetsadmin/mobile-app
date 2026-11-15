@@ -1,9 +1,9 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router"
 
-import { SexStepScreen } from "@/features/pets";
+import { SexStepScreen } from "@/features/pets"
 
 export default function EditCompanionSexRoute() {
-  const { petId } = useLocalSearchParams<{ petId: string }>();
+  const { petId } = useLocalSearchParams<{ petId: string }>()
 
   return (
     <SexStepScreen
@@ -14,5 +14,5 @@ export default function EditCompanionSexRoute() {
         })
       }
     />
-  );
+  )
 }

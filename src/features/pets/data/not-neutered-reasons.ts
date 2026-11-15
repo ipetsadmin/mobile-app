@@ -1,6 +1,6 @@
-import { NotNeuteredReason as ContractNotNeuteredReason } from "@ipetsadmin/contracts";
+import { NotNeuteredReason as ContractNotNeuteredReason } from "@ipetsadmin/contracts"
 
-import { NotNeuteredReason } from "../schema/companion.schema";
+import { NotNeuteredReason } from "../schema/companion.schema"
 
 export const toContractReason = {
   [NotNeuteredReason.TOO_YOUNG]: ContractNotNeuteredReason.TOO_YOUNG,
@@ -8,7 +8,7 @@ export const toContractReason = {
   [NotNeuteredReason.HEALTH_CONCERNS]:
     ContractNotNeuteredReason.HEALTH_CONCERNS,
   [NotNeuteredReason.OTHER]: ContractNotNeuteredReason.OTHER,
-};
+}
 
 export const fromContractReason = {
   [ContractNotNeuteredReason.TOO_YOUNG]: NotNeuteredReason.TOO_YOUNG,
@@ -16,4 +16,4 @@ export const fromContractReason = {
   [ContractNotNeuteredReason.HEALTH_CONCERNS]:
     NotNeuteredReason.HEALTH_CONCERNS,
   [ContractNotNeuteredReason.OTHER]: NotNeuteredReason.OTHER,
-};
+}

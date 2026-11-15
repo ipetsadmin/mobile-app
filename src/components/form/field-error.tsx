@@ -1,21 +1,21 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next"
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from "@/components/themed-text"
 
 type FieldErrorProps = {
-  errorKey?: string;
-};
+  errorKey?: string
+}
 
 export function FieldError({ errorKey }: FieldErrorProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   if (!errorKey) {
-    return null;
+    return null
   }
 
   return (
     <ThemedText type="bodySmall" themeColor="accent">
       {t(errorKey)}
     </ThemedText>
-  );
+  )
 }

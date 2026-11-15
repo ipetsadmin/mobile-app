@@ -1,4 +1,4 @@
-import type { PetResponse } from "@ipetsadmin/contracts";
+import type { PetResponse } from "@ipetsadmin/contracts"
 
 export function parsePet(pet: PetResponse): PetResponse {
   return {
@@ -8,5 +8,5 @@ export function parsePet(pet: PetResponse): PetResponse {
       ...pet.beenWithUsSince,
       date: new Date(pet.beenWithUsSince.date),
     },
-  };
+  }
 }

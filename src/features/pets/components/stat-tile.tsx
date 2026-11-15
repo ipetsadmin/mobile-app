@@ -1,16 +1,16 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native"
 
-import { ThemedText } from "@/components/themed-text";
-import { Radius, Spacing } from "@/constants/theme";
-import { useTheme } from "@/hooks/use-theme";
+import { ThemedText } from "@/components/themed-text"
+import { Radius, Spacing } from "@/constants/theme"
+import { useTheme } from "@/hooks/use-theme"
 
 type StatTileProps = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 export function StatTile({ label, value }: StatTileProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <View style={[styles.tile, { borderColor: theme.border }]}>
@@ -19,7 +19,7 @@ export function StatTile({ label, value }: StatTileProps) {
         {value}
       </ThemedText>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   value: {
     textTransform: "capitalize",
   },
-});
+})
