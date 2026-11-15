@@ -17,3 +17,17 @@ jest.mock("@react-native-async-storage/async-storage", () =>
     "@react-native-async-storage/async-storage/jest/async-storage-mock",
   ),
 )
+
+jest.mock("@expo/ui", () => jest.requireActual("@/test/mocks/expo-ui"))
+
+jest.mock("react-native-keyboard-controller", () =>
+  jest.requireActual("react-native-keyboard-controller/jest"),
+)
+
+jest.mock("react-native-worklets", () =>
+  jest.requireActual("react-native-worklets/src/mock"),
+)
+
+jest.mock("react-native-reanimated", () =>
+  jest.requireActual("react-native-reanimated/mock"),
+)

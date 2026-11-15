@@ -53,6 +53,16 @@ jest.mock("@/features/auth", () => jest.requireActual("@/test/mocks/auth-feature
 - `process.env.EXPO_OS` lo reemplaza Babel por un literal al compilar: en Jest vale siempre `ios`, así que un camino exclusivo de Android no se puede probar así.
 - Un comportamiento que se sabe incorrecto se deja como `it.failing("lo que debería hacer", ...)` y se anota en el tópico del flujo. No se borra ni se cambia la aserción para que pase.
 
+## Componentes
+
+- Un componente se monta con `renderWithProviders(<Componente />)`, que ya incluye React Query, i18n en español y `SafeAreaProvider` con medidas fijas. Los campos de formulario se montan con `renderWithForm(valoresIniciales, (control) => <TextField control={control} name="..." />)` de `src/test/render-with-form.tsx`, que devuelve `form()` para leer o forzar valores y errores.
+- Se consulta como lo haría el usuario: `getByRole("button", { name })`, `getByLabelText`, `getByText`. Los estados se comprueban con `toBeSelected()`, `toBeDisabled()`, `toBeBusy()` y `toBeExpanded()`.
+- `@testing-library/react-native` 14: `render`, `renderHook` y `fireEvent` son asíncronos (`await fireEvent.press(...)`), ya no existen los `UNSAFE_*` y `getByRole` solo encuentra elementos accesibles (un `View` con `accessibilityRole="radiogroup"` se busca por `getByLabelText`). El matcher es `toHaveAccessibilityValue`.
+- Los módulos nativos están mockeados en `src/test/setup.ts`: `@expo/ui` (`mocks/expo-ui.tsx`: un `Switch` pulsable y un `BottomSheet` que solo muestra su contenido si `isPresented`, con un botón `dismiss-sheet`), `react-native-reanimated`, `react-native-worklets` y `react-native-keyboard-controller` con los mocks oficiales de cada librería. Un mock de Reanimated hecho a mano rompe: usar siempre el de la librería.
+- Una `FlatList` solo monta las primeras filas en Jest. No se comprueba cuántas hay en total; se busca la fila por su nombre entre las primeras o se prueba la lista de datos en su util.
+- Un componente que solo pinta estilos (por ejemplo `RadioMark`, `FieldControl`, `CornerGlow`, `BrandMark`) no tiene test propio: se cubre a través del componente que lo usa. No se prueban valores de estilo.
+- Los componentes de animación de Reanimated (el splash) no se prueban.
+
 ## Tamaño de un test
 
 Un archivo de test no supera las 200 líneas ([`code-style.md`](./code-style.md)). Si un schema o un hook tiene tantas reglas que no cabe, se divide por grupo de reglas con el mismo prefijo: `companion.schema.test.ts` y `companion.schema.rules.test.ts`.

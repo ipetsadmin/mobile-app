@@ -22,6 +22,7 @@ Documentación viva de cómo funciona cada flujo y cada capa de la app. Sirve de
 | [`navigation.md`](./navigation.md) | Árbol de rutas, grupos, tabs y modales |
 | [`data-layer.md`](./data-layer.md) | Cliente de la API, React Query, claves e invalidaciones |
 | [`i18n-and-theme.md`](./i18n-and-theme.md) | Idioma, tema y preferencias guardadas |
+| [`shared-ui.md`](./shared-ui.md) | Componentes compartidos: campos de formulario, calendario, hoja de selección y menú flotante |
 
 ## Cómo se escribe un tópico
 
